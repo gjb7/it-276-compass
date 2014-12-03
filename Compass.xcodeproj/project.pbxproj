@@ -8,12 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		C365E8621A2FCFD3000AA8F1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C365E8611A2FCFD3000AA8F1 /* main.m */; };
-		C365E8651A2FCFD3000AA8F1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C365E8641A2FCFD3000AA8F1 /* AppDelegate.m */; };
-		C365E8681A2FCFD3000AA8F1 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C365E8671A2FCFD3000AA8F1 /* ViewController.m */; };
 		C365E86B1A2FCFD3000AA8F1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C365E8691A2FCFD3000AA8F1 /* Main.storyboard */; };
 		C365E86D1A2FCFD3000AA8F1 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C365E86C1A2FCFD3000AA8F1 /* Images.xcassets */; };
 		C365E8701A2FCFD3000AA8F1 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C365E86E1A2FCFD3000AA8F1 /* LaunchScreen.xib */; };
 		C365E87C1A2FCFD3000AA8F1 /* CompassTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C365E87B1A2FCFD3000AA8F1 /* CompassTests.m */; };
+		C365E88D1A2FD145000AA8F1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C365E88A1A2FD145000AA8F1 /* AppDelegate.m */; };
+		C365E88E1A2FD145000AA8F1 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C365E88C1A2FD145000AA8F1 /* ViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -30,16 +30,16 @@
 		C365E85C1A2FCFD3000AA8F1 /* Compass.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Compass.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C365E8601A2FCFD3000AA8F1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C365E8611A2FCFD3000AA8F1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		C365E8631A2FCFD3000AA8F1 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		C365E8641A2FCFD3000AA8F1 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		C365E8661A2FCFD3000AA8F1 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		C365E8671A2FCFD3000AA8F1 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		C365E86A1A2FCFD3000AA8F1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C365E86C1A2FCFD3000AA8F1 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		C365E86F1A2FCFD3000AA8F1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		C365E8751A2FCFD3000AA8F1 /* CompassTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CompassTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C365E87A1A2FCFD3000AA8F1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C365E87B1A2FCFD3000AA8F1 /* CompassTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CompassTests.m; sourceTree = "<group>"; };
+		C365E8891A2FD145000AA8F1 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		C365E88A1A2FD145000AA8F1 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		C365E88B1A2FD145000AA8F1 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		C365E88C1A2FD145000AA8F1 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,13 +81,8 @@
 		C365E85E1A2FCFD3000AA8F1 /* Compass */ = {
 			isa = PBXGroup;
 			children = (
-				C365E8631A2FCFD3000AA8F1 /* AppDelegate.h */,
-				C365E8641A2FCFD3000AA8F1 /* AppDelegate.m */,
-				C365E8661A2FCFD3000AA8F1 /* ViewController.h */,
-				C365E8671A2FCFD3000AA8F1 /* ViewController.m */,
-				C365E8691A2FCFD3000AA8F1 /* Main.storyboard */,
-				C365E86C1A2FCFD3000AA8F1 /* Images.xcassets */,
-				C365E86E1A2FCFD3000AA8F1 /* LaunchScreen.xib */,
+				C365E8851A2FD0EE000AA8F1 /* Classes */,
+				C365E88F1A2FD14F000AA8F1 /* Resources */,
 				C365E85F1A2FCFD3000AA8F1 /* Supporting Files */,
 			);
 			path = Compass;
@@ -117,6 +112,51 @@
 				C365E87A1A2FCFD3000AA8F1 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C365E8851A2FD0EE000AA8F1 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				C365E8881A2FD0FB000AA8F1 /* Model */,
+				C365E8871A2FD0F8000AA8F1 /* View */,
+				C365E8861A2FD0F3000AA8F1 /* Controller */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		C365E8861A2FD0F3000AA8F1 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				C365E8891A2FD145000AA8F1 /* AppDelegate.h */,
+				C365E88A1A2FD145000AA8F1 /* AppDelegate.m */,
+				C365E88B1A2FD145000AA8F1 /* ViewController.h */,
+				C365E88C1A2FD145000AA8F1 /* ViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		C365E8871A2FD0F8000AA8F1 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C365E8881A2FD0FB000AA8F1 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C365E88F1A2FD14F000AA8F1 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				C365E8691A2FCFD3000AA8F1 /* Main.storyboard */,
+				C365E86C1A2FCFD3000AA8F1 /* Images.xcassets */,
+				C365E86E1A2FCFD3000AA8F1 /* LaunchScreen.xib */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -220,8 +260,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C365E8681A2FCFD3000AA8F1 /* ViewController.m in Sources */,
-				C365E8651A2FCFD3000AA8F1 /* AppDelegate.m in Sources */,
+				C365E88E1A2FD145000AA8F1 /* ViewController.m in Sources */,
+				C365E88D1A2FD145000AA8F1 /* AppDelegate.m in Sources */,
 				C365E8621A2FCFD3000AA8F1 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
