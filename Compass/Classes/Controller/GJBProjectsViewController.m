@@ -6,13 +6,13 @@
 //  Copyright (c) 2014 Grant Butler. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "GJBProjectsViewController.h"
 
-@interface ViewController ()
+@interface GJBProjectsViewController ()
 
 @end
 
-@implementation ViewController
+@implementation GJBProjectsViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];

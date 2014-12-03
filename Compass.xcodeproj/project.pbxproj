@@ -13,7 +13,7 @@
 		C365E8701A2FCFD3000AA8F1 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C365E86E1A2FCFD3000AA8F1 /* LaunchScreen.xib */; };
 		C365E87C1A2FCFD3000AA8F1 /* CompassTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C365E87B1A2FCFD3000AA8F1 /* CompassTests.m */; };
 		C365E88D1A2FD145000AA8F1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C365E88A1A2FD145000AA8F1 /* AppDelegate.m */; };
-		C365E88E1A2FD145000AA8F1 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C365E88C1A2FD145000AA8F1 /* ViewController.m */; };
+		C365E88E1A2FD145000AA8F1 /* GJBProjectsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C365E88C1A2FD145000AA8F1 /* GJBProjectsViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,8 +38,8 @@
 		C365E87B1A2FCFD3000AA8F1 /* CompassTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CompassTests.m; sourceTree = "<group>"; };
 		C365E8891A2FD145000AA8F1 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		C365E88A1A2FD145000AA8F1 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		C365E88B1A2FD145000AA8F1 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		C365E88C1A2FD145000AA8F1 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		C365E88B1A2FD145000AA8F1 /* GJBProjectsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GJBProjectsViewController.h; sourceTree = "<group>"; };
+		C365E88C1A2FD145000AA8F1 /* GJBProjectsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GJBProjectsViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,8 +129,8 @@
 			children = (
 				C365E8891A2FD145000AA8F1 /* AppDelegate.h */,
 				C365E88A1A2FD145000AA8F1 /* AppDelegate.m */,
-				C365E88B1A2FD145000AA8F1 /* ViewController.h */,
-				C365E88C1A2FD145000AA8F1 /* ViewController.m */,
+				C365E88B1A2FD145000AA8F1 /* GJBProjectsViewController.h */,
+				C365E88C1A2FD145000AA8F1 /* GJBProjectsViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -260,7 +260,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C365E88E1A2FD145000AA8F1 /* ViewController.m in Sources */,
+				C365E88E1A2FD145000AA8F1 /* GJBProjectsViewController.m in Sources */,
 				C365E88D1A2FD145000AA8F1 /* AppDelegate.m in Sources */,
 				C365E8621A2FCFD3000AA8F1 /* main.m in Sources */,
 			);
@@ -455,6 +455,7 @@
 				C365E8811A2FCFD3000AA8F1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C365E8821A2FCFD3000AA8F1 /* Build configuration list for PBXNativeTarget "CompassTests" */ = {
 			isa = XCConfigurationList;
@@ -463,6 +464,7 @@
 				C365E8841A2FCFD3000AA8F1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

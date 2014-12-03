@@ -6,9 +6,9 @@
 //  Copyright (c) 2014 Grant Butler. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+@import UIKit;
 
-@interface ViewController : UIViewController
+@interface GJBProjectsViewController : UICollectionViewController
 
 
 @end
