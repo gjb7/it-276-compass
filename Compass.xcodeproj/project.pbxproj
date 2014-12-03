@@ -163,6 +163,7 @@
 		C365E8541A2FCFD3000AA8F1 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = CMP;
 				LastUpgradeCheck = 0610;
 				ORGANIZATIONNAME = "Grant Butler";
 				TargetAttributes = {
