@@ -10,4 +10,6 @@
 
 @interface CMPMap : UIDocument
 
+@property (nonatomic) NSMutableArray *layers;
+
 @end

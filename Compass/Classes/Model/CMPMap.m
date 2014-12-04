@@ -10,4 +10,11 @@
 
 @implementation CMPMap
 
+- (NSMutableArray *)layers {
+    if (!_layers) {
+        _layers = [[NSMutableArray alloc] init];
+    }
+    return _layers;
+}
+
 @end
