@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C32B141C1A2FDD0100B959C4 /* CMPProject.m in Sources */ = {isa = PBXBuildFile; fileRef = C32B141B1A2FDD0100B959C4 /* CMPProject.m */; };
 		C365E8621A2FCFD3000AA8F1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C365E8611A2FCFD3000AA8F1 /* main.m */; };
 		C365E86B1A2FCFD3000AA8F1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C365E8691A2FCFD3000AA8F1 /* Main.storyboard */; };
 		C365E86D1A2FCFD3000AA8F1 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C365E86C1A2FCFD3000AA8F1 /* Images.xcassets */; };
@@ -27,6 +28,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C32B141A1A2FDD0100B959C4 /* CMPProject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMPProject.h; sourceTree = "<group>"; };
+		C32B141B1A2FDD0100B959C4 /* CMPProject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMPProject.m; sourceTree = "<group>"; };
 		C365E85C1A2FCFD3000AA8F1 /* Compass.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Compass.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C365E8601A2FCFD3000AA8F1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C365E8611A2FCFD3000AA8F1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -145,6 +148,8 @@
 		C365E8881A2FD0FB000AA8F1 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				C32B141A1A2FDD0100B959C4 /* CMPProject.h */,
+				C32B141B1A2FDD0100B959C4 /* CMPProject.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -262,6 +267,7 @@
 			files = (
 				C365E88E1A2FD145000AA8F1 /* GJBProjectsViewController.m in Sources */,
 				C365E88D1A2FD145000AA8F1 /* AppDelegate.m in Sources */,
+				C32B141C1A2FDD0100B959C4 /* CMPProject.m in Sources */,
 				C365E8621A2FCFD3000AA8F1 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
