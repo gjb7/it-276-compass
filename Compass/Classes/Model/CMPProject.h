@@ -10,4 +10,6 @@
 
 @interface CMPProject : UIDocument
 
+@property (nonatomic) NSMutableArray *maps;
+
 @end

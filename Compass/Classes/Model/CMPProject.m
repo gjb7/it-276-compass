@@ -7,30 +7,44 @@
 //
 
 #import "CMPProject.h"
+#import "CMPMap.h"
+
+static NSString * const CMPProjectMapsDirectoryName = @"maps";
 
 @interface CMPProject ()
-
-@property (nonatomic) NSFileWrapper *fileWrapper;
 
 @end
 
 @implementation CMPProject
 
-- (NSFileWrapper *)fileWrapper {
-    if (!_fileWrapper) {
-        _fileWrapper = [[NSFileWrapper alloc] initDirectoryWithFileWrappers:nil];
+- (NSMutableArray *)maps {
+    if (!_maps) {
+        _maps = [[NSMutableArray alloc] init];
     }
-    return _fileWrapper;
+    return _maps;
 }
 
 - (BOOL)loadFromContents:(id)contents ofType:(NSString *)typeName error:(NSError *__autoreleasing *)outError {
-    self.fileWrapper = (NSFileWrapper *)contents;
+    NSFileWrapper *fileWrapper = (NSFileWrapper *)contents;
+    
+    [self loadMapMetadataFromFileWrapper:fileWrapper];
     
     return YES;
 }
 
 - (id)contentsForType:(NSString *)typeName error:(NSError *__autoreleasing *)outError {
-    return self.fileWrapper;
+//    return self.fileWrapper;
+    return nil;
+}
+
+- (void)loadMapMetadataFromFileWrapper:(NSFileWrapper *)fileWrapper {
+    NSFileWrapper *mapDirectoryFileWrapper = fileWrapper.fileWrappers[CMPProjectMapsDirectoryName];
+    
+    [self.maps removeAllObjects];
+    
+    [mapDirectoryFileWrapper.fileWrappers enumerateKeysAndObjectsUsingBlock:^(NSString *fileName, NSFileWrapper *fileWrapper, BOOL *stop) {
+        [self.maps addObject:[[CMPMap alloc] initWithFileURL:[self.fileURL URLByAppendingPathComponent:fileWrapper.filename]]];
+    }];
 }
 
 @end
