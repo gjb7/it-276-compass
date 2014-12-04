@@ -6,8 +6,8 @@
 //  Copyright (c) 2014 Grant Butler. All rights reserved.
 //
 
-@import Foundation;
+@import UIKit;
 
-@interface CMPMap : NSObject
+@interface CMPMap : UIDocument
 
 @end
