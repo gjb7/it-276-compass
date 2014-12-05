@@ -7,28 +7,26 @@
 //
 
 #import "CMPMap.h"
+#import "CMPMapParser.h"
 
 NSString * const CMPMapErrorDomain = @"com.grantjbutler.Compass.CMPMap.error-domain";
 
 @implementation CMPMap
 
 - (BOOL)readFromURL:(NSURL *)url error:(NSError *__autoreleasing *)outError {
-    NSInputStream *stream = [[NSInputStream alloc] initWithURL:url];
-    if (!stream) {
-        if (outError) {
-            NSString *localizedDescription = [NSString stringWithFormat:NSLocalizedString(@"Could not open file for reading from URL '%@'", nil), url];
-            
-            *outError = [NSError errorWithDomain:CMPMapErrorDomain
-                                            code:CMPMapErrorCodeCouldNotOpenStream
-                                        userInfo:@{
-                                                   NSLocalizedDescriptionKey: localizedDescription
-                                                   }];
-        }
-        
+    NSData *mapData = [[NSData alloc] initWithContentsOfURL:url options:0 error:outError];
+    if (!mapData) {
         return NO;
     }
     
+    CMPMapParser *parser = [[CMPMapParser alloc] initWithData:mapData];
     
+    NSError *error;
+    if (![parser parseIntoMap:self error:&error]) {
+        // TODO: Pass the error back up.
+        
+        return NO;
+    }
     
     return YES;
 }
