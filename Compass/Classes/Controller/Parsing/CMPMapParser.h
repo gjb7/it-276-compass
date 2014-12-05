@@ -10,6 +10,13 @@
 
 @class CMPMap;
 
+extern NSString * const CMPMapParserErrorDomain;
+
+enum {
+    CMPMapParserErrorCodeInvalidSyntax = 1,
+    CMPMapParserErrorCodeUnknownVersion = 2,
+};
+
 @interface CMPMapParser : NSObject
 
 @property (nonatomic, readonly) NSData *data;
