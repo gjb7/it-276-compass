@@ -13,6 +13,7 @@
 		C35DB91C1A31EC3C0011FC1C /* CMPTilesheet.m in Sources */ = {isa = PBXBuildFile; fileRef = C35DB91B1A31EC3C0011FC1C /* CMPTilesheet.m */; };
 		C35DB9201A31F20E0011FC1C /* CMPMapParser.m in Sources */ = {isa = PBXBuildFile; fileRef = C35DB91F1A31F20E0011FC1C /* CMPMapParser.m */; };
 		C35DB9231A32704E0011FC1C /* CMPV1MapParser.m in Sources */ = {isa = PBXBuildFile; fileRef = C35DB9221A32704E0011FC1C /* CMPV1MapParser.m */; };
+		C35DB9251A32727D0011FC1C /* CMPMapParserTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C35DB9241A32727D0011FC1C /* CMPMapParserTests.m */; };
 		C365E8621A2FCFD3000AA8F1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C365E8611A2FCFD3000AA8F1 /* main.m */; };
 		C365E86B1A2FCFD3000AA8F1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C365E8691A2FCFD3000AA8F1 /* Main.storyboard */; };
 		C365E86D1A2FCFD3000AA8F1 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C365E86C1A2FCFD3000AA8F1 /* Images.xcassets */; };
@@ -44,6 +45,7 @@
 		C35DB91F1A31F20E0011FC1C /* CMPMapParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMPMapParser.m; sourceTree = "<group>"; };
 		C35DB9211A32704E0011FC1C /* CMPV1MapParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMPV1MapParser.h; sourceTree = "<group>"; };
 		C35DB9221A32704E0011FC1C /* CMPV1MapParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMPV1MapParser.m; sourceTree = "<group>"; };
+		C35DB9241A32727D0011FC1C /* CMPMapParserTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMPMapParserTests.m; sourceTree = "<group>"; };
 		C365E85C1A2FCFD3000AA8F1 /* Compass.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Compass.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C365E8601A2FCFD3000AA8F1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C365E8611A2FCFD3000AA8F1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -127,6 +129,7 @@
 		C365E8781A2FCFD3000AA8F1 /* CompassTests */ = {
 			isa = PBXGroup;
 			children = (
+				C35DB9241A32727D0011FC1C /* CMPMapParserTests.m */,
 				C365E8791A2FCFD3000AA8F1 /* Supporting Files */,
 			);
 			path = CompassTests;
@@ -311,6 +314,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C35DB9251A32727D0011FC1C /* CMPMapParserTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
