@@ -11,6 +11,25 @@
 
 @implementation CMPV1MapParser
 
+- (BOOL)readBytes:(void *)buffer range:(NSRange)range error:(NSError **)error {
+    if (NSMaxRange(range) > self.data.length) {
+        if (error) {
+            NSString *localzedDescription = [NSString stringWithFormat:NSLocalizedString(@"Trying to read %i bytes, but only %i bytes available.", nil), NSMaxRange(range), self.data.length];
+            *error = [NSError errorWithDomain:CMPMapErrorDomain
+                                         code:CMPMapParserErrorCodeNotEnoughBytes
+                                     userInfo:@{
+                                                NSLocalizedDescriptionKey: localzedDescription
+                                                }];
+        }
+        
+        return NO;
+    }
+    
+    [self.data getBytes:buffer range:range];
+    
+    return YES;
+}
+
 - (BOOL)parseIntoMap:(CMPMap *)map error:(NSError *__autoreleasing *)error {
     uint32_t startIndex = 0;
     
@@ -22,11 +41,20 @@
     
     while (startIndex < self.data.length) {
         uint8_t key;
-        [self.data getBytes:&key range:NSMakeRange(startIndex, sizeof(key))];
+        NSError *readKeyError;
+        
+        if (![self readBytes:&key range:NSMakeRange(startIndex, sizeof(key)) error:&readKeyError]) {
+            if (error) {
+                *error = readKeyError;
+            }
+            
+            goto cleanup;
+        }
+        
         startIndex += sizeof(key);
         
         switch (key) {
-            case 'W':
+            case 'W': {
                 if (width != 0) {
                     if (error) {
                         NSString *localizedDescription = [NSString stringWithFormat:NSLocalizedString(@"Attempting to set width, when width already set to %i", nil), width];
@@ -40,12 +68,21 @@
                     goto cleanup;
                 }
                 
-                [self.data getBytes:&width range:NSMakeRange(startIndex, sizeof(width))];
+                NSError *readWidthError;
+                if (![self readBytes:&width range:NSMakeRange(startIndex, sizeof(width)) error:&readWidthError]) {
+                    if (error) {
+                        *error = readWidthError;
+                    }
+                    
+                    goto cleanup;
+                }
+                
                 startIndex += sizeof(width);
                 
                 break;
+            }
                 
-            case 'H':
+            case 'H': {
                 if (height != 0) {
                     if (error) {
                         NSString *localizedDescription = [NSString stringWithFormat:NSLocalizedString(@"Attempting to set height, when height already set to %i", nil), height];
@@ -59,12 +96,21 @@
                     goto cleanup;
                 }
                 
-                [self.data getBytes:&height range:NSMakeRange(startIndex, sizeof(height))];
+                NSError *readHeightError;
+                if (![self readBytes:&height range:NSMakeRange(startIndex, sizeof(height)) error:&readHeightError]) {
+                    if (error) {
+                        *error = readHeightError;
+                    }
+                    
+                    goto cleanup;
+                }
+                
                 startIndex += sizeof(height);
                 
                 break;
+            }
                 
-            case 'L':
+            case 'L': {
                 if (layerCount != 0) {
                     if (error) {
                         NSString *localizedDescription = [NSString stringWithFormat:NSLocalizedString(@"Attempting to set layerCount, when layerCount already set to %i", nil), layerCount];
@@ -78,10 +124,19 @@
                     goto cleanup;
                 }
                 
-                [self.data getBytes:&layerCount range:NSMakeRange(startIndex, sizeof(layerCount))];
+                NSError *readLayerCountError;
+                if (![self readBytes:&layerCount range:NSMakeRange(startIndex, sizeof(layerCount)) error:&readLayerCountError]) {
+                    if (error) {
+                        *error = readLayerCountError;
+                    }
+                    
+                    goto cleanup;
+                }
+                
                 startIndex += sizeof(layerCount);
                 
                 break;
+            }
                 
             case 'l': {
                 if (width == 0 || height == 0) {
@@ -100,8 +155,17 @@
                 uint32_t layerSize = width * height;
                 uint8_t *layer = malloc(layerSize * sizeof(uint8_t));
                 
-                [self.data getBytes:layer range:NSMakeRange(startIndex, layerSize)];
                 startIndex += layerSize;
+                NSError *readLayerError;
+                if (![self readBytes:layer range:NSMakeRange(startIndex, layerSize) error:&readLayerError]) {
+                    free(layer);
+                    
+                    if (error) {
+                        *error = readLayerError;
+                    }
+                    
+                    goto cleanup;
+                }
                 
                 NSValue *layerValue = [NSValue valueWithPointer:layer];
                 [layers addObject:layerValue];
@@ -114,7 +178,15 @@
                 
                 while (YES) {
                     char character;
-                    [self.data getBytes:&character range:NSMakeRange(startIndex, sizeof(character))];
+                    NSError *readCharacterError;
+                    
+                    if (![self readBytes:&character range:NSMakeRange(startIndex, sizeof(character)) error:&readCharacterError]) {
+                        if (error) {
+                            *error = readCharacterError;
+                        }
+                        
+                        goto cleanup;
+                    }
                     
                     if (character == ';') {
                         break;
@@ -132,7 +204,16 @@
         }
         
         uint8_t buffer;
-        [self.data getBytes:&buffer range:NSMakeRange(startIndex, sizeof(buffer))];
+        NSError *readSemicolonError;
+        
+        if (![self readBytes:&buffer range:NSMakeRange(startIndex, sizeof(buffer)) error:&readSemicolonError]) {
+            if (error) {
+                *error = readSemicolonError;
+            }
+            
+            goto cleanup;
+        }
+        
         startIndex += sizeof(buffer);
         
         if (buffer != ';') {

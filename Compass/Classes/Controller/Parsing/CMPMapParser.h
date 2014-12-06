@@ -16,6 +16,7 @@ enum {
     CMPMapParserErrorCodeInvalidSyntax = 1,
     CMPMapParserErrorCodeUnknownVersion = 2,
     CMPMapParserErrorCodeValueAlreadyParsed = 3,
+    CMPMapParserErrorCodeNotEnoughBytes = 4,
 };
 
 @interface CMPMapParser : NSObject
