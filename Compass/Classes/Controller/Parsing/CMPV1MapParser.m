@@ -233,6 +233,19 @@
         }
     }
     
+    if (layers.count <= 0) {
+        if (error) {
+            NSString *localizedDescription = NSLocalizedString(@"Invalid file format. No layers found.", nil);
+            *error = [NSError errorWithDomain:CMPMapParserErrorDomain
+                                         code:CMPMapParserErrorCodeInvalidSyntax
+                                     userInfo:@{
+                                                NSLocalizedDescriptionKey: localizedDescription
+                                                }];
+        }
+        
+        goto cleanup;
+    }
+    
     if (!tilesetFilename) {
         if (error) {
             NSString *localizedDescription = NSLocalizedString(@"Invalid file format. No tilesheet filename provided.", nil);
