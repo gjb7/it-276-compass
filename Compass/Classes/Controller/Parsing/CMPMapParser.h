@@ -15,6 +15,7 @@ extern NSString * const CMPMapParserErrorDomain;
 enum {
     CMPMapParserErrorCodeInvalidSyntax = 1,
     CMPMapParserErrorCodeUnknownVersion = 2,
+    CMPMapParserErrorCodeValueAlreadyParsed = 3,
 };
 
 @interface CMPMapParser : NSObject
