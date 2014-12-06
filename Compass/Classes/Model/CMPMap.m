@@ -19,11 +19,17 @@
     
     CMPMapParser *parser = [[CMPMapParser alloc] initWithData:mapData];
     
-    NSError *error;
-    if (![parser parseIntoMap:self error:&error]) {
-        // TODO: Pass the error back up.
+    NSError *parseError;
+    if (![parser parseIntoMap:self error:&parseError]) {
+        if (outError) {
+            *outError = parseError;
+        }
         
         return NO;
+    }
+    
+    if (outError) {
+        *outError = nil;
     }
     
     return YES;
