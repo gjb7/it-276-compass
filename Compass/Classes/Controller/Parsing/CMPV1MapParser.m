@@ -10,4 +10,10 @@
 
 @implementation CMPV1MapParser
 
+- (BOOL)parseIntoMap:(CMPMap *)map error:(NSError *__autoreleasing *)error {
+    
+    
+    return YES;
+}
+
 @end
