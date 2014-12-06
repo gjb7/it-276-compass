@@ -8,14 +8,10 @@
 
 @import UIKit;
 
-extern NSString * const CMPMapErrorDomain;
-
-enum {
-    CMPMapErrorCodeCouldNotOpenStream = 1,
-};
-
 @interface CMPMap : UIDocument
 
 @property (nonatomic) NSMutableArray *layers;
+
+@property (nonatomic) 
 
 @end

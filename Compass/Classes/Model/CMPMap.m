@@ -9,8 +9,6 @@
 #import "CMPMap.h"
 #import "CMPMapParser.h"
 
-NSString * const CMPMapErrorDomain = @"com.grantjbutler.Compass.CMPMap.error-domain";
-
 @implementation CMPMap
 
 - (BOOL)readFromURL:(NSURL *)url error:(NSError *__autoreleasing *)outError {
