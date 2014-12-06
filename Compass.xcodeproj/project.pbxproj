@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		C32B141C1A2FDD0100B959C4 /* CMPProject.m in Sources */ = {isa = PBXBuildFile; fileRef = C32B141B1A2FDD0100B959C4 /* CMPProject.m */; };
 		C32B141F1A2FE0CD00B959C4 /* CMPMap.m in Sources */ = {isa = PBXBuildFile; fileRef = C32B141E1A2FE0CD00B959C4 /* CMPMap.m */; };
-		C32B14221A301D5000B959C4 /* CMPLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = C32B14211A301D5000B959C4 /* CMPLayer.m */; };
 		C35DB91C1A31EC3C0011FC1C /* CMPTilesheet.m in Sources */ = {isa = PBXBuildFile; fileRef = C35DB91B1A31EC3C0011FC1C /* CMPTilesheet.m */; };
 		C35DB9201A31F20E0011FC1C /* CMPMapParser.m in Sources */ = {isa = PBXBuildFile; fileRef = C35DB91F1A31F20E0011FC1C /* CMPMapParser.m */; };
 		C35DB9231A32704E0011FC1C /* CMPV1MapParser.m in Sources */ = {isa = PBXBuildFile; fileRef = C35DB9221A32704E0011FC1C /* CMPV1MapParser.m */; };
@@ -37,8 +36,6 @@
 		C32B141B1A2FDD0100B959C4 /* CMPProject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMPProject.m; sourceTree = "<group>"; };
 		C32B141D1A2FE0CD00B959C4 /* CMPMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMPMap.h; sourceTree = "<group>"; };
 		C32B141E1A2FE0CD00B959C4 /* CMPMap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMPMap.m; sourceTree = "<group>"; };
-		C32B14201A301D5000B959C4 /* CMPLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMPLayer.h; sourceTree = "<group>"; };
-		C32B14211A301D5000B959C4 /* CMPLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMPLayer.m; sourceTree = "<group>"; };
 		C35DB91A1A31EC3C0011FC1C /* CMPTilesheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMPTilesheet.h; sourceTree = "<group>"; };
 		C35DB91B1A31EC3C0011FC1C /* CMPTilesheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMPTilesheet.m; sourceTree = "<group>"; };
 		C35DB91E1A31F20E0011FC1C /* CMPMapParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMPMapParser.h; sourceTree = "<group>"; };
@@ -179,8 +176,6 @@
 				C32B141B1A2FDD0100B959C4 /* CMPProject.m */,
 				C32B141D1A2FE0CD00B959C4 /* CMPMap.h */,
 				C32B141E1A2FE0CD00B959C4 /* CMPMap.m */,
-				C32B14201A301D5000B959C4 /* CMPLayer.h */,
-				C32B14211A301D5000B959C4 /* CMPLayer.m */,
 				C35DB91A1A31EC3C0011FC1C /* CMPTilesheet.h */,
 				C35DB91B1A31EC3C0011FC1C /* CMPTilesheet.m */,
 			);
@@ -301,7 +296,6 @@
 				C365E88E1A2FD145000AA8F1 /* GJBProjectsViewController.m in Sources */,
 				C35DB9231A32704E0011FC1C /* CMPV1MapParser.m in Sources */,
 				C365E88D1A2FD145000AA8F1 /* AppDelegate.m in Sources */,
-				C32B14221A301D5000B959C4 /* CMPLayer.m in Sources */,
 				C32B141C1A2FDD0100B959C4 /* CMPProject.m in Sources */,
 				C35DB9201A31F20E0011FC1C /* CMPMapParser.m in Sources */,
 				C365E8621A2FCFD3000AA8F1 /* main.m in Sources */,
