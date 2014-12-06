@@ -155,7 +155,6 @@
                 uint32_t layerSize = width * height;
                 uint8_t *layer = malloc(layerSize * sizeof(uint8_t));
                 
-                startIndex += layerSize;
                 NSError *readLayerError;
                 if (![self readBytes:layer range:NSMakeRange(startIndex, layerSize) error:&readLayerError]) {
                     free(layer);
@@ -166,6 +165,10 @@
                     
                     goto cleanup;
                 }
+                
+                // We have to do the calculation again because NSData was changing the value of layerSize as part of reading bytes.
+                // I dunno why it's doing that, but it's doing that. Really weird!
+                startIndex += width * height;
                 
                 NSValue *layerValue = [NSValue valueWithPointer:layer];
                 [layers addObject:layerValue];
