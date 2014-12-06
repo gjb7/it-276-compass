@@ -274,6 +274,9 @@
     
     map.layers = layers;
     
+    if (error) {
+        *error = nil;
+    }
     
     return YES;
     
