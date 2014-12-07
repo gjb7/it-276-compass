@@ -274,6 +274,8 @@
     
     map.layers = layers;
     
+    map.size = CGSizeMake(width, height);
+    
     if (error) {
         *error = nil;
     }

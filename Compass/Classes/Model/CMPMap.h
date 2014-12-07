@@ -12,6 +12,8 @@
 
 @interface CMPMap : UIDocument
 
+@property (nonatomic) CGSize size;
+
 @property (nonatomic) NSMutableArray *layers;
 
 @property (nonatomic) NSString *tilesheetPath;
