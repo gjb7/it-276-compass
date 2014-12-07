@@ -8,6 +8,20 @@
 
 #import "CMPTilesheet.h"
 
+#import <CYAMLDeserializer.h>
+
 @implementation CMPTilesheet
+
+- (instancetype)initWithPath:(NSString *)path {
+    self = [super init];
+    if (self) {
+        NSData *yamlData = [NSData dataWithContentsOfFile:path];
+        NSDictionary *document = [[CYAMLDeserializer deserializer] deserializeData:yamlData error:nil];
+        
+        NSString *imageFilePath = document[@"sprite"];
+        _sprite = [[UIImage alloc] initWithContentsOfFile:imageFilePath];
+    }
+    return self;
+}
 
 @end

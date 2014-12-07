@@ -12,4 +12,6 @@
 
 @property (nonatomic) UIImage *sprite;
 
+- (instancetype)initWithPath:(NSString *)path;
+
 @end
