@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  GJBProjectsViewController.h
 //  Compass
 //
 //  Created by Grant Butler on 12/3/14.

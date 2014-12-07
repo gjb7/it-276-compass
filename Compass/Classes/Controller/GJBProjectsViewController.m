@@ -1,5 +1,5 @@
 //
-//  ViewController.m
+//  GJBProjectsViewController.m
 //  Compass
 //
 //  Created by Grant Butler on 12/3/14.
@@ -16,12 +16,18 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addProject:)];
+    self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)addProject:(id)sender {
+    
 }
 
 @end
