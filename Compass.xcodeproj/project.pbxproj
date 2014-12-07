@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		C316E6311A34CF7100446FD6 /* libCocoaYAML iOS Library.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C316E6271A34CF5C00446FD6 /* libCocoaYAML iOS Library.a */; };
+		C316E6351A34D2A100446FD6 /* CMPV1MapSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = C316E6341A34D2A100446FD6 /* CMPV1MapSerializer.m */; };
 		C32B141C1A2FDD0100B959C4 /* CMPProject.m in Sources */ = {isa = PBXBuildFile; fileRef = C32B141B1A2FDD0100B959C4 /* CMPProject.m */; };
 		C32B141F1A2FE0CD00B959C4 /* CMPMap.m in Sources */ = {isa = PBXBuildFile; fileRef = C32B141E1A2FE0CD00B959C4 /* CMPMap.m */; };
 		C35DB91C1A31EC3C0011FC1C /* CMPTilesheet.m in Sources */ = {isa = PBXBuildFile; fileRef = C35DB91B1A31EC3C0011FC1C /* CMPTilesheet.m */; };
@@ -69,6 +70,8 @@
 
 /* Begin PBXFileReference section */
 		C316E61E1A34CF5C00446FD6 /* CocoaYAML.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CocoaYAML.xcodeproj; path = Vendor/CocoaYAML/CocoaYAML.xcodeproj; sourceTree = "<group>"; };
+		C316E6331A34D2A100446FD6 /* CMPV1MapSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMPV1MapSerializer.h; sourceTree = "<group>"; };
+		C316E6341A34D2A100446FD6 /* CMPV1MapSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMPV1MapSerializer.m; sourceTree = "<group>"; };
 		C32B141A1A2FDD0100B959C4 /* CMPProject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMPProject.h; sourceTree = "<group>"; };
 		C32B141B1A2FDD0100B959C4 /* CMPProject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMPProject.m; sourceTree = "<group>"; };
 		C32B141D1A2FE0CD00B959C4 /* CMPMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMPMap.h; sourceTree = "<group>"; };
@@ -130,6 +133,15 @@
 				C316E61E1A34CF5C00446FD6 /* CocoaYAML.xcodeproj */,
 			);
 			name = Vendor;
+			sourceTree = "<group>";
+		};
+		C316E6321A34D28B00446FD6 /* Serializing */ = {
+			isa = PBXGroup;
+			children = (
+				C316E6331A34D2A100446FD6 /* CMPV1MapSerializer.h */,
+				C316E6341A34D2A100446FD6 /* CMPV1MapSerializer.m */,
+			);
+			name = Serializing;
 			sourceTree = "<group>";
 		};
 		C35DB91D1A31F1F20011FC1C /* Parsing */ = {
@@ -211,6 +223,7 @@
 		C365E8861A2FD0F3000AA8F1 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				C316E6321A34D28B00446FD6 /* Serializing */,
 				C35DB91D1A31F1F20011FC1C /* Parsing */,
 				C365E8891A2FD145000AA8F1 /* CMPAppDelegate.h */,
 				C365E88A1A2FD145000AA8F1 /* CMPAppDelegate.m */,
@@ -392,6 +405,7 @@
 				C365E88E1A2FD145000AA8F1 /* CMPProjectsViewController.m in Sources */,
 				C35DB9231A32704E0011FC1C /* CMPV1MapParser.m in Sources */,
 				C365E88D1A2FD145000AA8F1 /* CMPAppDelegate.m in Sources */,
+				C316E6351A34D2A100446FD6 /* CMPV1MapSerializer.m in Sources */,
 				C32B141C1A2FDD0100B959C4 /* CMPProject.m in Sources */,
 				C35DB9201A31F20E0011FC1C /* CMPMapParser.m in Sources */,
 				C365E8621A2FCFD3000AA8F1 /* main.m in Sources */,
