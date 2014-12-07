@@ -1,18 +1,18 @@
 //
-//  AppDelegate.m
+//  GJBAppDelegate.m
 //  Compass
 //
 //  Created by Grant Butler on 12/3/14.
 //  Copyright (c) 2014 Grant Butler. All rights reserved.
 //
 
-#import "AppDelegate.h"
+#import "GJBAppDelegate.h"
 
-@interface AppDelegate ()
+@interface GJBAppDelegate ()
 
 @end
 
-@implementation AppDelegate
+@implementation GJBAppDelegate
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {

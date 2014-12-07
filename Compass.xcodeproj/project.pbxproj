@@ -18,7 +18,7 @@
 		C365E86B1A2FCFD3000AA8F1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C365E8691A2FCFD3000AA8F1 /* Main.storyboard */; };
 		C365E86D1A2FCFD3000AA8F1 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C365E86C1A2FCFD3000AA8F1 /* Images.xcassets */; };
 		C365E8701A2FCFD3000AA8F1 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C365E86E1A2FCFD3000AA8F1 /* LaunchScreen.xib */; };
-		C365E88D1A2FD145000AA8F1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C365E88A1A2FD145000AA8F1 /* AppDelegate.m */; };
+		C365E88D1A2FD145000AA8F1 /* GJBAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C365E88A1A2FD145000AA8F1 /* GJBAppDelegate.m */; };
 		C365E88E1A2FD145000AA8F1 /* GJBProjectsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C365E88C1A2FD145000AA8F1 /* GJBProjectsViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -88,8 +88,8 @@
 		C365E86F1A2FCFD3000AA8F1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		C365E8751A2FCFD3000AA8F1 /* CompassTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CompassTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C365E87A1A2FCFD3000AA8F1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C365E8891A2FD145000AA8F1 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		C365E88A1A2FD145000AA8F1 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		C365E8891A2FD145000AA8F1 /* GJBAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GJBAppDelegate.h; sourceTree = "<group>"; };
+		C365E88A1A2FD145000AA8F1 /* GJBAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GJBAppDelegate.m; sourceTree = "<group>"; };
 		C365E88B1A2FD145000AA8F1 /* GJBProjectsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GJBProjectsViewController.h; sourceTree = "<group>"; };
 		C365E88C1A2FD145000AA8F1 /* GJBProjectsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GJBProjectsViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -212,8 +212,8 @@
 			isa = PBXGroup;
 			children = (
 				C35DB91D1A31F1F20011FC1C /* Parsing */,
-				C365E8891A2FD145000AA8F1 /* AppDelegate.h */,
-				C365E88A1A2FD145000AA8F1 /* AppDelegate.m */,
+				C365E8891A2FD145000AA8F1 /* GJBAppDelegate.h */,
+				C365E88A1A2FD145000AA8F1 /* GJBAppDelegate.m */,
 				C365E88B1A2FD145000AA8F1 /* GJBProjectsViewController.h */,
 				C365E88C1A2FD145000AA8F1 /* GJBProjectsViewController.m */,
 			);
@@ -391,7 +391,7 @@
 			files = (
 				C365E88E1A2FD145000AA8F1 /* GJBProjectsViewController.m in Sources */,
 				C35DB9231A32704E0011FC1C /* CMPV1MapParser.m in Sources */,
-				C365E88D1A2FD145000AA8F1 /* AppDelegate.m in Sources */,
+				C365E88D1A2FD145000AA8F1 /* GJBAppDelegate.m in Sources */,
 				C32B141C1A2FDD0100B959C4 /* CMPProject.m in Sources */,
 				C35DB9201A31F20E0011FC1C /* CMPMapParser.m in Sources */,
 				C365E8621A2FCFD3000AA8F1 /* main.m in Sources */,
