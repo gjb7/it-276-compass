@@ -1,18 +1,18 @@
 //
-//  GJBProjectsViewController.m
+//  CMPProjectsViewController.m
 //  Compass
 //
 //  Created by Grant Butler on 12/3/14.
 //  Copyright (c) 2014 Grant Butler. All rights reserved.
 //
 
-#import "GJBProjectsViewController.h"
+#import "CMPProjectsViewController.h"
 
-@interface GJBProjectsViewController ()
+@interface CMPProjectsViewController ()
 
 @end
 
-@implementation GJBProjectsViewController
+@implementation CMPProjectsViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];

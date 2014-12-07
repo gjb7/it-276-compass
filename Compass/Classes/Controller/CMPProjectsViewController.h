@@ -1,5 +1,5 @@
 //
-//  GJBAppDelegate.h
+//  CMPProjectsViewController.h
 //  Compass
 //
 //  Created by Grant Butler on 12/3/14.
@@ -8,9 +8,7 @@
 
 @import UIKit;
 
-@interface GJBAppDelegate : UIResponder <UIApplicationDelegate>
-
-@property (strong, nonatomic) UIWindow *window;
+@interface CMPProjectsViewController : UICollectionViewController
 
 
 @end
