@@ -13,7 +13,16 @@
 @implementation CMPV1MapSerializer
 
 - (NSData *)serializeMap:(CMPMap *)map {
-    return nil;
+    NSMutableData *buffer = [[NSMutableData alloc] init];
+    
+    [self appendMapVersionToBuffer:buffer];
+    
+    return buffer;
+}
+
+- (void)appendMapVersionToBuffer:(NSMutableData *)buffer {
+    char versionBuffer[3] = { 'V', 1, ';' };
+    [buffer appendBytes:versionBuffer length:3];
 }
 
 @end
