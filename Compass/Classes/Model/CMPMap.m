@@ -9,6 +9,14 @@
 #import "CMPMap.h"
 #import "CMPMapParser.h"
 
+#import "CMPTilesheet.h"
+
+@interface CMPMap ()
+
+@property (nonatomic, readwrite) CMPTilesheet *tilesheet;
+
+@end
+
 @implementation CMPMap
 
 - (BOOL)readFromURL:(NSURL *)url error:(NSError *__autoreleasing *)outError {
@@ -40,6 +48,25 @@
         _layers = [[NSMutableArray alloc] init];
     }
     return _layers;
+}
+
+- (void)setTilesheetPath:(NSString *)tilesheetPath {
+    if ([_tilesheetPath isEqualToString:tilesheetPath]) {
+        return;
+    }
+    
+    _tilesheetPath = tilesheetPath;
+    self.tilesheet = nil;
+}
+
+- (CMPTilesheet *)tilesheet {
+    if (!_tilesheet) {
+        NSAssert(self.tilesheetPath, @"Missing required tilesheet path.");
+        
+        _tilesheet = [[CMPTilesheet alloc] initWithPath:self.tilesheetPath];
+    }
+    
+    return _tilesheet;
 }
 
 @end

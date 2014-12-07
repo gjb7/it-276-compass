@@ -8,10 +8,14 @@
 
 @import UIKit;
 
+@class CMPTilesheet;
+
 @interface CMPMap : UIDocument
 
 @property (nonatomic) NSMutableArray *layers;
 
-@property (nonatomic) 
+@property (nonatomic) NSString *tilesheetPath;
+
+@property (nonatomic, readonly) CMPTilesheet *tilesheet;
 
 @end
