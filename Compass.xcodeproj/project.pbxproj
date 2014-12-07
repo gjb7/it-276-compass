@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C316E6311A34CF7100446FD6 /* libCocoaYAML iOS Library.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C316E6271A34CF5C00446FD6 /* libCocoaYAML iOS Library.a */; };
 		C32B141C1A2FDD0100B959C4 /* CMPProject.m in Sources */ = {isa = PBXBuildFile; fileRef = C32B141B1A2FDD0100B959C4 /* CMPProject.m */; };
 		C32B141F1A2FE0CD00B959C4 /* CMPMap.m in Sources */ = {isa = PBXBuildFile; fileRef = C32B141E1A2FE0CD00B959C4 /* CMPMap.m */; };
 		C35DB91C1A31EC3C0011FC1C /* CMPTilesheet.m in Sources */ = {isa = PBXBuildFile; fileRef = C35DB91B1A31EC3C0011FC1C /* CMPTilesheet.m */; };
@@ -22,6 +23,41 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		C316E6261A34CF5C00446FD6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C316E61E1A34CF5C00446FD6 /* CocoaYAML.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 450927F0183E888D00D2D858;
+			remoteInfo = "CocoaYAML iOS Library";
+		};
+		C316E6281A34CF5C00446FD6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C316E61E1A34CF5C00446FD6 /* CocoaYAML.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 4500CED9168532AB00E7B6A5;
+			remoteInfo = "CocoaYAML OSX Framework";
+		};
+		C316E62A1A34CF5C00446FD6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C316E61E1A34CF5C00446FD6 /* CocoaYAML.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 4584636A16765E8A00B0C5AC;
+			remoteInfo = CommandLineTest;
+		};
+		C316E62C1A34CF5C00446FD6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C316E61E1A34CF5C00446FD6 /* CocoaYAML.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 45C2ED4616770248005808D3;
+			remoteInfo = "Unit Tests";
+		};
+		C316E62F1A34CF6C00446FD6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C316E61E1A34CF5C00446FD6 /* CocoaYAML.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 450927EF183E888D00D2D858;
+			remoteInfo = "CocoaYAML iOS Library";
+		};
 		C365E8761A2FCFD3000AA8F1 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = C365E8541A2FCFD3000AA8F1 /* Project object */;
@@ -32,6 +68,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C316E61E1A34CF5C00446FD6 /* CocoaYAML.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CocoaYAML.xcodeproj; path = Vendor/CocoaYAML/CocoaYAML.xcodeproj; sourceTree = "<group>"; };
 		C32B141A1A2FDD0100B959C4 /* CMPProject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMPProject.h; sourceTree = "<group>"; };
 		C32B141B1A2FDD0100B959C4 /* CMPProject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMPProject.m; sourceTree = "<group>"; };
 		C32B141D1A2FE0CD00B959C4 /* CMPMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMPMap.h; sourceTree = "<group>"; };
@@ -62,6 +99,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C316E6311A34CF7100446FD6 /* libCocoaYAML iOS Library.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -75,6 +113,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C316E61F1A34CF5C00446FD6 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C316E6271A34CF5C00446FD6 /* libCocoaYAML iOS Library.a */,
+				C316E6291A34CF5C00446FD6 /* CocoaYAML OSX Framework.framework */,
+				C316E62B1A34CF5C00446FD6 /* CommandLineTest */,
+				C316E62D1A34CF5C00446FD6 /* Unit Tests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C316E62E1A34CF5F00446FD6 /* Vendor */ = {
+			isa = PBXGroup;
+			children = (
+				C316E61E1A34CF5C00446FD6 /* CocoaYAML.xcodeproj */,
+			);
+			name = Vendor;
+			sourceTree = "<group>";
+		};
 		C35DB91D1A31F1F20011FC1C /* Parsing */ = {
 			isa = PBXGroup;
 			children = (
@@ -91,6 +148,7 @@
 			children = (
 				C365E85E1A2FCFD3000AA8F1 /* Compass */,
 				C365E8781A2FCFD3000AA8F1 /* CompassTests */,
+				C316E62E1A34CF5F00446FD6 /* Vendor */,
 				C365E85D1A2FCFD3000AA8F1 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -206,6 +264,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				C316E6301A34CF6C00446FD6 /* PBXTargetDependency */,
 			);
 			name = Compass;
 			productName = Compass;
@@ -260,6 +319,12 @@
 			mainGroup = C365E8531A2FCFD3000AA8F1;
 			productRefGroup = C365E85D1A2FCFD3000AA8F1 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = C316E61F1A34CF5C00446FD6 /* Products */;
+					ProjectRef = C316E61E1A34CF5C00446FD6 /* CocoaYAML.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				C365E85B1A2FCFD3000AA8F1 /* Compass */,
@@ -267,6 +332,37 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		C316E6271A34CF5C00446FD6 /* libCocoaYAML iOS Library.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libCocoaYAML iOS Library.a";
+			remoteRef = C316E6261A34CF5C00446FD6 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		C316E6291A34CF5C00446FD6 /* CocoaYAML OSX Framework.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = "CocoaYAML OSX Framework.framework";
+			remoteRef = C316E6281A34CF5C00446FD6 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		C316E62B1A34CF5C00446FD6 /* CommandLineTest */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			path = CommandLineTest;
+			remoteRef = C316E62A1A34CF5C00446FD6 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		C316E62D1A34CF5C00446FD6 /* Unit Tests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "Unit Tests.xctest";
+			remoteRef = C316E62C1A34CF5C00446FD6 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		C365E85A1A2FCFD3000AA8F1 /* Resources */ = {
@@ -315,6 +411,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		C316E6301A34CF6C00446FD6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "CocoaYAML iOS Library";
+			targetProxy = C316E62F1A34CF6C00446FD6 /* PBXContainerItemProxy */;
+		};
 		C365E8771A2FCFD3000AA8F1 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = C365E85B1A2FCFD3000AA8F1 /* Compass */;
@@ -424,6 +525,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"$(SRCROOT)/Vendor/CocoaYAML/Source/",
+				);
 				INFOPLIST_FILE = Compass/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -434,6 +540,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"$(SRCROOT)/Vendor/CocoaYAML/Source/",
+				);
 				INFOPLIST_FILE = Compass/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
