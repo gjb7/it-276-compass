@@ -17,6 +17,7 @@
     
     [self appendMapVersionToBuffer:buffer];
     [self appendMapSize:map.size toBuffer:buffer];
+    [self appendMapLayers:map.layers ofSize:map.size toBuffer:buffer];
     
     return buffer;
 }
@@ -32,6 +33,22 @@
     
     uint8_t heightBuffer[3] = { 'H', (uint8_t)size.height, ';' };
     [buffer appendBytes:heightBuffer length:3];
+}
+
+- (void)appendMapLayers:(NSArray *)layers ofSize:(CGSize)size toBuffer:(NSMutableData *)buffer {
+    uint8_t layerCountBuffer[3] = { 'L', (uint8_t)layers.count, ';' };
+    [buffer appendBytes:layerCountBuffer length:3];
+    
+    uint32_t layerSize = (uint8_t)size.width * (uint8_t)size.height;
+    [layers enumerateObjectsUsingBlock:^(NSValue *layerValue, NSUInteger idx, BOOL *stop) {
+        uint8_t layer = 'l';
+        [buffer appendBytes:&layer length:1];
+        
+        [buffer appendBytes:layerValue.pointerValue length:layerSize];
+        
+        uint8_t semicolon = ';';
+        [buffer appendBytes:&semicolon length:1];
+    }];
 }
 
 @end
