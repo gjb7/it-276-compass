@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5FACD3C31A366A510020E1B8 /* CMPTilesheetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FACD3C21A366A510020E1B8 /* CMPTilesheetViewController.m */; };
+		5FACD3C61A366D9A0020E1B8 /* CMPMapEditorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FACD3C51A366D9A0020E1B8 /* CMPMapEditorViewController.m */; };
 		C32B141C1A2FDD0100B959C4 /* CMPProject.m in Sources */ = {isa = PBXBuildFile; fileRef = C32B141B1A2FDD0100B959C4 /* CMPProject.m */; };
 		C32B141F1A2FE0CD00B959C4 /* CMPMap.m in Sources */ = {isa = PBXBuildFile; fileRef = C32B141E1A2FE0CD00B959C4 /* CMPMap.m */; };
 		C35DB91C1A31EC3C0011FC1C /* CMPTilesheet.m in Sources */ = {isa = PBXBuildFile; fileRef = C35DB91B1A31EC3C0011FC1C /* CMPTilesheet.m */; };
@@ -32,6 +34,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5FACD3C11A366A510020E1B8 /* CMPTilesheetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMPTilesheetViewController.h; sourceTree = "<group>"; };
+		5FACD3C21A366A510020E1B8 /* CMPTilesheetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMPTilesheetViewController.m; sourceTree = "<group>"; };
+		5FACD3C41A366D9A0020E1B8 /* CMPMapEditorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMPMapEditorViewController.h; sourceTree = "<group>"; };
+		5FACD3C51A366D9A0020E1B8 /* CMPMapEditorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMPMapEditorViewController.m; sourceTree = "<group>"; };
 		C32B141A1A2FDD0100B959C4 /* CMPProject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMPProject.h; sourceTree = "<group>"; };
 		C32B141B1A2FDD0100B959C4 /* CMPProject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMPProject.m; sourceTree = "<group>"; };
 		C32B141D1A2FE0CD00B959C4 /* CMPMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMPMap.h; sourceTree = "<group>"; };
@@ -75,6 +81,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5FACD3C01A366A2C0020E1B8 /* View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				5FACD3C11A366A510020E1B8 /* CMPTilesheetViewController.h */,
+				5FACD3C21A366A510020E1B8 /* CMPTilesheetViewController.m */,
+				5FACD3C41A366D9A0020E1B8 /* CMPMapEditorViewController.h */,
+				5FACD3C51A366D9A0020E1B8 /* CMPMapEditorViewController.m */,
+			);
+			path = "View Controller";
+			sourceTree = "<group>";
+		};
 		C35DB91D1A31F1F20011FC1C /* Parsing */ = {
 			isa = PBXGroup;
 			children = (
@@ -153,6 +170,7 @@
 		C365E8861A2FD0F3000AA8F1 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				5FACD3C01A366A2C0020E1B8 /* View Controller */,
 				C35DB91D1A31F1F20011FC1C /* Parsing */,
 				C365E8891A2FD145000AA8F1 /* AppDelegate.h */,
 				C365E88A1A2FD145000AA8F1 /* AppDelegate.m */,
@@ -293,10 +311,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5FACD3C31A366A510020E1B8 /* CMPTilesheetViewController.m in Sources */,
 				C365E88E1A2FD145000AA8F1 /* GJBProjectsViewController.m in Sources */,
 				C35DB9231A32704E0011FC1C /* CMPV1MapParser.m in Sources */,
 				C365E88D1A2FD145000AA8F1 /* AppDelegate.m in Sources */,
 				C32B141C1A2FDD0100B959C4 /* CMPProject.m in Sources */,
+				5FACD3C61A366D9A0020E1B8 /* CMPMapEditorViewController.m in Sources */,
 				C35DB9201A31F20E0011FC1C /* CMPMapParser.m in Sources */,
 				C365E8621A2FCFD3000AA8F1 /* main.m in Sources */,
 				C35DB91C1A31EC3C0011FC1C /* CMPTilesheet.m in Sources */,
