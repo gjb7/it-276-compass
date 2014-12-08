@@ -15,7 +15,7 @@
     if (NSMaxRange(range) > self.data.length) {
         if (error) {
             NSString *localzedDescription = [NSString stringWithFormat:NSLocalizedString(@"Trying to read %i bytes, but only %i bytes available.", nil), NSMaxRange(range), self.data.length];
-            *error = [NSError errorWithDomain:CMPMapErrorDomain
+            *error = [NSError errorWithDomain:CMPMapParserErrorDomain
                                          code:CMPMapParserErrorCodeNotEnoughBytes
                                      userInfo:@{
                                                 NSLocalizedDescriptionKey: localzedDescription
