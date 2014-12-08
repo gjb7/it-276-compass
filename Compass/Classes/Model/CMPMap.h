@@ -12,6 +12,4 @@
 
 @property (nonatomic) NSMutableArray *layers;
 
-@property (nonatomic) 
-
 @end
