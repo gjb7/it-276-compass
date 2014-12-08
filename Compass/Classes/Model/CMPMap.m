@@ -69,4 +69,11 @@
     return _tilesheet;
 }
 
+- (void)dealloc {
+    [self.layers enumerateObjectsUsingBlock:^(NSValue *layerValue, NSUInteger idx, BOOL *stop) {
+        void *layerBytes = [layerValue pointerValue];
+        free(layerBytes);
+    }];
+}
+
 @end
