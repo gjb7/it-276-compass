@@ -22,15 +22,15 @@
 }
 
 - (void)appendMapVersionToBuffer:(NSMutableData *)buffer {
-    char versionBuffer[3] = { 'V', 1, ';' };
+    uint8_t versionBuffer[3] = { 'V', 1, ';' };
     [buffer appendBytes:versionBuffer length:3];
 }
 
 - (void)appendMapSize:(CGSize)size toBuffer:(NSMutableData *)buffer {
-    char widthBuffer[3] = { 'W', (uint8_t)size.width, ';' };
+    uint8_t widthBuffer[3] = { 'W', (uint8_t)size.width, ';' };
     [buffer appendBytes:widthBuffer length:3];
     
-    char heightBuffer[3] = { 'H', (uint8_t)size.height, ';' };
+    uint8_t heightBuffer[3] = { 'H', (uint8_t)size.height, ';' };
     [buffer appendBytes:heightBuffer length:3];
 }
 
