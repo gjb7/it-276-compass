@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  CMPProjectsViewController.h
 //  Compass
 //
 //  Created by Grant Butler on 12/3/14.
@@ -8,7 +8,7 @@
 
 @import UIKit;
 
-@interface GJBProjectsViewController : UICollectionViewController
+@interface CMPProjectsViewController : UICollectionViewController
 
 
 @end

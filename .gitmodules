@@ -1,0 +1,3 @@
+[submodule "Vendor/CocoaYAML"]
+	path = Vendor/CocoaYAML
+	url = https://github.com/schwa/CocoaYAML.git

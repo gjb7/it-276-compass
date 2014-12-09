@@ -10,6 +10,9 @@
 		5F2BFFE71A367CF60023FF05 /* CMPProjectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F2BFFE61A367CF60023FF05 /* CMPProjectViewController.m */; };
 		5FACD3C31A366A510020E1B8 /* CMPTilesheetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FACD3C21A366A510020E1B8 /* CMPTilesheetViewController.m */; };
 		5FACD3C61A366D9A0020E1B8 /* CMPMapEditorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FACD3C51A366D9A0020E1B8 /* CMPMapEditorViewController.m */; };
+		C316E6311A34CF7100446FD6 /* libCocoaYAML iOS Library.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C316E6271A34CF5C00446FD6 /* libCocoaYAML iOS Library.a */; };
+		C316E6351A34D2A100446FD6 /* CMPV1MapSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = C316E6341A34D2A100446FD6 /* CMPV1MapSerializer.m */; };
+		C316E63A1A353EFF00446FD6 /* CMPV1MapSerializerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C316E6391A353EFF00446FD6 /* CMPV1MapSerializerTests.m */; };
 		C32B141C1A2FDD0100B959C4 /* CMPProject.m in Sources */ = {isa = PBXBuildFile; fileRef = C32B141B1A2FDD0100B959C4 /* CMPProject.m */; };
 		C32B141F1A2FE0CD00B959C4 /* CMPMap.m in Sources */ = {isa = PBXBuildFile; fileRef = C32B141E1A2FE0CD00B959C4 /* CMPMap.m */; };
 		C35DB91C1A31EC3C0011FC1C /* CMPTilesheet.m in Sources */ = {isa = PBXBuildFile; fileRef = C35DB91B1A31EC3C0011FC1C /* CMPTilesheet.m */; };
@@ -20,11 +23,46 @@
 		C365E86B1A2FCFD3000AA8F1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C365E8691A2FCFD3000AA8F1 /* Main.storyboard */; };
 		C365E86D1A2FCFD3000AA8F1 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C365E86C1A2FCFD3000AA8F1 /* Images.xcassets */; };
 		C365E8701A2FCFD3000AA8F1 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C365E86E1A2FCFD3000AA8F1 /* LaunchScreen.xib */; };
-		C365E88D1A2FD145000AA8F1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C365E88A1A2FD145000AA8F1 /* AppDelegate.m */; };
-		C365E88E1A2FD145000AA8F1 /* GJBProjectsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C365E88C1A2FD145000AA8F1 /* GJBProjectsViewController.m */; };
+		C365E88D1A2FD145000AA8F1 /* CMPAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C365E88A1A2FD145000AA8F1 /* CMPAppDelegate.m */; };
+		C365E88E1A2FD145000AA8F1 /* CMPProjectsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C365E88C1A2FD145000AA8F1 /* CMPProjectsViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		C316E6261A34CF5C00446FD6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C316E61E1A34CF5C00446FD6 /* CocoaYAML.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 450927F0183E888D00D2D858;
+			remoteInfo = "CocoaYAML iOS Library";
+		};
+		C316E6281A34CF5C00446FD6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C316E61E1A34CF5C00446FD6 /* CocoaYAML.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 4500CED9168532AB00E7B6A5;
+			remoteInfo = "CocoaYAML OSX Framework";
+		};
+		C316E62A1A34CF5C00446FD6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C316E61E1A34CF5C00446FD6 /* CocoaYAML.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 4584636A16765E8A00B0C5AC;
+			remoteInfo = CommandLineTest;
+		};
+		C316E62C1A34CF5C00446FD6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C316E61E1A34CF5C00446FD6 /* CocoaYAML.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 45C2ED4616770248005808D3;
+			remoteInfo = "Unit Tests";
+		};
+		C316E62F1A34CF6C00446FD6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C316E61E1A34CF5C00446FD6 /* CocoaYAML.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 450927EF183E888D00D2D858;
+			remoteInfo = "CocoaYAML iOS Library";
+		};
 		C365E8761A2FCFD3000AA8F1 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = C365E8541A2FCFD3000AA8F1 /* Project object */;
@@ -41,6 +79,10 @@
 		5FACD3C21A366A510020E1B8 /* CMPTilesheetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMPTilesheetViewController.m; sourceTree = "<group>"; };
 		5FACD3C41A366D9A0020E1B8 /* CMPMapEditorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMPMapEditorViewController.h; sourceTree = "<group>"; };
 		5FACD3C51A366D9A0020E1B8 /* CMPMapEditorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMPMapEditorViewController.m; sourceTree = "<group>"; };
+		C316E61E1A34CF5C00446FD6 /* CocoaYAML.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CocoaYAML.xcodeproj; path = Vendor/CocoaYAML/CocoaYAML.xcodeproj; sourceTree = "<group>"; };
+		C316E6331A34D2A100446FD6 /* CMPV1MapSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMPV1MapSerializer.h; sourceTree = "<group>"; };
+		C316E6341A34D2A100446FD6 /* CMPV1MapSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMPV1MapSerializer.m; sourceTree = "<group>"; };
+		C316E6391A353EFF00446FD6 /* CMPV1MapSerializerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMPV1MapSerializerTests.m; sourceTree = "<group>"; };
 		C32B141A1A2FDD0100B959C4 /* CMPProject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMPProject.h; sourceTree = "<group>"; };
 		C32B141B1A2FDD0100B959C4 /* CMPProject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMPProject.m; sourceTree = "<group>"; };
 		C32B141D1A2FE0CD00B959C4 /* CMPMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMPMap.h; sourceTree = "<group>"; };
@@ -60,10 +102,10 @@
 		C365E86F1A2FCFD3000AA8F1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		C365E8751A2FCFD3000AA8F1 /* CompassTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CompassTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C365E87A1A2FCFD3000AA8F1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C365E8891A2FD145000AA8F1 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		C365E88A1A2FD145000AA8F1 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		C365E88B1A2FD145000AA8F1 /* GJBProjectsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GJBProjectsViewController.h; sourceTree = "<group>"; };
-		C365E88C1A2FD145000AA8F1 /* GJBProjectsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GJBProjectsViewController.m; sourceTree = "<group>"; };
+		C365E8891A2FD145000AA8F1 /* CMPAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMPAppDelegate.h; sourceTree = "<group>"; };
+		C365E88A1A2FD145000AA8F1 /* CMPAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMPAppDelegate.m; sourceTree = "<group>"; };
+		C365E88B1A2FD145000AA8F1 /* CMPProjectsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMPProjectsViewController.h; sourceTree = "<group>"; };
+		C365E88C1A2FD145000AA8F1 /* CMPProjectsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMPProjectsViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +113,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C316E6311A34CF7100446FD6 /* libCocoaYAML iOS Library.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -95,6 +138,32 @@
 				5F2BFFE61A367CF60023FF05 /* CMPProjectViewController.m */,
 			);
 			path = "View Controller";
+		C316E61F1A34CF5C00446FD6 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C316E6271A34CF5C00446FD6 /* libCocoaYAML iOS Library.a */,
+				C316E6291A34CF5C00446FD6 /* CocoaYAML OSX Framework.framework */,
+				C316E62B1A34CF5C00446FD6 /* CommandLineTest */,
+				C316E62D1A34CF5C00446FD6 /* Unit Tests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C316E62E1A34CF5F00446FD6 /* Vendor */ = {
+			isa = PBXGroup;
+			children = (
+				C316E61E1A34CF5C00446FD6 /* CocoaYAML.xcodeproj */,
+			);
+			name = Vendor;
+			sourceTree = "<group>";
+		};
+		C316E6321A34D28B00446FD6 /* Serializing */ = {
+			isa = PBXGroup;
+			children = (
+				C316E6331A34D2A100446FD6 /* CMPV1MapSerializer.h */,
+				C316E6341A34D2A100446FD6 /* CMPV1MapSerializer.m */,
+			);
+			name = Serializing;
 			sourceTree = "<group>";
 		};
 		C35DB91D1A31F1F20011FC1C /* Parsing */ = {
@@ -113,6 +182,7 @@
 			children = (
 				C365E85E1A2FCFD3000AA8F1 /* Compass */,
 				C365E8781A2FCFD3000AA8F1 /* CompassTests */,
+				C316E62E1A34CF5F00446FD6 /* Vendor */,
 				C365E85D1A2FCFD3000AA8F1 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -149,6 +219,7 @@
 			isa = PBXGroup;
 			children = (
 				C35DB9241A32727D0011FC1C /* CMPMapParserTests.m */,
+				C316E6391A353EFF00446FD6 /* CMPV1MapSerializerTests.m */,
 				C365E8791A2FCFD3000AA8F1 /* Supporting Files */,
 			);
 			path = CompassTests;
@@ -176,11 +247,12 @@
 			isa = PBXGroup;
 			children = (
 				5FACD3C01A366A2C0020E1B8 /* View Controller */,
+				C316E6321A34D28B00446FD6 /* Serializing */,
 				C35DB91D1A31F1F20011FC1C /* Parsing */,
-				C365E8891A2FD145000AA8F1 /* AppDelegate.h */,
-				C365E88A1A2FD145000AA8F1 /* AppDelegate.m */,
-				C365E88B1A2FD145000AA8F1 /* GJBProjectsViewController.h */,
-				C365E88C1A2FD145000AA8F1 /* GJBProjectsViewController.m */,
+				C365E8891A2FD145000AA8F1 /* CMPAppDelegate.h */,
+				C365E88A1A2FD145000AA8F1 /* CMPAppDelegate.m */,
+				C365E88B1A2FD145000AA8F1 /* CMPProjectsViewController.h */,
+				C365E88C1A2FD145000AA8F1 /* CMPProjectsViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -229,6 +301,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				C316E6301A34CF6C00446FD6 /* PBXTargetDependency */,
 			);
 			name = Compass;
 			productName = Compass;
@@ -283,6 +356,12 @@
 			mainGroup = C365E8531A2FCFD3000AA8F1;
 			productRefGroup = C365E85D1A2FCFD3000AA8F1 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = C316E61F1A34CF5C00446FD6 /* Products */;
+					ProjectRef = C316E61E1A34CF5C00446FD6 /* CocoaYAML.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				C365E85B1A2FCFD3000AA8F1 /* Compass */,
@@ -290,6 +369,37 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		C316E6271A34CF5C00446FD6 /* libCocoaYAML iOS Library.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libCocoaYAML iOS Library.a";
+			remoteRef = C316E6261A34CF5C00446FD6 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		C316E6291A34CF5C00446FD6 /* CocoaYAML OSX Framework.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = "CocoaYAML OSX Framework.framework";
+			remoteRef = C316E6281A34CF5C00446FD6 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		C316E62B1A34CF5C00446FD6 /* CommandLineTest */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			path = CommandLineTest;
+			remoteRef = C316E62A1A34CF5C00446FD6 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		C316E62D1A34CF5C00446FD6 /* Unit Tests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "Unit Tests.xctest";
+			remoteRef = C316E62C1A34CF5C00446FD6 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		C365E85A1A2FCFD3000AA8F1 /* Resources */ = {
@@ -317,9 +427,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				5FACD3C31A366A510020E1B8 /* CMPTilesheetViewController.m in Sources */,
-				C365E88E1A2FD145000AA8F1 /* GJBProjectsViewController.m in Sources */,
+				C365E88E1A2FD145000AA8F1 /* CMPProjectsViewController.m in Sources */,
 				C35DB9231A32704E0011FC1C /* CMPV1MapParser.m in Sources */,
-				C365E88D1A2FD145000AA8F1 /* AppDelegate.m in Sources */,
+				C365E88D1A2FD145000AA8F1 /* CMPAppDelegate.m in Sources */,
+				C316E6351A34D2A100446FD6 /* CMPV1MapSerializer.m in Sources */,
 				C32B141C1A2FDD0100B959C4 /* CMPProject.m in Sources */,
 				5FACD3C61A366D9A0020E1B8 /* CMPMapEditorViewController.m in Sources */,
 				C35DB9201A31F20E0011FC1C /* CMPMapParser.m in Sources */,
@@ -334,6 +445,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C316E63A1A353EFF00446FD6 /* CMPV1MapSerializerTests.m in Sources */,
 				C35DB9251A32727D0011FC1C /* CMPMapParserTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -341,6 +453,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		C316E6301A34CF6C00446FD6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "CocoaYAML iOS Library";
+			targetProxy = C316E62F1A34CF6C00446FD6 /* PBXContainerItemProxy */;
+		};
 		C365E8771A2FCFD3000AA8F1 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = C365E85B1A2FCFD3000AA8F1 /* Compass */;
@@ -450,6 +567,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"$(SRCROOT)/Vendor/CocoaYAML/Source/",
+				);
 				INFOPLIST_FILE = Compass/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -460,6 +582,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"$(SRCROOT)/Vendor/CocoaYAML/Source/",
+				);
 				INFOPLIST_FILE = Compass/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";

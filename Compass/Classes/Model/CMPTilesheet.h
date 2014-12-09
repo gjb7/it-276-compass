@@ -17,4 +17,6 @@ extern const CGSize CMPTilesheetTileSize;
 @property (nonatomic, readonly) NSUInteger numberOfColumns;
 @property (nonatomic, readonly) NSUInteger numberOfRows;
 
+- (instancetype)initWithPath:(NSString *)path;
+
 @end

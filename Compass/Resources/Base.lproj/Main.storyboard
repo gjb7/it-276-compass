@@ -88,7 +88,7 @@
         <!--Projects View Controller-->
         <scene sceneID="Whj-Tn-kCK">
             <objects>
-                <collectionViewController id="AmY-mR-JF7" customClass="GJBProjectsViewController" sceneMemberID="viewController">
+                <collectionViewController id="AmY-mR-JF7" customClass="CMPProjectsViewController" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="CBo-h5-wmx">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

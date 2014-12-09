@@ -1,26 +1,28 @@
 //
-//  ViewController.m
+//  CMPProjectsViewController.m
 //  Compass
 //
 //  Created by Grant Butler on 12/3/14.
 //  Copyright (c) 2014 Grant Butler. All rights reserved.
 //
 
-#import "GJBProjectsViewController.h"
+#import "CMPProjectsViewController.h"
 
 #import "CMPMap.h"
 
 static NSString * const CMPShowEditorSegueIdentifier = @"CMPShowEditorSegue";
 
-@interface GJBProjectsViewController ()
+@interface CMPProjectsViewController ()
 
 @end
 
-@implementation GJBProjectsViewController
+@implementation CMPProjectsViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addProject:)];
+    self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -28,7 +30,7 @@ static NSString * const CMPShowEditorSegueIdentifier = @"CMPShowEditorSegue";
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)editProject:(id)sender {
+- (void)addProject:(id)sender {
     NSURL *temporaryDirectoryURL = [NSURL fileURLWithPath:NSTemporaryDirectory() isDirectory:YES];
     NSURL *projectURL = [temporaryDirectoryURL URLByAppendingPathComponent:[NSString stringWithFormat:@"%lu.map", (unsigned long)[[NSDate date] timeIntervalSinceNow]]];
     CMPMap *map = [[CMPMap alloc] initWithFileURL:projectURL];
