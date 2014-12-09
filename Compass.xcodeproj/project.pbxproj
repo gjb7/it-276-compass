@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5F2BFFE71A367CF60023FF05 /* CMPProjectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F2BFFE61A367CF60023FF05 /* CMPProjectViewController.m */; };
+		5FACD3C31A366A510020E1B8 /* CMPTilesheetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FACD3C21A366A510020E1B8 /* CMPTilesheetViewController.m */; };
+		5FACD3C61A366D9A0020E1B8 /* CMPMapEditorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FACD3C51A366D9A0020E1B8 /* CMPMapEditorViewController.m */; };
 		C316E6311A34CF7100446FD6 /* libCocoaYAML iOS Library.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C316E6271A34CF5C00446FD6 /* libCocoaYAML iOS Library.a */; };
 		C316E6351A34D2A100446FD6 /* CMPV1MapSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = C316E6341A34D2A100446FD6 /* CMPV1MapSerializer.m */; };
 		C316E63A1A353EFF00446FD6 /* CMPV1MapSerializerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C316E6391A353EFF00446FD6 /* CMPV1MapSerializerTests.m */; };
@@ -70,6 +73,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5F2BFFE51A367CF60023FF05 /* CMPProjectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMPProjectViewController.h; sourceTree = "<group>"; };
+		5F2BFFE61A367CF60023FF05 /* CMPProjectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMPProjectViewController.m; sourceTree = "<group>"; };
+		5FACD3C11A366A510020E1B8 /* CMPTilesheetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMPTilesheetViewController.h; sourceTree = "<group>"; };
+		5FACD3C21A366A510020E1B8 /* CMPTilesheetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMPTilesheetViewController.m; sourceTree = "<group>"; };
+		5FACD3C41A366D9A0020E1B8 /* CMPMapEditorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMPMapEditorViewController.h; sourceTree = "<group>"; };
+		5FACD3C51A366D9A0020E1B8 /* CMPMapEditorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMPMapEditorViewController.m; sourceTree = "<group>"; };
 		C316E61E1A34CF5C00446FD6 /* CocoaYAML.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CocoaYAML.xcodeproj; path = Vendor/CocoaYAML/CocoaYAML.xcodeproj; sourceTree = "<group>"; };
 		C316E6331A34D2A100446FD6 /* CMPV1MapSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMPV1MapSerializer.h; sourceTree = "<group>"; };
 		C316E6341A34D2A100446FD6 /* CMPV1MapSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMPV1MapSerializer.m; sourceTree = "<group>"; };
@@ -118,6 +127,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5FACD3C01A366A2C0020E1B8 /* View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				5FACD3C11A366A510020E1B8 /* CMPTilesheetViewController.h */,
+				5FACD3C21A366A510020E1B8 /* CMPTilesheetViewController.m */,
+				5FACD3C41A366D9A0020E1B8 /* CMPMapEditorViewController.h */,
+				5FACD3C51A366D9A0020E1B8 /* CMPMapEditorViewController.m */,
+				5F2BFFE51A367CF60023FF05 /* CMPProjectViewController.h */,
+				5F2BFFE61A367CF60023FF05 /* CMPProjectViewController.m */,
+			);
+			path = "View Controller";
+            sourceTree = "<group>";
+        };
 		C316E61F1A34CF5C00446FD6 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -226,6 +248,7 @@
 		C365E8861A2FD0F3000AA8F1 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				5FACD3C01A366A2C0020E1B8 /* View Controller */,
 				C316E6321A34D28B00446FD6 /* Serializing */,
 				C35DB91D1A31F1F20011FC1C /* Parsing */,
 				C365E8891A2FD145000AA8F1 /* CMPAppDelegate.h */,
@@ -405,13 +428,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5FACD3C31A366A510020E1B8 /* CMPTilesheetViewController.m in Sources */,
 				C365E88E1A2FD145000AA8F1 /* CMPProjectsViewController.m in Sources */,
 				C35DB9231A32704E0011FC1C /* CMPV1MapParser.m in Sources */,
 				C365E88D1A2FD145000AA8F1 /* CMPAppDelegate.m in Sources */,
 				C316E6351A34D2A100446FD6 /* CMPV1MapSerializer.m in Sources */,
 				C32B141C1A2FDD0100B959C4 /* CMPProject.m in Sources */,
+				5FACD3C61A366D9A0020E1B8 /* CMPMapEditorViewController.m in Sources */,
 				C35DB9201A31F20E0011FC1C /* CMPMapParser.m in Sources */,
 				C365E8621A2FCFD3000AA8F1 /* main.m in Sources */,
+				5F2BFFE71A367CF60023FF05 /* CMPProjectViewController.m in Sources */,
 				C35DB91C1A31EC3C0011FC1C /* CMPTilesheet.m in Sources */,
 				C32B141F1A2FE0CD00B959C4 /* CMPMap.m in Sources */,
 			);

@@ -10,6 +10,8 @@
 
 #import <CYAMLDeserializer.h>
 
+const CGSize CMPTilesheetTileSize = { 16.0, 16.0 };
+
 @implementation CMPTilesheet
 
 - (instancetype)initWithPath:(NSString *)path {
@@ -22,6 +24,14 @@
         _sprite = [[UIImage alloc] initWithContentsOfFile:imageFilePath];
     }
     return self;
+}
+
+- (NSUInteger)numberOfColumns {
+    return ceilf(self.sprite.size.width / 16.0);
+}
+
+- (NSUInteger)numberOfRows {
+    return ceilf(self.sprite.size.height / 16.0);
 }
 
 @end

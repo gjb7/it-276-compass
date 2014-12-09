@@ -8,9 +8,14 @@
 
 @import UIKit;
 
+extern const CGSize CMPTilesheetTileSize;
+
 @interface CMPTilesheet : NSObject
 
 @property (nonatomic) UIImage *sprite;
+
+@property (nonatomic, readonly) NSUInteger numberOfColumns;
+@property (nonatomic, readonly) NSUInteger numberOfRows;
 
 - (instancetype)initWithPath:(NSString *)path;
 
