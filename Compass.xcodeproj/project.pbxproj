@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5F2BFFE71A367CF60023FF05 /* CMPProjectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F2BFFE61A367CF60023FF05 /* CMPProjectViewController.m */; };
 		5FACD3C31A366A510020E1B8 /* CMPTilesheetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FACD3C21A366A510020E1B8 /* CMPTilesheetViewController.m */; };
 		5FACD3C61A366D9A0020E1B8 /* CMPMapEditorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FACD3C51A366D9A0020E1B8 /* CMPMapEditorViewController.m */; };
 		C32B141C1A2FDD0100B959C4 /* CMPProject.m in Sources */ = {isa = PBXBuildFile; fileRef = C32B141B1A2FDD0100B959C4 /* CMPProject.m */; };
@@ -34,6 +35,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5F2BFFE51A367CF60023FF05 /* CMPProjectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMPProjectViewController.h; sourceTree = "<group>"; };
+		5F2BFFE61A367CF60023FF05 /* CMPProjectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMPProjectViewController.m; sourceTree = "<group>"; };
 		5FACD3C11A366A510020E1B8 /* CMPTilesheetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMPTilesheetViewController.h; sourceTree = "<group>"; };
 		5FACD3C21A366A510020E1B8 /* CMPTilesheetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMPTilesheetViewController.m; sourceTree = "<group>"; };
 		5FACD3C41A366D9A0020E1B8 /* CMPMapEditorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMPMapEditorViewController.h; sourceTree = "<group>"; };
@@ -88,6 +91,8 @@
 				5FACD3C21A366A510020E1B8 /* CMPTilesheetViewController.m */,
 				5FACD3C41A366D9A0020E1B8 /* CMPMapEditorViewController.h */,
 				5FACD3C51A366D9A0020E1B8 /* CMPMapEditorViewController.m */,
+				5F2BFFE51A367CF60023FF05 /* CMPProjectViewController.h */,
+				5F2BFFE61A367CF60023FF05 /* CMPProjectViewController.m */,
 			);
 			path = "View Controller";
 			sourceTree = "<group>";
@@ -319,6 +324,7 @@
 				5FACD3C61A366D9A0020E1B8 /* CMPMapEditorViewController.m in Sources */,
 				C35DB9201A31F20E0011FC1C /* CMPMapParser.m in Sources */,
 				C365E8621A2FCFD3000AA8F1 /* main.m in Sources */,
+				5F2BFFE71A367CF60023FF05 /* CMPProjectViewController.m in Sources */,
 				C35DB91C1A31EC3C0011FC1C /* CMPTilesheet.m in Sources */,
 				C32B141F1A2FE0CD00B959C4 /* CMPMap.m in Sources */,
 			);
