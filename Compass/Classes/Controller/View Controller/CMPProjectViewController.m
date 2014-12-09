@@ -18,13 +18,39 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
-    NSLog(@"%@", self.viewControllers);
+    
+    UIBarButtonItem *projectsBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Projects", nil) style:UIBarButtonItemStylePlain target:self action:@selector(closeProject:)];
+    
+    self.navigationItem.leftBarButtonItems = @[projectsBarButtonItem];
+    
+    UIBarButtonItem *layersBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"Layers"] style:UIBarButtonItemStylePlain target:self action:@selector(showLayers:)];
+    UIBarButtonItem *componentsBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"Components"] style:UIBarButtonItemStylePlain target:self action:@selector(showComponents:)];
+    UIBarButtonItem *infoBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"Info"] style:UIBarButtonItemStylePlain target:self action:@selector(showInfo:)];
+    
+    self.navigationItem.rightBarButtonItems = @[infoBarButtonItem, componentsBarButtonItem, layersBarButtonItem];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - Actions
+
+- (void)closeProject:(id)sender {
+    
+}
+
+- (void)showLayers:(id)sender {
+    
+}
+
+- (void)showComponents:(id)sender {
+    
+}
+
+- (void)showInfo:(id)sender {
+    
 }
 
 @end
