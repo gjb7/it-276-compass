@@ -20,6 +20,71 @@
             </objects>
             <point key="canvasLocation" x="-52" y="380"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="8xY-4e-Xo3">
+            <objects>
+                <navigationController id="6LS-bh-TVn" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="gyl-yo-rw0">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="aKG-U8-AeS" kind="relationship" relationship="rootViewController" id="ccQ-ff-PL6"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JiD-7n-SDO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-918" y="1724"/>
+        </scene>
+        <!--Split View Controller-->
+        <scene sceneID="RIN-Lc-jgy">
+            <objects>
+                <splitViewController id="aKG-U8-AeS" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="kk6-Qr-zJg"/>
+                    <connections>
+                        <segue destination="eL8-ai-jsP" kind="relationship" relationship="masterViewController" id="Kcd-yk-ZL0"/>
+                        <segue destination="Tgq-6W-NDe" kind="relationship" relationship="detailViewController" id="srT-bF-CXw"/>
+                    </connections>
+                </splitViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lkA-qm-2wM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-178" y="1724"/>
+        </scene>
+        <!--Collection View Controller-->
+        <scene sceneID="6Wu-qj-vqH">
+            <objects>
+                <collectionViewController id="eL8-ai-jsP" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="973-ov-1By">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="FbA-Py-3D9">
+                            <size key="itemSize" width="50" height="50"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="0Zg-3Q-hnX">
+                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="eL8-ai-jsP" id="LYP-zZ-IaB"/>
+                            <outlet property="delegate" destination="eL8-ai-jsP" id="f6I-44-Xag"/>
+                        </connections>
+                    </collectionView>
+                    <navigationItem key="navigationItem" id="xNU-27-mhp"/>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="93s-XF-uex" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="742" y="1366"/>
+        </scene>
         <!--Projects View Controller-->
         <scene sceneID="Whj-Tn-kCK">
             <objects>
@@ -50,26 +115,13 @@
                         </connections>
                     </collectionView>
                     <navigationItem key="navigationItem" id="5ax-Hi-4WF"/>
+                    <connections>
+                        <segue destination="6LS-bh-TVn" kind="presentation" identifier="CMPShowEditorSegue" id="1XQ-z2-lZ9"/>
+                    </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jkw-tJ-RBO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="658" y="384"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="aAw-Nj-RJ7">
-            <objects>
-                <navigationController id="61L-iI-tOT" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="koF-v1-2TU">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="Tgq-6W-NDe" kind="relationship" relationship="rootViewController" id="ghT-Mf-2io"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="crv-f6-xpL" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-52" y="1064"/>
         </scene>
         <!--Map Editor View Controller-->
         <scene sceneID="OHD-ra-H7B">
@@ -103,7 +155,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Wv-Ch-gnW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="658" y="1064"/>
+            <point key="canvasLocation" x="742" y="2110"/>
         </scene>
     </scenes>
 </document>

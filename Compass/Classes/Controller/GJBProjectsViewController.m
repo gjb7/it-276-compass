@@ -8,6 +8,8 @@
 
 #import "GJBProjectsViewController.h"
 
+static NSString * const CMPShowEditorSegueIdentifier = @"CMPShowEditorSegue";
+
 @interface GJBProjectsViewController ()
 
 @end
@@ -22,6 +24,10 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (IBAction)showEditor:(id)sender {
+    [self performSegueWithIdentifier:CMPShowEditorSegueIdentifier sender:sender];
 }
 
 @end
