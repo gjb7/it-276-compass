@@ -8,6 +8,8 @@
 
 #import "GJBProjectsViewController.h"
 
+#import "CMPMap.h"
+
 static NSString * const CMPShowEditorSegueIdentifier = @"CMPShowEditorSegue";
 
 @interface GJBProjectsViewController ()
@@ -26,8 +28,8 @@ static NSString * const CMPShowEditorSegueIdentifier = @"CMPShowEditorSegue";
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)showEditor:(id)sender {
-    [self performSegueWithIdentifier:CMPShowEditorSegueIdentifier sender:sender];
+- (IBAction)showEditorWithMap:(CMPMap *)map {
+    [self performSegueWithIdentifier:CMPShowEditorSegueIdentifier sender:map];
 }
 
 @end
