@@ -8,15 +8,29 @@
 
 #import "CMPMapEditorViewController.h"
 
+#import "CMPMap.h"
+
 @interface CMPMapEditorViewController ()
+
+@property (nonatomic, readwrite) CMPMap *map;
+
+@property (nonatomic, weak) IBOutlet UIScrollView *scrollView;
 
 @end
 
 @implementation CMPMapEditorViewController
 
+- (instancetype)initWithMap:(CMPMap *)map {
+    self = [super init];
+    if (self) {
+        _map = map;
+    }
+    return self;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+
 }
 
 - (void)didReceiveMemoryWarning {

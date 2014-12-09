@@ -8,6 +8,12 @@
 
 @import UIKit;
 
+@class CMPMap;
+
 @interface CMPMapEditorViewController : UIViewController
+
+@property (nonatomic, readonly) CMPMap *map;
+
+- (instancetype)initWithMap:(CMPMap *)map;
 
 @end
