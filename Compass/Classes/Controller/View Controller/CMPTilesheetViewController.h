@@ -10,10 +10,20 @@
 
 @class CMPTilesheet;
 
+@protocol CMPTilesheetViewControllerDelegate;
+
 @interface CMPTilesheetViewController : UICollectionViewController
 
 @property (nonatomic, readonly) CMPTilesheet *tilesheet;
 
+@property (nonatomic, weak) id <CMPTilesheetViewControllerDelegate> delegate;
+
 - (instancetype)initWithTilesheet:(CMPTilesheet *)tilesheet;
+
+@end
+
+@protocol CMPTilesheetViewControllerDelegate <NSObject>
+
+- (void)tilesheetViewController:(CMPTilesheetViewController *)viewController didSelectTileAtIndex:(NSUInteger)tileIndex;
 
 @end
