@@ -138,6 +138,8 @@
 				5F2BFFE61A367CF60023FF05 /* CMPProjectViewController.m */,
 			);
 			path = "View Controller";
+            sourceTree = "<group>";
+        };
 		C316E61F1A34CF5C00446FD6 /* Products */ = {
 			isa = PBXGroup;
 			children = (
