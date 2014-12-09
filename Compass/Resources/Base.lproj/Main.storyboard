@@ -36,10 +36,10 @@
             </objects>
             <point key="canvasLocation" x="-918" y="1724"/>
         </scene>
-        <!--Split View Controller-->
+        <!--Project View Controller-->
         <scene sceneID="RIN-Lc-jgy">
             <objects>
-                <splitViewController id="aKG-U8-AeS" sceneMemberID="viewController">
+                <splitViewController id="aKG-U8-AeS" customClass="CMPProjectViewController" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="kk6-Qr-zJg"/>
                     <connections>
                         <segue destination="eL8-ai-jsP" kind="relationship" relationship="masterViewController" id="Kcd-yk-ZL0"/>
@@ -114,7 +114,13 @@
                             <outlet property="delegate" destination="AmY-mR-JF7" id="Foc-FX-fg3"/>
                         </connections>
                     </collectionView>
-                    <navigationItem key="navigationItem" id="5ax-Hi-4WF"/>
+                    <navigationItem key="navigationItem" id="5ax-Hi-4WF">
+                        <barButtonItem key="rightBarButtonItem" title="Edit Project" id="44A-TY-SuN">
+                            <connections>
+                                <action selector="editProject:" destination="AmY-mR-JF7" id="dDG-4b-ub9"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <segue destination="6LS-bh-TVn" kind="presentation" identifier="CMPShowEditorSegue" id="1XQ-z2-lZ9"/>
                     </connections>
