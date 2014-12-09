@@ -8,6 +8,10 @@
 
 @import UIKit;
 
+@class CMPMap;
+
 @interface CMPProjectViewController : UISplitViewController
+
+@property (nonatomic) CMPMap *map;
 
 @end

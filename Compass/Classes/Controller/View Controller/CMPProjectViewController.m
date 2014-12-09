@@ -8,6 +8,8 @@
 
 #import "CMPProjectViewController.h"
 
+#import "CMPMap.h"
+
 @interface CMPProjectViewController ()
 
 @end
@@ -17,6 +19,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    NSLog(@"%@", self.viewControllers);
 }
 
 - (void)didReceiveMemoryWarning {
