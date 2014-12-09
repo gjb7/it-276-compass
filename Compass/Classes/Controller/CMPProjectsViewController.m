@@ -30,7 +30,7 @@ static NSString * const CMPShowEditorSegueIdentifier = @"CMPShowEditorSegue";
     // Dispose of any resources that can be recreated.
 }
 
-- (void)addProject:(id)sender {
+- (IBAction)addProject:(id)sender {
     NSURL *temporaryDirectoryURL = [NSURL fileURLWithPath:NSTemporaryDirectory() isDirectory:YES];
     NSURL *projectURL = [temporaryDirectoryURL URLByAppendingPathComponent:[NSString stringWithFormat:@"%lu.map", (unsigned long)[[NSDate date] timeIntervalSinceNow]]];
     CMPMap *map = [[CMPMap alloc] initWithFileURL:projectURL];
