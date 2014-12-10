@@ -29,6 +29,7 @@
 - (void)drawRect:(CGRect)rect {
     CGImageRef sprite = self.tilesheet.sprite.CGImage;
     NSUInteger columnCount = self.tilesheet.sprite.size.width / CMPTilesheetTileSize.width;
+    CGContextRef context = UIGraphicsGetCurrentContext();
     
     uint8_t *bytes = (uint8_t *)self.layerData.bytes;
     for (NSInteger i = 0; i < self.layerData.length; i++) {
@@ -41,8 +42,6 @@
         
         CGImageRef drawImage = CGImageCreateWithImageInRect(sprite, fromRect);
         if (drawImage != NULL) {
-            CGContextRef context = UIGraphicsGetCurrentContext();
-            
             // Push current graphics state so we can restore later
             CGContextSaveGState(context);
             
