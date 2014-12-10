@@ -64,10 +64,25 @@
             CGContextRestoreGState(context); 
         }
     }
+    
+    if (!self.isActive) {
+        CGContextSetFillColorWithColor(context, [UIColor colorWithWhite:0.0 alpha:0.5].CGColor);
+        CGContextFillRect(context, self.bounds);
+    }
 }
 
 - (CGSize)intrinsicContentSize {
     return CGSizeMake(self.layerSize.width * CMPTilesheetTileSize.width, self.layerSize.height * CMPTilesheetTileSize.height);
+}
+
+- (void)setActive:(BOOL)active {
+    if (_active == active) {
+        return;
+    }
+    
+    _active = active;
+    
+    [self setNeedsDisplay];
 }
 
 - (void)setTilesheet:(CMPTilesheet *)tilesheet {
