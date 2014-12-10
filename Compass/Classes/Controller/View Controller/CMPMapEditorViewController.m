@@ -76,9 +76,14 @@
     [self.view setNeedsLayout];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)setMap:(CMPMap *)map {
+    if (_map == map) {
+        return;
+    }
+    
+    _map = map;
+    
+    [self configureMapViewWithMap:_map];
 }
 
 /*
