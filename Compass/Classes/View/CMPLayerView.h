@@ -14,7 +14,7 @@
 
 @property (nonatomic) CMPTilesheet *tilesheet;
 @property (nonatomic) CGSize layerSize;
-@property (nonatomic) NSData *layerData;
+@property (nonatomic, copy) NSData *layerData;
 
 @property (nonatomic, getter=isActive) BOOL active;
 

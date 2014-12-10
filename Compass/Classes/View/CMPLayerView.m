@@ -11,6 +11,12 @@
 
 @import QuartzCore;
 
+@interface CMPLayerView ()
+
+@property (nonatomic, copy) NSMutableData *mutableLayerData;
+
+@end
+
 @implementation CMPLayerView
 
 - (instancetype)initWithLayerSize:(CGSize)layerSize tilesheet:(CMPTilesheet *)tilesheet {
@@ -101,9 +107,13 @@
 }
 
 - (void)setLayerData:(NSData *)layerData {
-    _layerData = layerData;
+    self.mutableLayerData = [layerData mutableCopy];
     
     [self setNeedsDisplay];
+}
+
+- (NSData *)layerData {
+    return self.mutableLayerData;
 }
 
 - (void)setLayerSize:(CGSize)layerSize {
