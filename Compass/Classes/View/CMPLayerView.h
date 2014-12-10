@@ -20,4 +20,7 @@
 
 - (instancetype)initWithLayerSize:(CGSize)layerSize tilesheet:(CMPTilesheet *)tilesheet;
 
+- (void)setTile:(uint8_t)tile atIndex:(NSUInteger)tileIndex;
+- (uint8_t)tileAtIndex:(NSUInteger)tileIndex;
+
 @end

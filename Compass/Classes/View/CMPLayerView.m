@@ -122,4 +122,17 @@
     [self setNeedsDisplay];
 }
 
+- (void)setTile:(uint8_t)tile atIndex:(NSUInteger)tileIndex {
+    NSUInteger size = sizeof(tile);
+    [self.mutableLayerData replaceBytesInRange:NSMakeRange(tileIndex, size) withBytes:&tile length:size];
+    
+    // TODO: At some point in the future, we could just redraw the area that contains the tile and that's it.
+    [self setNeedsDisplay];
+}
+
+- (uint8_t)tileAtIndex:(NSUInteger)tileIndex {
+    uint8_t *bytes = (uint8_t *)self.mutableLayerData.bytes;
+    return bytes[tileIndex];
+}
+
 @end
