@@ -39,6 +39,7 @@
     self.scrollView.panGestureRecognizer.maximumNumberOfTouches = 2;
     
     [self setUpMapView];
+    [self configureMapViewWithMap:self.map];
 }
 
 - (void)setUpMapView {
@@ -62,6 +63,17 @@
                                                                  constant:0.0]];
 }
 
+- (void)configureMapViewWithMap:(CMPMap *)map {
+    self.mapView.tilesheet = map.tilesheet;
+    self.mapView.mapSize = map.size;
+    
+    self.scrollView.zoomScale = 1.0;
+    self.scrollView.contentOffset = CGPointZero;
+    
+    CGSize mapViewContentSize = self.mapView.intrinsicContentSize;
+    self.scrollView.contentSize = CGSizeMake(MAX(CGRectGetWidth(self.view.frame), mapViewContentSize.width), MAX(CGRectGetHeight(self.view.frame), mapViewContentSize.height));
+    
+    [self.view setNeedsLayout];
 }
 
 - (void)didReceiveMemoryWarning {
