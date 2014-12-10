@@ -10,11 +10,15 @@
 
 #import "CMPMap.h"
 
+#import "CMPMapView.h"
+
 @interface CMPMapEditorViewController ()
 
 @property (nonatomic, readwrite) CMPMap *map;
 
 @property (nonatomic, weak) IBOutlet UIScrollView *scrollView;
+
+@property (nonatomic) CMPMapView *mapView;
 
 @end
 
@@ -33,6 +37,30 @@
     
     self.scrollView.panGestureRecognizer.minimumNumberOfTouches = 2;
     self.scrollView.panGestureRecognizer.maximumNumberOfTouches = 2;
+    
+    [self setUpMapView];
+}
+
+- (void)setUpMapView {
+    self.mapView = [[CMPMapView alloc] initWithMapSize:self.map.size tilesheet:self.map.tilesheet];
+    [self.scrollView addSubview:self.mapView];
+    
+    [self.scrollView addConstraint:[NSLayoutConstraint constraintWithItem:self.mapView
+                                                                attribute:NSLayoutAttributeCenterX
+                                                                relatedBy:NSLayoutRelationEqual
+                                                                   toItem:self.scrollView
+                                                                attribute:NSLayoutAttributeCenterX
+                                                               multiplier:1.0
+                                                                 constant:0.0]];
+    
+    [self.scrollView addConstraint:[NSLayoutConstraint constraintWithItem:self.mapView
+                                                                attribute:NSLayoutAttributeCenterY
+                                                                relatedBy:NSLayoutRelationEqual
+                                                                   toItem:self.scrollView
+                                                                attribute:NSLayoutAttributeCenterY
+                                                               multiplier:1.0
+                                                                 constant:0.0]];
+}
 
 }
 
