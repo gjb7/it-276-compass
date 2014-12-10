@@ -31,6 +31,12 @@
     NSUInteger columnCount = self.tilesheet.sprite.size.width / CMPTilesheetTileSize.width;
     CGContextRef context = UIGraphicsGetCurrentContext();
     
+    CGContextSaveGState(context);
+    
+    if (!self.isActive) {
+        CGContextSetFillColorWithColor(context, [UIColor colorWithWhite:0.0 alpha:0.5].CGColor);
+    }
+    
     uint8_t *bytes = (uint8_t *)self.layerData.bytes;
     for (NSInteger i = 0; i < self.layerData.length; i++) {
         NSUInteger x = (i % (NSUInteger)self.layerSize.width) * CMPTilesheetTileSize.width;
@@ -54,6 +60,12 @@
             // Then accommodate the translate by adjusting the draw rect
             drawRect.origin.y = 0.0f;
             
+            if (!self.isActive) {
+                CGContextFillRect(context, drawRect);
+                
+                CGContextSetBlendMode(context, kCGBlendModeDestinationIn);
+            }
+            
             // Draw the image
             CGContextDrawImage(context, drawRect, drawImage);
             
@@ -65,10 +77,7 @@
         }
     }
     
-    if (!self.isActive) {
-        CGContextSetFillColorWithColor(context, [UIColor colorWithWhite:0.0 alpha:0.5].CGColor);
-        CGContextFillRect(context, self.bounds);
-    }
+    CGContextRestoreGState(context);
 }
 
 - (CGSize)intrinsicContentSize {
