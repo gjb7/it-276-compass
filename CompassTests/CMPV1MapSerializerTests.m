@@ -24,11 +24,9 @@
     CMPMap *map = [[CMPMap alloc] initWithFileURL:temporaryMapFileURL];
     map.size = CGSizeMake(5.0, 5.0);
     
-    uint8_t *layerBytes = malloc(25 * sizeof(uint8_t));
-    memcpy(layerBytes, (uint8_t[]){
+    [map.layers addObject:[NSData dataWithBytes:(uint8_t[]){
         0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01
-    }, 100);
-    [map.layers addObject:[NSValue valueWithPointer:layerBytes]];
+    } length:25 * sizeof(uint8_t)]];
     
     CMPV1MapSerializer *serializer = [[CMPV1MapSerializer alloc] init];
     NSData *serializedMap = [serializer serializeMap:map];
