@@ -8,6 +8,14 @@
 
 @import UIKit;
 
+@class CMPTilesheet;
+
 @interface CMPLayerView : UIView
+
+@property (nonatomic) CMPTilesheet *tilesheet;
+@property (nonatomic) CGSize layerSize;
+@property (nonatomic) NSData *layerData;
+
+- (instancetype)initWithLayerSize:(CGSize)layerSize tilesheet:(CMPTilesheet *)tilesheet;
 
 @end
