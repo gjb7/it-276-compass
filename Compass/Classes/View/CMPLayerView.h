@@ -16,6 +16,8 @@
 @property (nonatomic) CGSize layerSize;
 @property (nonatomic) NSData *layerData;
 
+@property (nonatomic, getter=isActive) BOOL active;
+
 - (instancetype)initWithLayerSize:(CGSize)layerSize tilesheet:(CMPTilesheet *)tilesheet;
 
 @end
