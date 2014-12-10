@@ -39,12 +39,11 @@
     uint8_t layerCountBuffer[3] = { 'L', (uint8_t)layers.count, ';' };
     [buffer appendBytes:layerCountBuffer length:3];
     
-    uint32_t layerSize = (uint8_t)size.width * (uint8_t)size.height;
-    [layers enumerateObjectsUsingBlock:^(NSValue *layerValue, NSUInteger idx, BOOL *stop) {
+    [layers enumerateObjectsUsingBlock:^(NSData *layerData, NSUInteger idx, BOOL *stop) {
         uint8_t layer = 'l';
         [buffer appendBytes:&layer length:1];
         
-        [buffer appendBytes:layerValue.pointerValue length:layerSize];
+        [buffer appendData:layerData];
         
         uint8_t semicolon = ';';
         [buffer appendBytes:&semicolon length:1];

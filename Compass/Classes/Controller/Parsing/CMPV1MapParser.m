@@ -170,8 +170,8 @@
                 // I dunno why it's doing that, but it's doing that. Really weird!
                 startIndex += width * height;
                 
-                NSValue *layerValue = [NSValue valueWithPointer:layer];
-                [layers addObject:layerValue];
+                NSData *layerData = [NSData dataWithBytesNoCopy:layer length:width * height];
+                [layers addObject:layerData];
                 
                 break;
             }
@@ -283,12 +283,6 @@
     return YES;
     
 cleanup:
-    
-    [layers enumerateObjectsUsingBlock:^(NSValue *layerValue, NSUInteger idx, BOOL *stop) {
-        uint8_t *layerData = [layerValue pointerValue];
-        free(layerData);
-    }];
-    
     return NO;
 }
 
