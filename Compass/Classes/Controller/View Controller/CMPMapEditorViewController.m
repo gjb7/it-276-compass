@@ -30,6 +30,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.scrollView.panGestureRecognizer.minimumNumberOfTouches = 2;
+    self.scrollView.panGestureRecognizer.maximumNumberOfTouches = 2;
 
 }
 
