@@ -21,7 +21,7 @@
 - (instancetype)initWithTilesheet:(CMPTilesheet *)tilesheet {
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
     
-    CGSize itemSize = CMPTilesheetTileSize;
+    CGSize itemSize = CGSizeMake(CMPTilesheetTileSize.width * 2, CMPTilesheetTileSize.height * 2);
     itemSize.width += CMPTileCellSelectedBorderWidth * 2;
     itemSize.height += CMPTileCellSelectedBorderWidth * 2;
     layout.itemSize = itemSize;
