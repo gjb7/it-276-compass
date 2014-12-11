@@ -35,6 +35,12 @@
     // Do any additional setup after loading the view.
 }
 
+- (void)setTilesheet:(CMPTilesheet *)tilesheet {
+    _tilesheet = tilesheet;
+    
+    [self.collectionView reloadData];
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
