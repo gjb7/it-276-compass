@@ -12,7 +12,7 @@
 
 @interface CMPMapEditorViewController : UIViewController
 
-@property (nonatomic, readonly) CMPMap *map;
+@property (nonatomic) CMPMap *map;
 
 - (instancetype)initWithMap:(CMPMap *)map;
 
