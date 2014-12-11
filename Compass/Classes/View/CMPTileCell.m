@@ -26,6 +26,11 @@ const CGFloat CMPTileCellSelectedBorderWidth = 2.0;
     self.imageView = [[UIImageView alloc] initWithFrame:CGRectZero];
     self.imageView.layer.borderColor = [UIColor blueColor].CGColor;
     [self.contentView addSubview:self.imageView];
+    
+    NSDictionary *views = @{ @"imageView": self.imageView };
+    NSDictionary *metrics = @{ @"spacing": @(CMPTileCellSelectedBorderWidth) };
+    [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-(spacing)-[imageView]-(spacing)-|" options:0 metrics:metrics views:views]];
+    [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(spacing)-[imageView]-(spacing)-|" options:0 metrics:metrics views:views]];
 }
 
 #pragma mark - UICollectionViewCell
