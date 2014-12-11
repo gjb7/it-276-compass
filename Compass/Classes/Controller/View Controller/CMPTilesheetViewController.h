@@ -14,11 +14,9 @@
 
 @interface CMPTilesheetViewController : UICollectionViewController
 
-@property (nonatomic, readonly) CMPTilesheet *tilesheet;
+@property (nonatomic) CMPTilesheet *tilesheet;
 
 @property (nonatomic, weak) id <CMPTilesheetViewControllerDelegate> delegate;
-
-- (instancetype)initWithTilesheet:(CMPTilesheet *)tilesheet;
 
 @end
 

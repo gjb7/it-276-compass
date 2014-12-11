@@ -12,29 +12,19 @@
 
 @interface CMPTilesheetViewController ()
 
-@property (nonatomic, readwrite) CMPTilesheet *tilesheet;
-
 @end
 
 @implementation CMPTilesheetViewController
 
-- (instancetype)initWithTilesheet:(CMPTilesheet *)tilesheet {
-    UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
+- (void)viewDidLoad {
+    [super viewDidLoad];
     
     CGSize itemSize = CGSizeMake(CMPTilesheetTileSize.width * 2, CMPTilesheetTileSize.height * 2);
     itemSize.width += CMPTileCellSelectedBorderWidth * 2;
     itemSize.height += CMPTileCellSelectedBorderWidth * 2;
-    layout.itemSize = itemSize;
     
-    self = [super initWithCollectionViewLayout:layout];
-    if (self) {
-        _tilesheet = tilesheet;
-    }
-    return self;
-}
-
-- (void)viewDidLoad {
-    [super viewDidLoad];
+    UICollectionViewFlowLayout *flowLayout = (UICollectionViewFlowLayout *)self.collectionViewLayout;
+    flowLayout.itemSize = itemSize;
     
     // Uncomment the following line to preserve selection between presentations
     // self.clearsSelectionOnViewWillAppear = NO;
