@@ -90,6 +90,39 @@
     return CGSizeMake(self.layerSize.width * CMPTilesheetTileSize.width, self.layerSize.height * CMPTilesheetTileSize.height);
 }
 
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    if (!self.isEditing) {
+        return;
+    }
+    
+    UITouch *touch = [touches anyObject];
+    CGPoint locationInView = [touch locationInView:self];
+    CGPoint calculatedLocation = CGPointMake(floor(locationInView.x / CMPTilesheetTileSize.width), floor(locationInView.y / CMPTilesheetTileSize.height));
+    
+    [self.delegate layerView:self didTouchTileAtPoint:calculatedLocation];
+}
+
+- (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
+    if (!self.isEditing) {
+        return;
+    }
+    
+    UITouch *touch = [touches anyObject];
+    CGPoint locationInView = [touch locationInView:self];
+    CGPoint previousLocationInView = [touch previousLocationInView:self];
+    
+    CGPoint calculatedLocation = CGPointMake(floor(locationInView.x / CMPTilesheetTileSize.width), floor(locationInView.y / CMPTilesheetTileSize.height));
+    CGPoint calculatedPreviousLocation = CGPointMake(floor(previousLocationInView.x / CMPTilesheetTileSize.width), floor(previousLocationInView.y / CMPTilesheetTileSize.height));
+    
+    if (CGPointEqualToPoint(calculatedLocation, calculatedPreviousLocation)) {
+        return;
+    }
+    
+    [self.delegate layerView:self didTouchTileAtPoint:calculatedPreviousLocation];
+}
+
+#pragma mark - Accessors
+
 - (void)setActive:(BOOL)active {
     if (_active == active) {
         return;
