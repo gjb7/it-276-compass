@@ -8,6 +8,8 @@
 
 #import "CMPProjectsViewController.h"
 
+#import "CMPProjectViewController.h"
+
 #import "CMPMap.h"
 
 static NSString * const CMPShowEditorSegueIdentifier = @"CMPShowEditorSegue";
@@ -34,6 +36,7 @@ static NSString * const CMPShowEditorSegueIdentifier = @"CMPShowEditorSegue";
     NSURL *temporaryDirectoryURL = [NSURL fileURLWithPath:NSTemporaryDirectory() isDirectory:YES];
     NSURL *projectURL = [temporaryDirectoryURL URLByAppendingPathComponent:[NSString stringWithFormat:@"%lu.map", (unsigned long)[[NSDate date] timeIntervalSinceNow]]];
     CMPMap *map = [[CMPMap alloc] initWithFileURL:projectURL];
+    map.size = CGSizeMake(10.0, 10.0);
     [self showEditorWithMap:map];
 }
 
@@ -43,7 +46,8 @@ static NSString * const CMPShowEditorSegueIdentifier = @"CMPShowEditorSegue";
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:CMPShowEditorSegueIdentifier]) {
-        
+        CMPProjectViewController *projectViewController = (CMPProjectViewController *)segue.destinationViewController;
+        projectViewController.map = (CMPMap *)sender;
     }
 }
 
