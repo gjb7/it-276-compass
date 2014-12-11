@@ -34,7 +34,7 @@
 
 - (void)drawRect:(CGRect)rect {
     CGImageRef sprite = self.tilesheet.sprite.CGImage;
-    NSUInteger columnCount = self.tilesheet.sprite.size.width / CMPTilesheetTileSize.width;
+    NSUInteger columnCount = self.tilesheet.numberOfColumns;
     CGContextRef context = UIGraphicsGetCurrentContext();
     
     CGContextSaveGState(context);
