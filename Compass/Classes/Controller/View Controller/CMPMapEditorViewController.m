@@ -15,8 +15,6 @@
 
 @interface CMPMapEditorViewController () <CMPMapViewDelegate>
 
-@property (nonatomic, readwrite) CMPMap *map;
-
 @property (nonatomic, weak) IBOutlet UIScrollView *scrollView;
 
 @property (nonatomic) CMPMapView *mapView;
