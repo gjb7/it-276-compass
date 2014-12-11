@@ -28,7 +28,7 @@
     self.tilesheetViewController = self.viewControllers[0];
     self.mapEditorViewController = self.viewControllers[1];
     
-    
+    self.mapEditorViewController.map = self.map;
     
     UIBarButtonItem *projectsBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Projects", nil) style:UIBarButtonItemStylePlain target:self action:@selector(closeProject:)];
     
