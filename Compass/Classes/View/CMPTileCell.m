@@ -24,6 +24,7 @@ const CGFloat CMPTileCellSelectedBorderWidth = 2.0;
 
 - (void)setUpImageView {
     self.imageView = [[UIImageView alloc] initWithFrame:CGRectZero];
+    self.imageView.contentMode = UIViewContentModeScaleAspectFit;
     self.imageView.layer.borderColor = [UIColor blueColor].CGColor;
     [self.contentView addSubview:self.imageView];
     
