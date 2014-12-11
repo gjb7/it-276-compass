@@ -12,6 +12,20 @@
 
 @implementation CMPTileCell
 
+- (instancetype)initWithFrame:(CGRect)frame {
+    self = [super initWithFrame:frame];
+    if (self) {
+        [self setUpImageView];
+    }
+    return self;
+}
+
+- (void)setUpImageView {
+    self.imageView = [[UIImageView alloc] initWithFrame:CGRectZero];
+    self.imageView.layer.borderColor = [UIColor blueColor].CGColor;
+    [self.contentView addSubview:self.imageView];
+}
+
 - (void)setTileIndex:(uint8_t)tileIndex inImage:(UIImage *)image {
     _tileIndex = tileIndex;
     
