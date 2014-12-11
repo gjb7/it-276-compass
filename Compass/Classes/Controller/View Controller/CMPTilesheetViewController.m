@@ -8,6 +8,7 @@
 
 #import "CMPTilesheetViewController.h"
 #import "CMPTilesheet.h"
+#import "CMPTileCell.h"
 
 @interface CMPTilesheetViewController ()
 
@@ -17,15 +18,12 @@
 
 @implementation CMPTilesheetViewController
 
-static NSString * const reuseIdentifier = @"Cell";
-
 - (instancetype)initWithTilesheet:(CMPTilesheet *)tilesheet {
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
     
     CGSize itemSize = CMPTilesheetTileSize;
-    // TODO: Change these to constants.
-    itemSize.width += 4.0;
-    itemSize.height += 4.0;
+    itemSize.width += CMPTileCellSelectedBorderWidth * 2;
+    itemSize.height += CMPTileCellSelectedBorderWidth * 2;
     layout.itemSize = itemSize;
     
     self = [super initWithCollectionViewLayout:layout];
@@ -42,7 +40,7 @@ static NSString * const reuseIdentifier = @"Cell";
     // self.clearsSelectionOnViewWillAppear = NO;
     
     // Register cell classes
-    [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
+    [self.collectionView registerClass:[CMPTileCell class] forCellWithReuseIdentifier:NSStringFromClass([CMPTileCell class])];
     
     // Do any additional setup after loading the view.
 }
@@ -69,9 +67,10 @@ static NSString * const reuseIdentifier = @"Cell";
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
+    NSString *reuseIdentifier = NSStringFromClass([CMPTileCell class]);
+    CMPTileCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
     
-    // Configure the cell
+    [cell setTileIndex:indexPath.row inTilesheet:self.tilesheet];
     
     return cell;
 }
