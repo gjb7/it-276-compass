@@ -13,7 +13,7 @@
 
 #import "CMPMap.h"
 
-@interface CMPProjectViewController ()
+@interface CMPProjectViewController () <CMPTilesheetViewControllerDelegate>
 
 @property (nonatomic) CMPMapEditorViewController *mapEditorViewController;
 @property (nonatomic) CMPTilesheetViewController *tilesheetViewController;
@@ -27,6 +27,8 @@
     
     self.tilesheetViewController = self.viewControllers[0];
     self.mapEditorViewController = self.viewControllers[1];
+    
+    self.tilesheetViewController.delegate = self;
     
     self.mapEditorViewController.map = self.map;
     
@@ -62,6 +64,12 @@
 
 - (void)showInfo:(id)sender {
     
+}
+
+#pragma mark - CMPTilesheetViewControllerDelegate
+
+- (void)tilesheetViewController:(CMPTilesheetViewController *)viewController didSelectTileAtIndex:(uint8_t)tileIndex {
+    self.mapEditorViewController.selectedTileIndex = tileIndex;
 }
 
 @end
