@@ -8,6 +8,52 @@
 
 #import "CMPTileCell.h"
 
+#import "CMPTilesheet.h"
+
 @implementation CMPTileCell
+
+- (void)setTileIndex:(uint8_t)tileIndex inImage:(UIImage *)image {
+    _tileIndex = tileIndex;
+    
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        UIGraphicsBeginImageContextWithOptions(CMPTilesheetTileSize, NO, 1.0);
+        CGContextRef context = UIGraphicsGetCurrentContext();
+        
+        NSUInteger columnCount = image.size.width / CMPTilesheetTileSize.width;
+        CGRect fromRect = CGRectMake((tileIndex % columnCount) * CMPTilesheetTileSize.width, floor(tileIndex / columnCount) * CMPTilesheetTileSize.height, CMPTilesheetTileSize.width, CMPTilesheetTileSize.height);
+        CGRect drawRect = CGRectMake(0.0, 0.0, CMPTilesheetTileSize.width, CMPTilesheetTileSize.height);
+        
+        CGImageRef drawImage = CGImageCreateWithImageInRect(image.CGImage, fromRect);
+        if (drawImage != NULL) {
+            // Push current graphics state so we can restore later
+            CGContextSaveGState(context);
+            
+            // Take care of Y-axis inversion problem by translating the context on the y axis
+            CGContextTranslateCTM(context, 0, drawRect.origin.y + fromRect.size.height);
+            
+            // Scaling -1.0 on y-axis to flip
+            CGContextScaleCTM(context, 1.0, -1.0);
+            
+            // Then accommodate the translate by adjusting the draw rect
+            drawRect.origin.y = 0.0f;
+            
+            // Draw the image
+            CGContextDrawImage(context, drawRect, drawImage);
+            
+            // Clean up memory and restore previous state
+            CGImageRelease(drawImage);
+            
+            // Restore previous graphics state to what it was before we tweaked it
+            CGContextRestoreGState(context);
+        }
+        
+        UIImage *tileImage = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            self.imageView.image = tileImage;
+        });
+    });
+}
 
 @end

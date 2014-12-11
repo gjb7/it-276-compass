@@ -10,4 +10,10 @@
 
 @interface CMPTileCell : UICollectionViewCell
 
+@property (nonatomic) uint8_t tileIndex;
+
+@property (nonatomic) UIImageView *imageView;
+
+- (void)setTileIndex:(uint8_t)index inImage:(UIImage *)image;
+
 @end
