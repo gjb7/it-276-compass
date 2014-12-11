@@ -11,8 +11,9 @@
 #import "CMPMap.h"
 
 #import "CMPMapView.h"
+#import "CMPLayerView.h"
 
-@interface CMPMapEditorViewController ()
+@interface CMPMapEditorViewController () <CMPMapViewDelegate>
 
 @property (nonatomic, readwrite) CMPMap *map;
 
@@ -44,6 +45,7 @@
 
 - (void)setUpMapView {
     self.mapView = [[CMPMapView alloc] initWithMapSize:self.map.size tilesheet:self.map.tilesheet];
+    self.mapView.delegate = self;
     [self.scrollView addSubview:self.mapView];
     
     [self.scrollView addConstraint:[NSLayoutConstraint constraintWithItem:self.mapView
@@ -84,6 +86,14 @@
     _map = map;
     
     [self configureMapViewWithMap:_map];
+}
+
+#pragma mark - CMPMapViewDelegate
+
+- (void)mapView:(CMPMapView *)mapView didTouchTileAtPoint:(CGPoint)point inLayerView:(CMPLayerView *)layerView {
+    NSUInteger tileIndex = point.x + (point.y * self.map.size.height);
+    
+    [layerView setTile:0 atIndex:tileIndex];
 }
 
 /*
