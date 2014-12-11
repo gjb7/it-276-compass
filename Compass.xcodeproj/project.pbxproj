@@ -15,6 +15,7 @@
 		C316E63A1A353EFF00446FD6 /* CMPV1MapSerializerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C316E6391A353EFF00446FD6 /* CMPV1MapSerializerTests.m */; };
 		C316E6431A37C71400446FD6 /* CMPMapView.m in Sources */ = {isa = PBXBuildFile; fileRef = C316E6421A37C71400446FD6 /* CMPMapView.m */; };
 		C316E6461A37C71D00446FD6 /* CMPLayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = C316E6451A37C71D00446FD6 /* CMPLayerView.m */; };
+		C316E64C1A39D7F300446FD6 /* CMPTileCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C316E64B1A39D7F300446FD6 /* CMPTileCell.m */; };
 		C32B141C1A2FDD0100B959C4 /* CMPProject.m in Sources */ = {isa = PBXBuildFile; fileRef = C32B141B1A2FDD0100B959C4 /* CMPProject.m */; };
 		C32B141F1A2FE0CD00B959C4 /* CMPMap.m in Sources */ = {isa = PBXBuildFile; fileRef = C32B141E1A2FE0CD00B959C4 /* CMPMap.m */; };
 		C35DB91C1A31EC3C0011FC1C /* CMPTilesheet.m in Sources */ = {isa = PBXBuildFile; fileRef = C35DB91B1A31EC3C0011FC1C /* CMPTilesheet.m */; };
@@ -89,6 +90,8 @@
 		C316E6421A37C71400446FD6 /* CMPMapView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMPMapView.m; sourceTree = "<group>"; };
 		C316E6441A37C71D00446FD6 /* CMPLayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMPLayerView.h; sourceTree = "<group>"; };
 		C316E6451A37C71D00446FD6 /* CMPLayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMPLayerView.m; sourceTree = "<group>"; };
+		C316E64A1A39D7F300446FD6 /* CMPTileCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMPTileCell.h; sourceTree = "<group>"; };
+		C316E64B1A39D7F300446FD6 /* CMPTileCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMPTileCell.m; sourceTree = "<group>"; };
 		C32B141A1A2FDD0100B959C4 /* CMPProject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMPProject.h; sourceTree = "<group>"; };
 		C32B141B1A2FDD0100B959C4 /* CMPProject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMPProject.m; sourceTree = "<group>"; };
 		C32B141D1A2FE0CD00B959C4 /* CMPMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMPMap.h; sourceTree = "<group>"; };
@@ -272,6 +275,8 @@
 				C316E6421A37C71400446FD6 /* CMPMapView.m */,
 				C316E6441A37C71D00446FD6 /* CMPLayerView.h */,
 				C316E6451A37C71D00446FD6 /* CMPLayerView.m */,
+				C316E64A1A39D7F300446FD6 /* CMPTileCell.h */,
+				C316E64B1A39D7F300446FD6 /* CMPTileCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -445,6 +450,7 @@
 				C365E88D1A2FD145000AA8F1 /* CMPAppDelegate.m in Sources */,
 				C316E6351A34D2A100446FD6 /* CMPV1MapSerializer.m in Sources */,
 				C32B141C1A2FDD0100B959C4 /* CMPProject.m in Sources */,
+				C316E64C1A39D7F300446FD6 /* CMPTileCell.m in Sources */,
 				5FACD3C61A366D9A0020E1B8 /* CMPMapEditorViewController.m in Sources */,
 				C35DB9201A31F20E0011FC1C /* CMPMapParser.m in Sources */,
 				C365E8621A2FCFD3000AA8F1 /* main.m in Sources */,
