@@ -38,18 +38,18 @@ const CGFloat CMPTileCellSelectedBorderWidth = 2.0;
 
 #pragma mark - CMPTileCell
 
-- (void)setTileIndex:(uint8_t)tileIndex inImage:(UIImage *)image {
+- (void)setTileIndex:(uint8_t)tileIndex inTilesheet:(CMPTilesheet *)tilesheet {
     _tileIndex = tileIndex;
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         UIGraphicsBeginImageContextWithOptions(CMPTilesheetTileSize, NO, 1.0);
         CGContextRef context = UIGraphicsGetCurrentContext();
         
-        NSUInteger columnCount = image.size.width / CMPTilesheetTileSize.width;
+        NSUInteger columnCount = tilesheet.numberOfColumns;
         CGRect fromRect = CGRectMake((tileIndex % columnCount) * CMPTilesheetTileSize.width, floor(tileIndex / columnCount) * CMPTilesheetTileSize.height, CMPTilesheetTileSize.width, CMPTilesheetTileSize.height);
         CGRect drawRect = CGRectMake(0.0, 0.0, CMPTilesheetTileSize.width, CMPTilesheetTileSize.height);
         
-        CGImageRef drawImage = CGImageCreateWithImageInRect(image.CGImage, fromRect);
+        CGImageRef drawImage = CGImageCreateWithImageInRect(tilesheet.sprite.CGImage, fromRect);
         if (drawImage != NULL) {
             // Push current graphics state so we can restore later
             CGContextSaveGState(context);

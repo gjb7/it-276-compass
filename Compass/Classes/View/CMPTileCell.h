@@ -8,6 +8,8 @@
 
 @import UIKit;
 
+@class CMPTilesheet;
+
 extern const CGFloat CMPTileCellSelectedBorderWidth;
 
 @interface CMPTileCell : UICollectionViewCell
@@ -16,6 +18,6 @@ extern const CGFloat CMPTileCellSelectedBorderWidth;
 
 @property (nonatomic) UIImageView *imageView;
 
-- (void)setTileIndex:(uint8_t)index inImage:(UIImage *)image;
+- (void)setTileIndex:(uint8_t)tileIndex inTilesheet:(CMPTilesheet *)tilesheet;
 
 @end
