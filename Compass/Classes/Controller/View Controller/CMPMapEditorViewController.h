@@ -14,6 +14,8 @@
 
 @property (nonatomic) CMPMap *map;
 
+@property (nonatomic) uint8_t selectedTileIndex;
+
 - (instancetype)initWithMap:(CMPMap *)map;
 
 @end
