@@ -50,6 +50,14 @@
     return _layers;
 }
 
+- (void)setSize:(CGSize)size {
+    _size = size;
+    
+    [self.layers enumerateObjectsUsingBlock:^(NSMutableData *layerData, NSUInteger idx, BOOL *stop) {
+        [layerData setLength:size.width * size.height];
+    }];
+}
+
 - (void)setTilesheetPath:(NSString *)tilesheetPath {
     if ([_tilesheetPath isEqualToString:tilesheetPath]) {
         return;
