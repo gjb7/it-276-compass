@@ -29,6 +29,67 @@
     return self;
 }
 
+#pragma mark - Touch Handling
+
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    if (!self.isEditing) {
+        return;
+    }
+    
+    UITouch *touch = [touches anyObject];
+    CGPoint locationInView = [touch locationInView:self];
+    CGPoint calculatedLocation = CGPointMake(floor(locationInView.x / CMPTilesheetTileSize.width), floor(locationInView.y / CMPTilesheetTileSize.height));
+    
+    __block CMPLayerView *layerView;
+    [self.layerViews enumerateObjectsUsingBlock:^(CMPLayerView *aLayerView, NSUInteger idx, BOOL *stop) {
+        if (aLayerView.isActive) {
+            layerView = aLayerView;
+            
+            *stop = YES;
+        }
+    }];
+    
+    if (!layerView) {
+        return;
+    }
+    
+    [self.delegate mapView:self didTouchTileAtPoint:calculatedLocation inLayerView:layerView];
+}
+
+- (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
+    if (!self.isEditing) {
+        return;
+    }
+    
+    UITouch *touch = [touches anyObject];
+    CGPoint locationInView = [touch locationInView:self];
+    CGPoint previousLocationInView = [touch previousLocationInView:self];
+    
+    CGPoint calculatedLocation = CGPointMake(floor(locationInView.x / CMPTilesheetTileSize.width), floor(locationInView.y / CMPTilesheetTileSize.height));
+    CGPoint calculatedPreviousLocation = CGPointMake(floor(previousLocationInView.x / CMPTilesheetTileSize.width), floor(previousLocationInView.y / CMPTilesheetTileSize.height));
+    
+    if (CGPointEqualToPoint(calculatedLocation, calculatedPreviousLocation)) {
+        return;
+    }
+    
+    __block CMPLayerView *layerView;
+    [self.layerViews enumerateObjectsUsingBlock:^(CMPLayerView *aLayerView, NSUInteger idx, BOOL *stop) {
+        if (aLayerView.isActive) {
+            layerView = aLayerView;
+            
+            *stop = YES;
+        }
+    }];
+    
+    if (!layerView) {
+        return;
+    }
+    
+    [self.delegate mapView:self didTouchTileAtPoint:calculatedPreviousLocation inLayerView:layerView];
+}
+
+#pragma mark -
+
 - (void)setTilesheet:(CMPTilesheet *)tilesheet {
     _tilesheet = tilesheet;
     
@@ -66,6 +127,16 @@
     [self.layerViews enumerateObjectsUsingBlock:^(CMPLayerView *layerView, NSUInteger idx, BOOL *stop) {
         layerView.layerData = _layers[idx];
     }];
+}
+
+#pragma mark - CMPLayerViewDelegate
+
+- (void)layerView:(CMPLayerView *)layerView didTouchTileAtPoint:(CGPoint)point {
+    if (!layerView.isActive) {
+        return;
+    }
+    
+    [self.delegate mapView:self didTouchTileAtPoint:point inLayerView:layerView];
 }
 
 @end
