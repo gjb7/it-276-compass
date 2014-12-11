@@ -8,6 +8,8 @@
 
 @import UIKit;
 
+extern const CGFloat CMPTileCellSelectedBorderWidth;
+
 @interface CMPTileCell : UICollectionViewCell
 
 @property (nonatomic) uint8_t tileIndex;

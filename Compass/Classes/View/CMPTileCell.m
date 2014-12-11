@@ -10,6 +10,8 @@
 
 #import "CMPTilesheet.h"
 
+const CGFloat CMPTileCellSelectedBorderWidth = 2.0;
+
 @implementation CMPTileCell
 
 - (instancetype)initWithFrame:(CGRect)frame {
@@ -25,6 +27,16 @@
     self.imageView.layer.borderColor = [UIColor blueColor].CGColor;
     [self.contentView addSubview:self.imageView];
 }
+
+#pragma mark - UICollectionViewCell
+
+- (void)setSelected:(BOOL)selected {
+    [super setSelected:selected];
+    
+    self.imageView.layer.borderWidth = selected ? CMPTileCellSelectedBorderWidth : 0.0;
+}
+
+#pragma mark - CMPTileCell
 
 - (void)setTileIndex:(uint8_t)tileIndex inImage:(UIImage *)image {
     _tileIndex = tileIndex;
