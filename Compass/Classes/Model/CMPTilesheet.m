@@ -27,11 +27,11 @@ const CGSize CMPTilesheetTileSize = { 16.0, 16.0 };
 }
 
 - (NSUInteger)numberOfColumns {
-    return ceilf(self.sprite.size.width / 16.0);
+    return ceilf(self.sprite.size.width / CMPTilesheetTileSize.width);
 }
 
 - (NSUInteger)numberOfRows {
-    return ceilf(self.sprite.size.height / 16.0);
+    return ceilf(self.sprite.size.height / CMPTilesheetTileSize.height);
 }
 
 @end
