@@ -24,6 +24,6 @@
 
 @protocol CMPTilesheetViewControllerDelegate <NSObject>
 
-- (void)tilesheetViewController:(CMPTilesheetViewController *)viewController didSelectTileAtIndex:(NSUInteger)tileIndex;
+- (void)tilesheetViewController:(CMPTilesheetViewController *)viewController didSelectTileAtIndex:(uint8_t)tileIndex;
 
 @end
