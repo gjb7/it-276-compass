@@ -170,7 +170,7 @@
                 // I dunno why it's doing that, but it's doing that. Really weird!
                 startIndex += width * height;
                 
-                NSData *layerData = [NSData dataWithBytesNoCopy:layer length:width * height];
+                NSMutableData *layerData = [NSMutableData dataWithBytesNoCopy:layer length:width * height];
                 [layers addObject:layerData];
                 
                 break;
