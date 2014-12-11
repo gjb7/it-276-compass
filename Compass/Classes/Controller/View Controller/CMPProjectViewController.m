@@ -8,9 +8,15 @@
 
 #import "CMPProjectViewController.h"
 
+#import "CMPMapEditorViewController.h"
+#import "CMPTilesheetViewController.h"
+
 #import "CMPMap.h"
 
 @interface CMPProjectViewController ()
+
+@property (nonatomic) CMPMapEditorViewController *mapEditorViewController;
+@property (nonatomic) CMPTilesheetViewController *tilesheetViewController;
 
 @end
 
@@ -18,6 +24,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.tilesheetViewController = self.viewControllers[0];
+    self.mapEditorViewController = self.viewControllers[1];
+    
+    
     
     UIBarButtonItem *projectsBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Projects", nil) style:UIBarButtonItemStylePlain target:self action:@selector(closeProject:)];
     
