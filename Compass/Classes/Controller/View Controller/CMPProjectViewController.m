@@ -28,6 +28,7 @@
     self.tilesheetViewController = self.viewControllers[0];
     self.mapEditorViewController = self.viewControllers[1];
     
+    self.tilesheetViewController.tilesheet = self.map.tilesheet;
     self.tilesheetViewController.delegate = self;
     
     self.mapEditorViewController.map = self.map;
