@@ -10,7 +10,7 @@
 
 @class CMPMap;
 
-@interface CMPProjectViewController : UISplitViewController
+@interface CMPLevelViewController : UISplitViewController
 
 @property (nonatomic) CMPMap *map;
 

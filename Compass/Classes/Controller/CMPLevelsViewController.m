@@ -6,24 +6,24 @@
 //  Copyright (c) 2014 Grant Butler. All rights reserved.
 //
 
-#import "CMPProjectsViewController.h"
+#import "CMPLevelsViewController.h"
 
-#import "CMPProjectViewController.h"
+#import "CMPLevelViewController.h"
 
 #import "CMPMap.h"
 
 static NSString * const CMPShowEditorSegueIdentifier = @"CMPShowEditorSegue";
 
-@interface CMPProjectsViewController ()
+@interface CMPLevelsViewController ()
 
 @end
 
-@implementation CMPProjectsViewController
+@implementation CMPLevelsViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addProject:)];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addLevel:)];
     self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
@@ -32,10 +32,8 @@ static NSString * const CMPShowEditorSegueIdentifier = @"CMPShowEditorSegue";
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)addProject:(id)sender {
-    NSURL *temporaryDirectoryURL = [NSURL fileURLWithPath:NSTemporaryDirectory() isDirectory:YES];
-    NSURL *projectURL = [temporaryDirectoryURL URLByAppendingPathComponent:[NSString stringWithFormat:@"%lu.map", (unsigned long)[[NSDate date] timeIntervalSinceNow]]];
-    CMPMap *map = [[CMPMap alloc] initWithFileURL:projectURL];
+- (IBAction)addLevel:(id)sender {
+    CMPMap *map = [[CMPMap alloc] init];
     map.size = CGSizeMake(10.0, 10.0);
     [self showEditorWithMap:map];
 }
@@ -46,7 +44,7 @@ static NSString * const CMPShowEditorSegueIdentifier = @"CMPShowEditorSegue";
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:CMPShowEditorSegueIdentifier]) {
-        CMPProjectViewController *projectViewController = (CMPProjectViewController *)segue.destinationViewController;
+        CMPLevelViewController *projectViewController = (CMPLevelViewController *)segue.destinationViewController;
         projectViewController.map = (CMPMap *)sender;
     }
 }

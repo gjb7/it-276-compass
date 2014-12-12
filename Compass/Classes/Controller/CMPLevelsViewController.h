@@ -8,7 +8,7 @@
 
 @import UIKit;
 
-@interface CMPProjectsViewController : UICollectionViewController
+@interface CMPLevelsViewController : UICollectionViewController
 
 
 @end

@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5F2BFFE71A367CF60023FF05 /* CMPProjectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F2BFFE61A367CF60023FF05 /* CMPProjectViewController.m */; };
+		5F2BFFE71A367CF60023FF05 /* CMPLevelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F2BFFE61A367CF60023FF05 /* CMPLevelViewController.m */; };
 		5FACD3C31A366A510020E1B8 /* CMPTilesheetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FACD3C21A366A510020E1B8 /* CMPTilesheetViewController.m */; };
 		5FACD3C61A366D9A0020E1B8 /* CMPMapEditorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FACD3C51A366D9A0020E1B8 /* CMPMapEditorViewController.m */; };
 		C316E6311A34CF7100446FD6 /* libCocoaYAML iOS Library.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C316E6271A34CF5C00446FD6 /* libCocoaYAML iOS Library.a */; };
@@ -16,7 +16,7 @@
 		C316E6431A37C71400446FD6 /* CMPMapView.m in Sources */ = {isa = PBXBuildFile; fileRef = C316E6421A37C71400446FD6 /* CMPMapView.m */; };
 		C316E6461A37C71D00446FD6 /* CMPLayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = C316E6451A37C71D00446FD6 /* CMPLayerView.m */; };
 		C316E64C1A39D7F300446FD6 /* CMPTileCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C316E64B1A39D7F300446FD6 /* CMPTileCell.m */; };
-		C32B141C1A2FDD0100B959C4 /* CMPProject.m in Sources */ = {isa = PBXBuildFile; fileRef = C32B141B1A2FDD0100B959C4 /* CMPProject.m */; };
+		C316E64E1A3A5E7800446FD6 /* overworld.png in Resources */ = {isa = PBXBuildFile; fileRef = C316E64D1A3A5E7800446FD6 /* overworld.png */; };
 		C32B141F1A2FE0CD00B959C4 /* CMPMap.m in Sources */ = {isa = PBXBuildFile; fileRef = C32B141E1A2FE0CD00B959C4 /* CMPMap.m */; };
 		C35DB91C1A31EC3C0011FC1C /* CMPTilesheet.m in Sources */ = {isa = PBXBuildFile; fileRef = C35DB91B1A31EC3C0011FC1C /* CMPTilesheet.m */; };
 		C35DB9201A31F20E0011FC1C /* CMPMapParser.m in Sources */ = {isa = PBXBuildFile; fileRef = C35DB91F1A31F20E0011FC1C /* CMPMapParser.m */; };
@@ -27,7 +27,7 @@
 		C365E86D1A2FCFD3000AA8F1 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C365E86C1A2FCFD3000AA8F1 /* Images.xcassets */; };
 		C365E8701A2FCFD3000AA8F1 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C365E86E1A2FCFD3000AA8F1 /* LaunchScreen.xib */; };
 		C365E88D1A2FD145000AA8F1 /* CMPAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C365E88A1A2FD145000AA8F1 /* CMPAppDelegate.m */; };
-		C365E88E1A2FD145000AA8F1 /* CMPProjectsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C365E88C1A2FD145000AA8F1 /* CMPProjectsViewController.m */; };
+		C365E88E1A2FD145000AA8F1 /* CMPLevelsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C365E88C1A2FD145000AA8F1 /* CMPLevelsViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,8 +76,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		5F2BFFE51A367CF60023FF05 /* CMPProjectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMPProjectViewController.h; sourceTree = "<group>"; };
-		5F2BFFE61A367CF60023FF05 /* CMPProjectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMPProjectViewController.m; sourceTree = "<group>"; };
+		5F2BFFE51A367CF60023FF05 /* CMPLevelViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMPLevelViewController.h; sourceTree = "<group>"; };
+		5F2BFFE61A367CF60023FF05 /* CMPLevelViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMPLevelViewController.m; sourceTree = "<group>"; };
 		5FACD3C11A366A510020E1B8 /* CMPTilesheetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMPTilesheetViewController.h; sourceTree = "<group>"; };
 		5FACD3C21A366A510020E1B8 /* CMPTilesheetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMPTilesheetViewController.m; sourceTree = "<group>"; };
 		5FACD3C41A366D9A0020E1B8 /* CMPMapEditorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMPMapEditorViewController.h; sourceTree = "<group>"; };
@@ -92,8 +92,7 @@
 		C316E6451A37C71D00446FD6 /* CMPLayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMPLayerView.m; sourceTree = "<group>"; };
 		C316E64A1A39D7F300446FD6 /* CMPTileCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMPTileCell.h; sourceTree = "<group>"; };
 		C316E64B1A39D7F300446FD6 /* CMPTileCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMPTileCell.m; sourceTree = "<group>"; };
-		C32B141A1A2FDD0100B959C4 /* CMPProject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMPProject.h; sourceTree = "<group>"; };
-		C32B141B1A2FDD0100B959C4 /* CMPProject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMPProject.m; sourceTree = "<group>"; };
+		C316E64D1A3A5E7800446FD6 /* overworld.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = overworld.png; sourceTree = "<group>"; };
 		C32B141D1A2FE0CD00B959C4 /* CMPMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMPMap.h; sourceTree = "<group>"; };
 		C32B141E1A2FE0CD00B959C4 /* CMPMap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMPMap.m; sourceTree = "<group>"; };
 		C35DB91A1A31EC3C0011FC1C /* CMPTilesheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMPTilesheet.h; sourceTree = "<group>"; };
@@ -113,8 +112,8 @@
 		C365E87A1A2FCFD3000AA8F1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C365E8891A2FD145000AA8F1 /* CMPAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMPAppDelegate.h; sourceTree = "<group>"; };
 		C365E88A1A2FD145000AA8F1 /* CMPAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMPAppDelegate.m; sourceTree = "<group>"; };
-		C365E88B1A2FD145000AA8F1 /* CMPProjectsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CMPProjectsViewController.h; path = ../CMPProjectsViewController.h; sourceTree = "<group>"; };
-		C365E88C1A2FD145000AA8F1 /* CMPProjectsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CMPProjectsViewController.m; path = ../CMPProjectsViewController.m; sourceTree = "<group>"; };
+		C365E88B1A2FD145000AA8F1 /* CMPLevelsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CMPLevelsViewController.h; path = ../CMPLevelsViewController.h; sourceTree = "<group>"; };
+		C365E88C1A2FD145000AA8F1 /* CMPLevelsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CMPLevelsViewController.m; path = ../CMPLevelsViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,14 +138,14 @@
 		5FACD3C01A366A2C0020E1B8 /* View Controller */ = {
 			isa = PBXGroup;
 			children = (
-				C365E88B1A2FD145000AA8F1 /* CMPProjectsViewController.h */,
-				C365E88C1A2FD145000AA8F1 /* CMPProjectsViewController.m */,
+				C365E88B1A2FD145000AA8F1 /* CMPLevelsViewController.h */,
+				C365E88C1A2FD145000AA8F1 /* CMPLevelsViewController.m */,
 				5FACD3C11A366A510020E1B8 /* CMPTilesheetViewController.h */,
 				5FACD3C21A366A510020E1B8 /* CMPTilesheetViewController.m */,
 				5FACD3C41A366D9A0020E1B8 /* CMPMapEditorViewController.h */,
 				5FACD3C51A366D9A0020E1B8 /* CMPMapEditorViewController.m */,
-				5F2BFFE51A367CF60023FF05 /* CMPProjectViewController.h */,
-				5F2BFFE61A367CF60023FF05 /* CMPProjectViewController.m */,
+				5F2BFFE51A367CF60023FF05 /* CMPLevelViewController.h */,
+				5F2BFFE61A367CF60023FF05 /* CMPLevelViewController.m */,
 			);
 			path = "View Controller";
 			sourceTree = "<group>";
@@ -284,8 +283,6 @@
 		C365E8881A2FD0FB000AA8F1 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				C32B141A1A2FDD0100B959C4 /* CMPProject.h */,
-				C32B141B1A2FDD0100B959C4 /* CMPProject.m */,
 				C32B141D1A2FE0CD00B959C4 /* CMPMap.h */,
 				C32B141E1A2FE0CD00B959C4 /* CMPMap.m */,
 				C35DB91A1A31EC3C0011FC1C /* CMPTilesheet.h */,
@@ -297,6 +294,7 @@
 		C365E88F1A2FD14F000AA8F1 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				C316E64D1A3A5E7800446FD6 /* overworld.png */,
 				C365E8691A2FCFD3000AA8F1 /* Main.storyboard */,
 				C365E86C1A2FCFD3000AA8F1 /* Images.xcassets */,
 				C365E86E1A2FCFD3000AA8F1 /* LaunchScreen.xib */,
@@ -423,6 +421,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C316E64E1A3A5E7800446FD6 /* overworld.png in Resources */,
 				C365E86B1A2FCFD3000AA8F1 /* Main.storyboard in Resources */,
 				C365E8701A2FCFD3000AA8F1 /* LaunchScreen.xib in Resources */,
 				C365E86D1A2FCFD3000AA8F1 /* Images.xcassets in Resources */,
@@ -445,17 +444,16 @@
 			files = (
 				5FACD3C31A366A510020E1B8 /* CMPTilesheetViewController.m in Sources */,
 				C316E6461A37C71D00446FD6 /* CMPLayerView.m in Sources */,
-				C365E88E1A2FD145000AA8F1 /* CMPProjectsViewController.m in Sources */,
+				C365E88E1A2FD145000AA8F1 /* CMPLevelsViewController.m in Sources */,
 				C35DB9231A32704E0011FC1C /* CMPV1MapParser.m in Sources */,
 				C365E88D1A2FD145000AA8F1 /* CMPAppDelegate.m in Sources */,
 				C316E6351A34D2A100446FD6 /* CMPV1MapSerializer.m in Sources */,
-				C32B141C1A2FDD0100B959C4 /* CMPProject.m in Sources */,
 				C316E64C1A39D7F300446FD6 /* CMPTileCell.m in Sources */,
 				5FACD3C61A366D9A0020E1B8 /* CMPMapEditorViewController.m in Sources */,
 				C35DB9201A31F20E0011FC1C /* CMPMapParser.m in Sources */,
 				C365E8621A2FCFD3000AA8F1 /* main.m in Sources */,
 				C316E6431A37C71400446FD6 /* CMPMapView.m in Sources */,
-				5F2BFFE71A367CF60023FF05 /* CMPProjectViewController.m in Sources */,
+				5F2BFFE71A367CF60023FF05 /* CMPLevelViewController.m in Sources */,
 				C35DB91C1A31EC3C0011FC1C /* CMPTilesheet.m in Sources */,
 				C32B141F1A2FE0CD00B959C4 /* CMPMap.m in Sources */,
 			);

@@ -6,21 +6,21 @@
 //  Copyright (c) 2014 Grant Butler. All rights reserved.
 //
 
-#import "CMPProjectViewController.h"
+#import "CMPLevelViewController.h"
 
 #import "CMPMapEditorViewController.h"
 #import "CMPTilesheetViewController.h"
 
 #import "CMPMap.h"
 
-@interface CMPProjectViewController () <CMPTilesheetViewControllerDelegate>
+@interface CMPLevelViewController () <CMPTilesheetViewControllerDelegate>
 
 @property (nonatomic) CMPMapEditorViewController *mapEditorViewController;
 @property (nonatomic) CMPTilesheetViewController *tilesheetViewController;
 
 @end
 
-@implementation CMPProjectViewController
+@implementation CMPLevelViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
