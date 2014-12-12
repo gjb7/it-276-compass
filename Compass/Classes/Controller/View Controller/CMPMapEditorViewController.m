@@ -34,8 +34,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.scrollView.panGestureRecognizer.minimumNumberOfTouches = 2;
-    self.scrollView.panGestureRecognizer.maximumNumberOfTouches = 2;
+    self.scrollView.panGestureRecognizer.minimumNumberOfTouches = 3;
+    self.scrollView.panGestureRecognizer.maximumNumberOfTouches = 3;
     
     [self setUpMapView];
     [self configureMapViewWithMap:self.map];
