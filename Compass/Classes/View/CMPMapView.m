@@ -111,6 +111,8 @@
 }
 
 - (void)setLayers:(NSArray *)layers {
+    BOOL hasActiveLayerView = self.layerViews.count > 0;
+    
     if (layers.count > _layers.count) {
         for (NSUInteger i = _layers.count; i < layers.count; i++) {
             CMPLayerView *layerView = [[CMPLayerView alloc] initWithLayerSize:self.mapSize tilesheet:self.tilesheet];
@@ -126,6 +128,11 @@
     else if (layers.count < _layers.count) {
         for (NSUInteger i = _layerViews.count; i > layers.count; i--) {
             CMPLayerView *layerView = [self.layerViews lastObject];
+            
+            if (layerView.isActive) {
+                hasActiveLayerView = NO;
+            }
+            
             [layerView removeFromSuperview];
             [self.layerViews removeLastObject];
         }
@@ -136,6 +143,11 @@
     [self.layerViews enumerateObjectsUsingBlock:^(CMPLayerView *layerView, NSUInteger idx, BOOL *stop) {
         layerView.layerData = _layers[idx];
     }];
+    
+    if (!hasActiveLayerView) {
+        CMPLayerView *topLayer = self.layerViews.lastObject;
+        topLayer.active = YES;
+    }
 }
 
 #pragma mark - CMPLayerViewDelegate
