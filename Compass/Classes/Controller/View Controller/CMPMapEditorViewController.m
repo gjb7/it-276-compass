@@ -71,10 +71,14 @@
     self.scrollView.zoomScale = 1.0;
     self.scrollView.contentOffset = CGPointZero;
     
+    [self.view setNeedsLayout];
+}
+
+- (void)viewDidLayoutSubviews {
+    [super viewDidLayoutSubviews];
+    
     CGSize mapViewContentSize = self.mapView.intrinsicContentSize;
     self.scrollView.contentSize = CGSizeMake(MAX(CGRectGetWidth(self.view.frame), mapViewContentSize.width), MAX(CGRectGetHeight(self.view.frame), mapViewContentSize.height));
-    
-    [self.view setNeedsLayout];
 }
 
 - (void)setMap:(CMPMap *)map {
