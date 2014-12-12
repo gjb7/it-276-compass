@@ -11,6 +11,7 @@
 #import "CMPLevelViewController.h"
 
 #import "CMPMap.h"
+#import "CMPTilesheet.h"
 
 static NSString * const CMPShowEditorSegueIdentifier = @"CMPShowEditorSegue";
 
@@ -35,6 +36,7 @@ static NSString * const CMPShowEditorSegueIdentifier = @"CMPShowEditorSegue";
 - (IBAction)addLevel:(id)sender {
     CMPMap *map = [[CMPMap alloc] init];
     map.size = CGSizeMake(10.0, 10.0);
+    map.tilesheet.sprite = [UIImage imageNamed:@"overworld.png"];
     [self showEditorWithMap:map];
 }
 
