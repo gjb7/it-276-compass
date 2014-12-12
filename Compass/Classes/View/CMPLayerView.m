@@ -24,6 +24,8 @@
     if (self) {
         _layerSize = layerSize;
         _tilesheet = tilesheet;
+        
+        self.layer.magnificationFilter = kCAFilterNearest;
     }
     return self;
 }
@@ -38,6 +40,8 @@
     CGContextRef context = UIGraphicsGetCurrentContext();
     
     CGContextSaveGState(context);
+    
+    CGContextSetInterpolationQuality(context, kCGInterpolationNone);
     
 //    if (!self.isActive) {
 //        CGContextSetFillColorWithColor(context, [UIColor colorWithWhite:0.0 alpha:0.5].CGColor);
