@@ -39,6 +39,7 @@
 - (NSMutableArray *)layers {
     if (!_layers) {
         _layers = [[NSMutableArray alloc] init];
+        [_layers addObject:[[NSMutableData alloc] initWithLength:self.size.width * self.size.height]];
     }
     return _layers;
 }
