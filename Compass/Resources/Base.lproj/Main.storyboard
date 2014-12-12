@@ -36,10 +36,10 @@
             </objects>
             <point key="canvasLocation" x="-918" y="1724"/>
         </scene>
-        <!--Project View Controller-->
+        <!--Level View Controller-->
         <scene sceneID="RIN-Lc-jgy">
             <objects>
-                <splitViewController id="aKG-U8-AeS" customClass="CMPProjectViewController" sceneMemberID="viewController">
+                <splitViewController id="aKG-U8-AeS" customClass="CMPLevelViewController" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="kk6-Qr-zJg"/>
                     <connections>
                         <segue destination="eL8-ai-jsP" kind="relationship" relationship="masterViewController" id="Kcd-yk-ZL0"/>
@@ -76,10 +76,10 @@
             </objects>
             <point key="canvasLocation" x="742" y="1366"/>
         </scene>
-        <!--Projects View Controller-->
+        <!--Levels View Controller-->
         <scene sceneID="Whj-Tn-kCK">
             <objects>
-                <collectionViewController id="AmY-mR-JF7" customClass="CMPProjectsViewController" sceneMemberID="viewController">
+                <collectionViewController id="AmY-mR-JF7" customClass="CMPLevelsViewController" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="CBo-h5-wmx">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -108,7 +108,7 @@
                     <navigationItem key="navigationItem" id="5ax-Hi-4WF">
                         <barButtonItem key="rightBarButtonItem" title="Add Project" id="44A-TY-SuN">
                             <connections>
-                                <action selector="addProject:" destination="AmY-mR-JF7" id="yVR-BU-Esm"/>
+                                <action selector="addLevel:" destination="AmY-mR-JF7" id="A19-T9-qFG"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
