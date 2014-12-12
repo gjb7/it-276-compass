@@ -34,6 +34,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.scrollView.minimumZoomScale = 1.0;
+    self.scrollView.maximumZoomScale = 4.0;
+    
     self.scrollView.delegate = self;
     self.scrollView.panGestureRecognizer.minimumNumberOfTouches = 3;
     self.scrollView.panGestureRecognizer.maximumNumberOfTouches = 3;
