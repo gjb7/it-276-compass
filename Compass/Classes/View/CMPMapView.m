@@ -110,8 +110,13 @@
     if (layers.count > _layers.count) {
         for (NSUInteger i = _layers.count; i < layers.count; i++) {
             CMPLayerView *layerView = [[CMPLayerView alloc] initWithLayerSize:self.mapSize tilesheet:self.tilesheet];
+            layerView.translatesAutoresizingMaskIntoConstraints = NO;
             [self addSubview:layerView];
             [self.layerViews addObject:layerView];
+            
+            NSDictionary *views = NSDictionaryOfVariableBindings(layerView);
+            [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[layerView]|" options:0 metrics:nil views:views]];
+            [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[layerView]|" options:0 metrics:nil views:views]];
         }
     }
     else if (layers.count < _layers.count) {

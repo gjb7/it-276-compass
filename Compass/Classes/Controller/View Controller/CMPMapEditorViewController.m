@@ -44,6 +44,7 @@
 - (void)setUpMapView {
     self.mapView = [[CMPMapView alloc] initWithMapSize:self.map.size tilesheet:self.map.tilesheet];
     self.mapView.delegate = self;
+    self.mapView.translatesAutoresizingMaskIntoConstraints = NO;
     [self.scrollView addSubview:self.mapView];
     
     [self.scrollView addConstraint:[NSLayoutConstraint constraintWithItem:self.mapView
