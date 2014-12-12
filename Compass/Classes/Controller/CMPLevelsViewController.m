@@ -46,7 +46,8 @@ static NSString * const CMPShowEditorSegueIdentifier = @"CMPShowEditorSegue";
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:CMPShowEditorSegueIdentifier]) {
-        CMPLevelViewController *projectViewController = (CMPLevelViewController *)segue.destinationViewController;
+        UINavigationController *navController = (UINavigationController *)segue.destinationViewController;
+        CMPLevelViewController *projectViewController = (CMPLevelViewController *)navController.viewControllers[0];
         projectViewController.map = (CMPMap *)sender;
     }
 }
