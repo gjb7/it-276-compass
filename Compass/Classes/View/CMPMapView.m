@@ -76,6 +76,10 @@
         return;
     }
     
+    if (calculatedLocation.x < 0 || calculatedLocation.y < 0 || calculatedLocation.x >= self.mapSize.width || calculatedLocation.y >= self.mapSize.height) {
+        return;
+    }
+    
     __block CMPLayerView *layerView;
     [self.layerViews enumerateObjectsUsingBlock:^(CMPLayerView *aLayerView, NSUInteger idx, BOOL *stop) {
         if (aLayerView.isActive) {
