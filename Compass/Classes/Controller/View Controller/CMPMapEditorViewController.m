@@ -72,6 +72,7 @@
 - (void)configureMapViewWithMap:(CMPMap *)map {
     self.mapView.tilesheet = map.tilesheet;
     self.mapView.mapSize = map.size;
+    self.mapView.layers = map.layers;
     
     self.scrollView.zoomScale = 1.0;
     self.scrollView.contentOffset = CGPointZero;
