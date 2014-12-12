@@ -50,10 +50,10 @@
             </objects>
             <point key="canvasLocation" x="-178" y="1724"/>
         </scene>
-        <!--Collection View Controller-->
+        <!--Tilesheet View Controller-->
         <scene sceneID="6Wu-qj-vqH">
             <objects>
-                <collectionViewController id="eL8-ai-jsP" sceneMemberID="viewController">
+                <collectionViewController id="eL8-ai-jsP" customClass="CMPTilesheetViewController" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="973-ov-1By">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
