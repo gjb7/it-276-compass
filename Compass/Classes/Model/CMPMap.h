@@ -10,7 +10,7 @@
 
 @class CMPTilesheet;
 
-@interface CMPMap : UIDocument
+@interface CMPMap : NSObject
 
 @property (nonatomic) CGSize size;
 
@@ -19,5 +19,7 @@
 @property (nonatomic) NSString *tilesheetPath;
 
 @property (nonatomic, readonly) CMPTilesheet *tilesheet;
+
++ (instancetype)mapWithContentsOfURL:(NSURL *)url;
 
 @end

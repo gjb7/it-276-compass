@@ -19,28 +19,21 @@
 
 @implementation CMPMap
 
-- (BOOL)readFromURL:(NSURL *)url error:(NSError *__autoreleasing *)outError {
-    NSData *mapData = [[NSData alloc] initWithContentsOfURL:url options:0 error:outError];
++ (instancetype)mapWithContentsOfURL:(NSURL *)url {
+    CMPMap *map = [[CMPMap alloc] init];
+    
+    NSData *mapData = [[NSData alloc] initWithContentsOfURL:url options:0 error:nil];
     if (!mapData) {
-        return NO;
+        return nil;
     }
     
     CMPMapParser *parser = [[CMPMapParser alloc] initWithData:mapData];
     
-    NSError *parseError;
-    if (![parser parseIntoMap:self error:&parseError]) {
-        if (outError) {
-            *outError = parseError;
-        }
-        
-        return NO;
+    if (![parser parseIntoMap:map error:nil]) {
+        return nil;
     }
     
-    if (outError) {
-        *outError = nil;
-    }
-    
-    return YES;
+    return map;
 }
 
 - (NSMutableArray *)layers {
@@ -69,9 +62,12 @@
 
 - (CMPTilesheet *)tilesheet {
     if (!_tilesheet) {
-        NSAssert(self.tilesheetPath, @"Missing required tilesheet path.");
-        
-        _tilesheet = [[CMPTilesheet alloc] initWithPath:self.tilesheetPath];
+        if (self.tilesheetPath) {
+            _tilesheet = [[CMPTilesheet alloc] initWithPath:self.tilesheetPath];
+        }
+        else {
+            _tilesheet = [[CMPTilesheet alloc] init];
+        }
     }
     
     return _tilesheet;
