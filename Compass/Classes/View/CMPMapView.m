@@ -29,6 +29,10 @@
     return self;
 }
 
+- (CGSize)intrinsicContentSize {
+    return CGSizeMake(self.mapSize.width * CMPTilesheetTileSize.width, self.mapSize.height * CMPTilesheetTileSize.height);
+}
+
 #pragma mark - Touch Handling
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
