@@ -18,10 +18,7 @@
 @implementation CMPV1MapSerializerTests
 
 - (void)testMapSerialization {
-    NSURL *temporaryDirectoryURL = [NSURL fileURLWithPath:NSTemporaryDirectory() isDirectory:YES];
-    NSURL *temporaryMapFileURL = [temporaryDirectoryURL URLByAppendingPathComponent:@"temp.map"];
-    
-    CMPMap *map = [[CMPMap alloc] initWithFileURL:temporaryMapFileURL];
+    CMPMap *map = [[CMPMap alloc] init];
     map.size = CGSizeMake(5.0, 5.0);
     
     [map.layers addObject:[NSData dataWithBytes:(uint8_t[]){
