@@ -89,7 +89,7 @@
         return;
     }
     
-    [self.delegate mapView:self didTouchTileAtPoint:calculatedPreviousLocation inLayerView:layerView];
+    [self.delegate mapView:self didTouchTileAtPoint:calculatedLocation inLayerView:layerView];
 }
 
 #pragma mark -
