@@ -13,7 +13,7 @@
 #import "CMPMapView.h"
 #import "CMPLayerView.h"
 
-@interface CMPMapEditorViewController () <CMPMapViewDelegate>
+@interface CMPMapEditorViewController () <CMPMapViewDelegate, UIScrollViewDelegate>
 
 @property (nonatomic, weak) IBOutlet UIScrollView *scrollView;
 
@@ -34,6 +34,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.scrollView.delegate = self;
     self.scrollView.panGestureRecognizer.minimumNumberOfTouches = 3;
     self.scrollView.panGestureRecognizer.maximumNumberOfTouches = 3;
     
@@ -89,6 +90,12 @@
     _map = map;
     
     [self configureMapViewWithMap:_map];
+}
+
+#pragma mark - UIScrollViewDelegate
+
+- (UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView {
+    return self.mapView;
 }
 
 #pragma mark - CMPMapViewDelegate
