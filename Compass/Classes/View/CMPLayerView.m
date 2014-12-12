@@ -13,7 +13,7 @@
 
 @interface CMPLayerView ()
 
-@property (nonatomic, copy) NSMutableData *mutableLayerData;
+@property (nonatomic) NSMutableData *mutableLayerData;
 
 @end
 
