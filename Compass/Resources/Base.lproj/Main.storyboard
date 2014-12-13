@@ -19,7 +19,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1Ku-VJ-UW5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-52" y="380"/>
+            <point key="canvasLocation" x="-1628" y="872"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="8xY-4e-Xo3">
@@ -49,8 +49,8 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <segue destination="eL8-ai-jsP" kind="relationship" relationship="masterViewController" id="Kcd-yk-ZL0"/>
                         <segue destination="Tgq-6W-NDe" kind="relationship" relationship="detailViewController" id="srT-bF-CXw"/>
+                        <segue destination="dAr-Jx-Lwz" kind="relationship" relationship="masterViewController" id="bRf-tN-KeH"/>
                     </connections>
                 </splitViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lkA-qm-2wM" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -58,7 +58,7 @@
             </objects>
             <point key="canvasLocation" x="-178" y="1724"/>
         </scene>
-        <!--Tilesheet View Controller-->
+        <!--Tilesheet-->
         <scene sceneID="6Wu-qj-vqH">
             <objects>
                 <collectionViewController id="eL8-ai-jsP" customClass="CMPTilesheetViewController" sceneMemberID="viewController">
@@ -78,11 +78,106 @@
                             <outlet property="delegate" destination="eL8-ai-jsP" id="f6I-44-Xag"/>
                         </connections>
                     </collectionView>
+                    <tabBarItem key="tabBarItem" title="Tilesheet" image="Tiles" id="eQj-ec-vwc">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="image" keyPath="selectedImage" value="Tiles Selected"/>
+                        </userDefinedRuntimeAttributes>
+                    </tabBarItem>
                     <navigationItem key="navigationItem" id="xNU-27-mhp"/>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="93s-XF-uex" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="742" y="1366"/>
+            <point key="canvasLocation" x="1744" y="222"/>
+        </scene>
+        <!--Layers-->
+        <scene sceneID="ioS-3R-56h">
+            <objects>
+                <viewController id="6fN-bS-tMD" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="APn-aT-Al5"/>
+                        <viewControllerLayoutGuide type="bottom" id="Eie-JK-5qr"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="xMQ-LL-p0s">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Layers" image="Layers" id="aqh-aP-bs8">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="image" keyPath="selectedImage" value="Layers Selected"/>
+                        </userDefinedRuntimeAttributes>
+                    </tabBarItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gU4-pj-r5J" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1744" y="985"/>
+        </scene>
+        <!--Components-->
+        <scene sceneID="WI6-te-Db7">
+            <objects>
+                <viewController id="N36-WS-lSl" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Cpp-xe-tTd"/>
+                        <viewControllerLayoutGuide type="bottom" id="g5N-rv-F1i"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="l4p-9f-p40">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Components" image="Components" id="qFb-ja-t7v">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="image" keyPath="selectedImage" value="Components Selected"/>
+                        </userDefinedRuntimeAttributes>
+                    </tabBarItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5fs-bf-hMj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1744" y="1752"/>
+        </scene>
+        <!--Info-->
+        <scene sceneID="AHn-uq-63l">
+            <objects>
+                <viewController id="WuP-MS-8GI" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="hKB-EI-u7Z"/>
+                        <viewControllerLayoutGuide type="bottom" id="IlN-Sm-MPG"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ZcO-8A-XXN">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Info" image="Info" id="Osl-gA-8uB">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="image" keyPath="selectedImage" value="Info Selected"/>
+                        </userDefinedRuntimeAttributes>
+                    </tabBarItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mTH-Kv-6zg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1744" y="2484"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="fKu-Yc-B8h">
+            <objects>
+                <tabBarController id="dAr-Jx-Lwz" sceneMemberID="viewController">
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="9d3-sC-tFt">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="eL8-ai-jsP" kind="relationship" relationship="viewControllers" id="rFQ-xd-twG"/>
+                        <segue destination="6fN-bS-tMD" kind="relationship" relationship="viewControllers" id="tDC-Nh-du1"/>
+                        <segue destination="N36-WS-lSl" kind="relationship" relationship="viewControllers" id="v5C-y5-yTb"/>
+                        <segue destination="WuP-MS-8GI" kind="relationship" relationship="viewControllers" id="Mk0-yk-hkj"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Kc3-t5-8d8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="737" y="1393"/>
         </scene>
         <!--Levels View Controller-->
         <scene sceneID="Whj-Tn-kCK">
@@ -126,7 +221,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jkw-tJ-RBO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="658" y="384"/>
+            <point key="canvasLocation" x="-918" y="876"/>
         </scene>
         <!--Map Editor View Controller-->
         <scene sceneID="OHD-ra-H7B">
@@ -160,7 +255,17 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Wv-Ch-gnW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="742" y="2110"/>
+            <point key="canvasLocation" x="742" y="2238"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Components" width="25" height="25"/>
+        <image name="Components Selected" width="25" height="25"/>
+        <image name="Info" width="25" height="25"/>
+        <image name="Info Selected" width="25" height="25"/>
+        <image name="Layers" width="25" height="25"/>
+        <image name="Layers Selected" width="25" height="25"/>
+        <image name="Tiles" width="25" height="25"/>
+        <image name="Tiles Selected" width="25" height="25"/>
+    </resources>
 </document>

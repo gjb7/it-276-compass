@@ -25,7 +25,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.tilesheetViewController = self.viewControllers[0];
+    UITabBarController *tabBarController = (UITabBarController *)self.viewControllers[0];
+    self.tilesheetViewController = tabBarController.viewControllers[0];
     self.mapEditorViewController = self.viewControllers[1];
     
     self.tilesheetViewController.tilesheet = self.map.tilesheet;
