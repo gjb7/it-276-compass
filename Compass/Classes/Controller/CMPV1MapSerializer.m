@@ -17,6 +17,7 @@
     
     [self appendMapVersionToBuffer:buffer];
     [self appendMapSize:map.size toBuffer:buffer];
+    [self appendTilesheetPath:map.tilesheetPath toBuffer:buffer];
     [self appendMapLayers:map.layers ofSize:map.size toBuffer:buffer];
     
     return buffer;
@@ -33,6 +34,17 @@
     
     uint8_t heightBuffer[3] = { 'H', (uint8_t)size.height, ';' };
     [buffer appendBytes:heightBuffer length:3];
+}
+
+- (void)appendTilesheetPath:(NSString *)tilesheetPath toBuffer:(NSMutableData *)buffer {
+    uint8_t layer = 'T';
+    [buffer appendBytes:&layer length:1];
+    
+    NSData *pathData = [tilesheetPath dataUsingEncoding:NSUTF8StringEncoding];
+    [buffer appendData:pathData];
+    
+    uint8_t semicolon = ';';
+    [buffer appendBytes:&semicolon length:1];
 }
 
 - (void)appendMapLayers:(NSArray *)layers ofSize:(CGSize)size toBuffer:(NSMutableData *)buffer {
