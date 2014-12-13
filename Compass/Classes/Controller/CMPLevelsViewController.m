@@ -52,6 +52,18 @@ static NSString * const CMPShowEditorSegueIdentifier = @"CMPShowEditorSegue";
     }
 }
 
+- (IBAction)unwindToLevels:(UIStoryboardSegue *)segue {
+    if ([segue.sourceViewController isKindOfClass:[CMPLevelViewController class]]) {
+        CMPLevelViewController *levelViewController = (CMPLevelViewController *)segue.sourceViewController;
+        CMPMap *map = levelViewController.map;
+        
+        NSArray *documentDirectories = [[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask];
+        NSURL *documentDirectory = documentDirectories.firstObject;
+        
+        [map saveToDirectory:documentDirectory error:nil];
+    }
+}
+
 #pragma mark - UICollectionViewDataSource
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
