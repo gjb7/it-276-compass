@@ -32,31 +32,11 @@
     self.tilesheetViewController.delegate = self;
     
     self.mapEditorViewController.map = self.map;
-    
-    UIBarButtonItem *layersBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"Layers"] style:UIBarButtonItemStylePlain target:self action:@selector(showLayers:)];
-    UIBarButtonItem *componentsBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"Components"] style:UIBarButtonItemStylePlain target:self action:@selector(showComponents:)];
-    UIBarButtonItem *infoBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"Info"] style:UIBarButtonItemStylePlain target:self action:@selector(showInfo:)];
-    
-    self.navigationItem.rightBarButtonItems = @[infoBarButtonItem, componentsBarButtonItem, layersBarButtonItem];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
-#pragma mark - Actions
-
-- (void)showLayers:(id)sender {
-    
-}
-
-- (void)showComponents:(id)sender {
-    
-}
-
-- (void)showInfo:(id)sender {
-    
 }
 
 #pragma mark - CMPTilesheetViewControllerDelegate
