@@ -8,6 +8,7 @@
 
 #import "CMPMap.h"
 #import "CMPMapParser.h"
+#import "CMPV1MapSerializer.h"
 
 #import "CMPTilesheet.h"
 
@@ -34,6 +35,16 @@
     }
     
     return map;
+}
+
+- (BOOL)saveToDirectory:(NSURL *)directoryURL error:(NSError **)error {
+    NSAssert(self.filename.length > 0, @"A valid filename must have been provided.");
+    
+    CMPV1MapSerializer *serializer = [[CMPV1MapSerializer alloc] init];
+    NSData *serializedMap = [serializer serializeMap:self];
+    
+    NSURL *fileURL = [directoryURL URLByAppendingPathComponent:self.filename];
+    return [serializedMap writeToURL:fileURL options:NSDataWritingAtomic error:error];
 }
 
 - (NSMutableArray *)layers {

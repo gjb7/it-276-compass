@@ -20,6 +20,10 @@
 
 @property (nonatomic, readonly) CMPTilesheet *tilesheet;
 
+@property (nonatomic) NSString *filename;
+
 + (instancetype)mapWithContentsOfURL:(NSURL *)url;
+
+- (BOOL)saveToDirectory:(NSURL *)directoryURL error:(NSError **)error;
 
 @end
