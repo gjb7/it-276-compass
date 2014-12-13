@@ -34,10 +34,24 @@ static NSString * const CMPShowEditorSegueIdentifier = @"CMPShowEditorSegue";
 }
 
 - (IBAction)addLevel:(id)sender {
-    CMPMap *map = [[CMPMap alloc] init];
-    map.size = CGSizeMake(10.0, 10.0);
-    map.tilesheet.sprite = [UIImage imageNamed:@"overworld.png"];
-    [self showEditorWithMap:map];
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"New Level", nil) message:NSLocalizedString(@"What do you want to call this level?", nil) preferredStyle:UIAlertControllerStyleAlert];
+    [alertController addTextFieldWithConfigurationHandler:^(UITextField *textField) {
+        textField.placeholder = @"level.map";
+    }];
+    [alertController addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"Cancel", nil) style:UIAlertActionStyleCancel handler:nil]];
+    
+    __weak __typeof(alertController) weakAlertController = alertController;
+    [alertController addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"Create", nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        UITextField *textField = weakAlertController.textFields.firstObject;
+        
+        CMPMap *map = [[CMPMap alloc] init];
+        map.filename = textField.text;
+        map.size = CGSizeMake(10.0, 10.0);
+        map.tilesheetPath = @"res/tilesheets/overworld.yaml";
+        map.tilesheet.sprite = [UIImage imageNamed:@"overworld.png"];
+        [self showEditorWithMap:map];
+    }]];
+    [self presentViewController:alertController animated:YES completion:nil];
 }
 
 - (IBAction)showEditorWithMap:(CMPMap *)map {
