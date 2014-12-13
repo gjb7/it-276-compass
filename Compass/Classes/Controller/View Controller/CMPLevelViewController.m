@@ -33,10 +33,6 @@
     
     self.mapEditorViewController.map = self.map;
     
-    UIBarButtonItem *projectsBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Projects", nil) style:UIBarButtonItemStylePlain target:self action:@selector(closeProject:)];
-    
-    self.navigationItem.leftBarButtonItems = @[projectsBarButtonItem];
-    
     UIBarButtonItem *layersBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"Layers"] style:UIBarButtonItemStylePlain target:self action:@selector(showLayers:)];
     UIBarButtonItem *componentsBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"Components"] style:UIBarButtonItemStylePlain target:self action:@selector(showComponents:)];
     UIBarButtonItem *infoBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"Info"] style:UIBarButtonItemStylePlain target:self action:@selector(showInfo:)];

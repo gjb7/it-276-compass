@@ -41,13 +41,20 @@
         <scene sceneID="RIN-Lc-jgy">
             <objects>
                 <splitViewController id="aKG-U8-AeS" customClass="CMPLevelViewController" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="kk6-Qr-zJg"/>
+                    <navigationItem key="navigationItem" id="kk6-Qr-zJg">
+                        <barButtonItem key="leftBarButtonItem" title="Levels" id="Uz4-zW-Muz">
+                            <connections>
+                                <segue destination="Go2-0W-Ltc" kind="unwind" unwindAction="unwindToLevels:" id="tgo-vM-vrP"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <segue destination="eL8-ai-jsP" kind="relationship" relationship="masterViewController" id="Kcd-yk-ZL0"/>
                         <segue destination="Tgq-6W-NDe" kind="relationship" relationship="detailViewController" id="srT-bF-CXw"/>
                     </connections>
                 </splitViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lkA-qm-2wM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="Go2-0W-Ltc" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="-178" y="1724"/>
         </scene>
