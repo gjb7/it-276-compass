@@ -47,10 +47,6 @@
 
 #pragma mark - Actions
 
-- (void)closeProject:(id)sender {
-    
-}
-
 - (void)showLayers:(id)sender {
     
 }
