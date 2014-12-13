@@ -18,10 +18,12 @@ const CGSize CMPTilesheetTileSize = { 16.0, 16.0 };
     self = [super init];
     if (self) {
         NSData *yamlData = [NSData dataWithContentsOfFile:path];
-        NSDictionary *document = [[CYAMLDeserializer deserializer] deserializeData:yamlData error:nil];
-        
-        NSString *imageFilePath = document[@"sprite"];
-        _sprite = [[UIImage alloc] initWithContentsOfFile:imageFilePath];
+        if (yamlData) {
+            NSDictionary *document = [[CYAMLDeserializer deserializer] deserializeData:yamlData error:nil];
+            
+            NSString *imageFilePath = document[@"sprite"];
+            _sprite = [[UIImage alloc] initWithContentsOfFile:imageFilePath];
+        }
     }
     return self;
 }

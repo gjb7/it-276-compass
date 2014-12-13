@@ -109,6 +109,8 @@
     NSUInteger tileIndex = point.x + (point.y * self.map.size.height);
     
     [layerView setTile:self.selectedTileIndex atIndex:tileIndex];
+    
+    self.map.layers = [mapView.layers mutableCopy];
 }
 
 /*

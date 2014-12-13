@@ -117,8 +117,8 @@
 - (void)setLayers:(NSArray *)layers {
     BOOL hasActiveLayerView = self.layerViews.count > 0;
     
-    if (layers.count > _layers.count) {
-        for (NSUInteger i = _layers.count; i < layers.count; i++) {
+    if (layers.count > self.layerViews.count) {
+        for (NSUInteger i = self.layerViews.count; i < layers.count; i++) {
             CMPLayerView *layerView = [[CMPLayerView alloc] initWithLayerSize:self.mapSize tilesheet:self.tilesheet];
             layerView.translatesAutoresizingMaskIntoConstraints = NO;
             [self addSubview:layerView];
@@ -129,8 +129,8 @@
             [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[layerView]|" options:0 metrics:nil views:views]];
         }
     }
-    else if (layers.count < _layers.count) {
-        for (NSUInteger i = _layerViews.count; i > layers.count; i--) {
+    else if (layers.count < self.layerViews.count) {
+        for (NSUInteger i = self.layerViews.count; i > layers.count; i--) {
             CMPLayerView *layerView = [self.layerViews lastObject];
             
             if (layerView.isActive) {
@@ -142,16 +142,18 @@
         }
     }
     
-    _layers = layers;
-    
     [self.layerViews enumerateObjectsUsingBlock:^(CMPLayerView *layerView, NSUInteger idx, BOOL *stop) {
-        layerView.layerData = _layers[idx];
+        layerView.layerData = layers[idx];
     }];
     
     if (!hasActiveLayerView) {
         CMPLayerView *topLayer = self.layerViews.lastObject;
         topLayer.active = YES;
     }
+}
+
+- (NSArray *)layers {
+    return [self.layerViews valueForKey:NSStringFromSelector(@selector(layerData))];
 }
 
 #pragma mark - CMPLayerViewDelegate
