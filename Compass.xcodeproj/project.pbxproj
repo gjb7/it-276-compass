@@ -31,6 +31,7 @@
 		C3E14CD51A3E51D10061EC15 /* CMPRendering.m in Sources */ = {isa = PBXBuildFile; fileRef = C3E14CD31A3E51D10061EC15 /* CMPRendering.m */; };
 		C3E14CD81A3E55BD0061EC15 /* CMPMapThumbnailManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C3E14CD71A3E55BD0061EC15 /* CMPMapThumbnailManager.m */; };
 		C3E14CDB1A3E55EE0061EC15 /* CMPLevelsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3E14CDA1A3E55EE0061EC15 /* CMPLevelsViewController.m */; };
+		C3E14CDF1A3E58A40061EC15 /* NSString+CMPAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = C3E14CDE1A3E58A40061EC15 /* NSString+CMPAdditions.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -123,6 +124,8 @@
 		C3E14CD71A3E55BD0061EC15 /* CMPMapThumbnailManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMPMapThumbnailManager.m; sourceTree = "<group>"; };
 		C3E14CD91A3E55EE0061EC15 /* CMPLevelsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMPLevelsViewController.h; sourceTree = "<group>"; };
 		C3E14CDA1A3E55EE0061EC15 /* CMPLevelsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMPLevelsViewController.m; sourceTree = "<group>"; };
+		C3E14CDD1A3E58A40061EC15 /* NSString+CMPAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+CMPAdditions.h"; sourceTree = "<group>"; };
+		C3E14CDE1A3E58A40061EC15 /* NSString+CMPAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+CMPAdditions.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -257,6 +260,7 @@
 		C365E8851A2FD0EE000AA8F1 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				C3E14CDC1A3E587F0061EC15 /* Categories */,
 				C365E8881A2FD0FB000AA8F1 /* Model */,
 				C365E8871A2FD0F8000AA8F1 /* View */,
 				C365E8861A2FD0F3000AA8F1 /* Controller */,
@@ -323,6 +327,15 @@
 				C3E14CD31A3E51D10061EC15 /* CMPRendering.m */,
 			);
 			path = Utilities;
+			sourceTree = "<group>";
+		};
+		C3E14CDC1A3E587F0061EC15 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				C3E14CDD1A3E58A40061EC15 /* NSString+CMPAdditions.h */,
+				C3E14CDE1A3E58A40061EC15 /* NSString+CMPAdditions.m */,
+			);
+			path = Categories;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -479,6 +492,7 @@
 				5F2BFFE71A367CF60023FF05 /* CMPLevelViewController.m in Sources */,
 				C35DB91C1A31EC3C0011FC1C /* CMPTilesheet.m in Sources */,
 				C3E14CD51A3E51D10061EC15 /* CMPRendering.m in Sources */,
+				C3E14CDF1A3E58A40061EC15 /* NSString+CMPAdditions.m in Sources */,
 				C32B141F1A2FE0CD00B959C4 /* CMPMap.m in Sources */,
 				C3E14CCD1A3E51250061EC15 /* CMPLevelIconView.m in Sources */,
 				C3E14CD81A3E55BD0061EC15 /* CMPMapThumbnailManager.m in Sources */,
