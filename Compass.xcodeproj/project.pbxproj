@@ -28,6 +28,7 @@
 		C365E8701A2FCFD3000AA8F1 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C365E86E1A2FCFD3000AA8F1 /* LaunchScreen.xib */; };
 		C365E88D1A2FD145000AA8F1 /* CMPAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C365E88A1A2FD145000AA8F1 /* CMPAppDelegate.m */; };
 		C365E88E1A2FD145000AA8F1 /* CMPLevelsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C365E88C1A2FD145000AA8F1 /* CMPLevelsViewController.m */; };
+		C3E14CD51A3E51D10061EC15 /* CMPRendering.m in Sources */ = {isa = PBXBuildFile; fileRef = C3E14CD31A3E51D10061EC15 /* CMPRendering.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -114,6 +115,8 @@
 		C365E88A1A2FD145000AA8F1 /* CMPAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMPAppDelegate.m; sourceTree = "<group>"; };
 		C365E88B1A2FD145000AA8F1 /* CMPLevelsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CMPLevelsViewController.h; path = ../CMPLevelsViewController.h; sourceTree = "<group>"; };
 		C365E88C1A2FD145000AA8F1 /* CMPLevelsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CMPLevelsViewController.m; path = ../CMPLevelsViewController.m; sourceTree = "<group>"; };
+		C3E14CD31A3E51D10061EC15 /* CMPRendering.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMPRendering.m; sourceTree = "<group>"; };
+		C3E14CD41A3E51D10061EC15 /* CMPRendering.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMPRendering.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -251,6 +254,7 @@
 				C365E8881A2FD0FB000AA8F1 /* Model */,
 				C365E8871A2FD0F8000AA8F1 /* View */,
 				C365E8861A2FD0F3000AA8F1 /* Controller */,
+				C3E14CD21A3E51B40061EC15 /* Utilities */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -300,6 +304,15 @@
 				C365E86E1A2FCFD3000AA8F1 /* LaunchScreen.xib */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		C3E14CD21A3E51B40061EC15 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				C3E14CD41A3E51D10061EC15 /* CMPRendering.h */,
+				C3E14CD31A3E51D10061EC15 /* CMPRendering.m */,
+			);
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -455,6 +468,7 @@
 				C316E6431A37C71400446FD6 /* CMPMapView.m in Sources */,
 				5F2BFFE71A367CF60023FF05 /* CMPLevelViewController.m in Sources */,
 				C35DB91C1A31EC3C0011FC1C /* CMPTilesheet.m in Sources */,
+				C3E14CD51A3E51D10061EC15 /* CMPRendering.m in Sources */,
 				C32B141F1A2FE0CD00B959C4 /* CMPMap.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
