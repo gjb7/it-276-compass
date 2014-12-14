@@ -10,4 +10,16 @@
 
 @implementation CMPMapThumbnailManager
 
+- (instancetype)init {
+    self = [super init];
+    if (self) {
+        
+    }
+    return self;
+}
+
+- (void)thumbnailForMap:(CMPMap *)map completion:(CMPMapThumbnailManagerCompletionBlock)completion {
+    
+}
+
 @end

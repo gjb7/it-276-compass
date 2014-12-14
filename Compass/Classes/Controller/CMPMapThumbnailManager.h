@@ -6,8 +6,14 @@
 //  Copyright (c) 2014 Grant Butler. All rights reserved.
 //
 
-@import Foundation;
+@import UIKit;
+
+@class CMPMap;
+
+typedef void(^CMPMapThumbnailManagerCompletionBlock)(UIImage *image);
 
 @interface CMPMapThumbnailManager : NSObject
+
+- (void)thumbnailForMap:(CMPMap *)map completion:(CMPMapThumbnailManagerCompletionBlock)completion;
 
 @end
