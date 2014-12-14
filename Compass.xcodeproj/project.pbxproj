@@ -27,9 +27,9 @@
 		C365E86D1A2FCFD3000AA8F1 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C365E86C1A2FCFD3000AA8F1 /* Images.xcassets */; };
 		C365E8701A2FCFD3000AA8F1 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C365E86E1A2FCFD3000AA8F1 /* LaunchScreen.xib */; };
 		C365E88D1A2FD145000AA8F1 /* CMPAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C365E88A1A2FD145000AA8F1 /* CMPAppDelegate.m */; };
-		C365E88E1A2FD145000AA8F1 /* CMPLevelsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C365E88C1A2FD145000AA8F1 /* CMPLevelsViewController.m */; };
 		C3E14CCD1A3E51250061EC15 /* CMPLevelIconView.m in Sources */ = {isa = PBXBuildFile; fileRef = C3E14CCC1A3E51250061EC15 /* CMPLevelIconView.m */; };
 		C3E14CD51A3E51D10061EC15 /* CMPRendering.m in Sources */ = {isa = PBXBuildFile; fileRef = C3E14CD31A3E51D10061EC15 /* CMPRendering.m */; };
+		C3E14CDB1A3E55EE0061EC15 /* CMPLevelsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3E14CDA1A3E55EE0061EC15 /* CMPLevelsViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -114,12 +114,12 @@
 		C365E87A1A2FCFD3000AA8F1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C365E8891A2FD145000AA8F1 /* CMPAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMPAppDelegate.h; sourceTree = "<group>"; };
 		C365E88A1A2FD145000AA8F1 /* CMPAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMPAppDelegate.m; sourceTree = "<group>"; };
-		C365E88B1A2FD145000AA8F1 /* CMPLevelsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CMPLevelsViewController.h; path = ../CMPLevelsViewController.h; sourceTree = "<group>"; };
-		C365E88C1A2FD145000AA8F1 /* CMPLevelsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CMPLevelsViewController.m; path = ../CMPLevelsViewController.m; sourceTree = "<group>"; };
 		C3E14CCB1A3E51250061EC15 /* CMPLevelIconView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMPLevelIconView.h; sourceTree = "<group>"; };
 		C3E14CCC1A3E51250061EC15 /* CMPLevelIconView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMPLevelIconView.m; sourceTree = "<group>"; };
 		C3E14CD31A3E51D10061EC15 /* CMPRendering.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMPRendering.m; sourceTree = "<group>"; };
 		C3E14CD41A3E51D10061EC15 /* CMPRendering.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMPRendering.h; sourceTree = "<group>"; };
+		C3E14CD91A3E55EE0061EC15 /* CMPLevelsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMPLevelsViewController.h; sourceTree = "<group>"; };
+		C3E14CDA1A3E55EE0061EC15 /* CMPLevelsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMPLevelsViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,8 +144,8 @@
 		5FACD3C01A366A2C0020E1B8 /* View Controller */ = {
 			isa = PBXGroup;
 			children = (
-				C365E88B1A2FD145000AA8F1 /* CMPLevelsViewController.h */,
-				C365E88C1A2FD145000AA8F1 /* CMPLevelsViewController.m */,
+				C3E14CD91A3E55EE0061EC15 /* CMPLevelsViewController.h */,
+				C3E14CDA1A3E55EE0061EC15 /* CMPLevelsViewController.m */,
 				5FACD3C11A366A510020E1B8 /* CMPTilesheetViewController.h */,
 				5FACD3C21A366A510020E1B8 /* CMPTilesheetViewController.m */,
 				5FACD3C41A366D9A0020E1B8 /* CMPMapEditorViewController.h */,
@@ -181,7 +181,7 @@
 				C316E6331A34D2A100446FD6 /* CMPV1MapSerializer.h */,
 				C316E6341A34D2A100446FD6 /* CMPV1MapSerializer.m */,
 			);
-			name = Serializing;
+			path = Serializing;
 			sourceTree = "<group>";
 		};
 		C35DB91D1A31F1F20011FC1C /* Parsing */ = {
@@ -462,7 +462,6 @@
 			files = (
 				5FACD3C31A366A510020E1B8 /* CMPTilesheetViewController.m in Sources */,
 				C316E6461A37C71D00446FD6 /* CMPLayerView.m in Sources */,
-				C365E88E1A2FD145000AA8F1 /* CMPLevelsViewController.m in Sources */,
 				C35DB9231A32704E0011FC1C /* CMPV1MapParser.m in Sources */,
 				C365E88D1A2FD145000AA8F1 /* CMPAppDelegate.m in Sources */,
 				C316E6351A34D2A100446FD6 /* CMPV1MapSerializer.m in Sources */,
@@ -471,6 +470,7 @@
 				C35DB9201A31F20E0011FC1C /* CMPMapParser.m in Sources */,
 				C365E8621A2FCFD3000AA8F1 /* main.m in Sources */,
 				C316E6431A37C71400446FD6 /* CMPMapView.m in Sources */,
+				C3E14CDB1A3E55EE0061EC15 /* CMPLevelsViewController.m in Sources */,
 				5F2BFFE71A367CF60023FF05 /* CMPLevelViewController.m in Sources */,
 				C35DB91C1A31EC3C0011FC1C /* CMPTilesheet.m in Sources */,
 				C3E14CD51A3E51D10061EC15 /* CMPRendering.m in Sources */,
