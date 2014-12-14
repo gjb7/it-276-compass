@@ -28,6 +28,7 @@
 		C365E8701A2FCFD3000AA8F1 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C365E86E1A2FCFD3000AA8F1 /* LaunchScreen.xib */; };
 		C365E88D1A2FD145000AA8F1 /* CMPAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C365E88A1A2FD145000AA8F1 /* CMPAppDelegate.m */; };
 		C365E88E1A2FD145000AA8F1 /* CMPLevelsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C365E88C1A2FD145000AA8F1 /* CMPLevelsViewController.m */; };
+		C3E14CCD1A3E51250061EC15 /* CMPLevelIconView.m in Sources */ = {isa = PBXBuildFile; fileRef = C3E14CCC1A3E51250061EC15 /* CMPLevelIconView.m */; };
 		C3E14CD51A3E51D10061EC15 /* CMPRendering.m in Sources */ = {isa = PBXBuildFile; fileRef = C3E14CD31A3E51D10061EC15 /* CMPRendering.m */; };
 /* End PBXBuildFile section */
 
@@ -115,6 +116,8 @@
 		C365E88A1A2FD145000AA8F1 /* CMPAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMPAppDelegate.m; sourceTree = "<group>"; };
 		C365E88B1A2FD145000AA8F1 /* CMPLevelsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CMPLevelsViewController.h; path = ../CMPLevelsViewController.h; sourceTree = "<group>"; };
 		C365E88C1A2FD145000AA8F1 /* CMPLevelsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CMPLevelsViewController.m; path = ../CMPLevelsViewController.m; sourceTree = "<group>"; };
+		C3E14CCB1A3E51250061EC15 /* CMPLevelIconView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMPLevelIconView.h; sourceTree = "<group>"; };
+		C3E14CCC1A3E51250061EC15 /* CMPLevelIconView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMPLevelIconView.m; sourceTree = "<group>"; };
 		C3E14CD31A3E51D10061EC15 /* CMPRendering.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMPRendering.m; sourceTree = "<group>"; };
 		C3E14CD41A3E51D10061EC15 /* CMPRendering.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMPRendering.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -280,6 +283,8 @@
 				C316E6451A37C71D00446FD6 /* CMPLayerView.m */,
 				C316E64A1A39D7F300446FD6 /* CMPTileCell.h */,
 				C316E64B1A39D7F300446FD6 /* CMPTileCell.m */,
+				C3E14CCB1A3E51250061EC15 /* CMPLevelIconView.h */,
+				C3E14CCC1A3E51250061EC15 /* CMPLevelIconView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -470,6 +475,7 @@
 				C35DB91C1A31EC3C0011FC1C /* CMPTilesheet.m in Sources */,
 				C3E14CD51A3E51D10061EC15 /* CMPRendering.m in Sources */,
 				C32B141F1A2FE0CD00B959C4 /* CMPMap.m in Sources */,
+				C3E14CCD1A3E51250061EC15 /* CMPLevelIconView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
