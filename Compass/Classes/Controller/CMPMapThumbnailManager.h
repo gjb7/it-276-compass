@@ -14,6 +14,10 @@ typedef void(^CMPMapThumbnailManagerCompletionBlock)(UIImage *image);
 
 @interface CMPMapThumbnailManager : NSObject
 
++ (instancetype)sharedManager;
+
+- (instancetype)initWithCacheURL:(NSURL *)cacheURL NS_DESIGNATED_INITIALIZER;
+
 - (void)thumbnailForMap:(CMPMap *)map completion:(CMPMapThumbnailManagerCompletionBlock)completion;
 
 @end
