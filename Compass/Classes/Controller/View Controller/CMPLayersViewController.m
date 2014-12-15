@@ -80,7 +80,9 @@
 #pragma mark - Editing
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    [self.mutableLayers removeObjectAtIndex:indexPath.row];
     
+    [self.delegate layersViewController:self didDeleteLayerAtIndex:indexPath.row];
 }
 
 - (void)tableView:(UITableView *)tableView didEndEditingRowAtIndexPath:(NSIndexPath *)indexPath {

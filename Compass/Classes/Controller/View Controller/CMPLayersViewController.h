@@ -24,4 +24,6 @@
 
 - (void)layersViewController:(CMPLayersViewController *)layersViewController didInsertLayerAtIndex:(NSUInteger)layerIndex;
 
+- (void)layersViewController:(CMPLayersViewController *)layersViewController didDeleteLayerAtIndex:(NSUInteger)layerIndex;
+
 @end
