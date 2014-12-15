@@ -20,12 +20,16 @@
 @property (nonatomic) CMPTilesheetViewController *tilesheetViewController;
 @property (nonatomic) CMPLayersViewController *layersViewController;
 
+@property (nonatomic) UISegmentedControl *modeControl;
+
 @end
 
 @implementation CMPLevelViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [self setUpModeControl];
     
     UITabBarController *tabBarController = (UITabBarController *)self.masterViewController;
     self.tilesheetViewController = tabBarController.viewControllers[0];
@@ -41,9 +45,30 @@
     self.mapEditorViewController.map = self.map;
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)setUpModeControl {
+    self.modeControl = [[UISegmentedControl alloc] initWithItems:@[
+                                                                   NSLocalizedString(@"Scroll", nil),
+                                                                   NSLocalizedString(@"Draw", nil)
+                                                                   ]];
+    self.modeControl.selectedSegmentIndex = 0;
+    [self.modeControl addTarget:self action:@selector(modeChanged:) forControlEvents:UIControlEventValueChanged];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:self.modeControl];
+}
+
++ (CMPMapEditorScrollViewMode)modeFromControlSegment:(NSUInteger)segmentIndex {
+    switch (segmentIndex) {
+        case 0:
+            return CMPMapEditorScrollViewModeScroll;
+        
+        case 1:
+            return CMPMapEditorScrollViewModeDraw;
+    }
+    
+    return 0;
+}
+
+- (void)modeChanged:(id)sender {
+    self.mapEditorViewController.mode = [[self class] modeFromControlSegment:self.modeControl.selectedSegmentIndex];
 }
 
 #pragma mark - CMPTilesheetViewControllerDelegate
