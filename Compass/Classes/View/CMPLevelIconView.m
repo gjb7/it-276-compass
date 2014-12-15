@@ -32,6 +32,7 @@
 
 - (void)setUpImageView {
     self.imageView = [[UIImageView alloc] initWithFrame:CGRectZero];
+    self.imageView.translatesAutoresizingMaskIntoConstraints = NO;
     [self.contentView addSubview:self.imageView];
     
     NSDictionary *views = @{ @"imageView": self.imageView };
@@ -55,6 +56,7 @@
 
 - (void)setUpFileNameLabel {
     self.fileNameLabel = [[UILabel alloc] initWithFrame:CGRectZero];
+    self.fileNameLabel.translatesAutoresizingMaskIntoConstraints = NO;
     [self.contentView addSubview:self.fileNameLabel];
     
     NSDictionary *views = @{ @"fileNameLabel": self.fileNameLabel };
