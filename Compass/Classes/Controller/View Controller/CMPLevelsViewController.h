@@ -8,7 +8,7 @@
 
 @import UIKit;
 
-@interface CMPLevelsViewController : UICollectionViewController
+@interface CMPLevelsViewController : UICollectionViewController <UICollectionViewDelegateFlowLayout>
 
 
 @end

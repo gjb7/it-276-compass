@@ -137,6 +137,10 @@ static NSString * const CMPShowEditorSegueIdentifier = @"CMPShowEditorSegue";
     return cell;
 }
 
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section {
+    return CGSizeMake(20.0, 20.0);
+}
+
 #pragma mark - UICollectionViewDelegate
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
