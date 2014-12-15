@@ -49,11 +49,15 @@ static NSString * const CMPMapThumbnailManagerDirectoryName = @"CMPMapThumbnails
     return self;
 }
 
+- (NSString *)cachedThumbnailPathForMap:(CMPMap *)map {
+    NSString *mapFileName = map.filename;
+    NSString *cacheKey = [mapFileName MD5Hash];
+    return [self.cacheURL URLByAppendingPathComponent:cacheKey].path;
+}
+
 - (void)thumbnailForMap:(CMPMap *)map context:(id)context completion:(CMPMapThumbnailManagerCompletionBlock)completion {
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        NSString *mapFileName = map.filename;
-        NSString *cacheKey = [mapFileName MD5Hash];
-        NSString *cacheThumbnailPath = [self.cacheURL URLByAppendingPathComponent:cacheKey].path;
+        NSString *cacheThumbnailPath = [self cachedThumbnailPathForMap:map];
         
         if ([[NSFileManager defaultManager] fileExistsAtPath:cacheThumbnailPath]) {
             UIImage *thumbnail = [[UIImage alloc] initWithContentsOfFile:cacheThumbnailPath];
