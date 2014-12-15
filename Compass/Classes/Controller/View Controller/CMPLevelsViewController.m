@@ -19,6 +19,8 @@ static NSString * const CMPShowEditorSegueIdentifier = @"CMPShowEditorSegue";
 
 @interface CMPLevelsViewController ()
 
+@property (nonatomic) NSArray *levels;
+
 @end
 
 @implementation CMPLevelsViewController
@@ -35,6 +37,17 @@ static NSString * const CMPShowEditorSegueIdentifier = @"CMPShowEditorSegue";
     flowLayout.itemSize = itemSize;
     
     [self.collectionView registerClass:[CMPLevelIconView class] forCellWithReuseIdentifier:NSStringFromClass([CMPLevelIconView class])];
+    
+    NSArray *documentDirectories = [[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask];
+    NSURL *documentDirectory = documentDirectories.firstObject;
+    NSArray *levelFiles = [[NSFileManager defaultManager] contentsOfDirectoryAtURL:documentDirectory includingPropertiesForKeys:@[] options:0 error:nil];
+    
+    NSMutableArray *levels = [NSMutableArray array];
+    [levelFiles enumerateObjectsUsingBlock:^(NSURL *mapURL, NSUInteger idx, BOOL *stop) {
+        CMPMap *map = [CMPMap mapWithContentsOfURL:mapURL];
+        [levels addObject:map];
+    }];
+    self.levels = levels;
 }
 
 - (void)didReceiveMemoryWarning {
