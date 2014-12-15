@@ -119,4 +119,12 @@ static NSString * const CMPShowEditorSegueIdentifier = @"CMPShowEditorSegue";
     return cell;
 }
 
+#pragma mark - UICollectionViewDelegate
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    CMPMap *map = self.levels[indexPath.row];
+    
+    [self showEditorWithMap:map];
+}
+
 @end
