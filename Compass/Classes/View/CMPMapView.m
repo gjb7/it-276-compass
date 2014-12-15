@@ -29,6 +29,10 @@
     return self;
 }
 
+- (CGSize)sizeThatFits:(CGSize)size {
+    return self.intrinsicContentSize;
+}
+
 - (CGSize)intrinsicContentSize {
     return CGSizeMake(self.mapSize.width * CMPTilesheetTileSize.width, self.mapSize.height * CMPTilesheetTileSize.height);
 }
@@ -112,6 +116,8 @@
     [self.layerViews enumerateObjectsUsingBlock:^(CMPLayerView *layerView, NSUInteger idx, BOOL *stop) {
         layerView.layerSize = mapSize;
     }];
+    
+    [self setNeedsLayout];
 }
 
 - (CMPLayerView *)createNewLayerView {
