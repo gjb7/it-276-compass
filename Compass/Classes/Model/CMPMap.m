@@ -22,6 +22,7 @@
 
 + (instancetype)mapWithContentsOfURL:(NSURL *)url {
     CMPMap *map = [[CMPMap alloc] init];
+    map.filename = [url lastPathComponent];
     
     NSData *mapData = [[NSData alloc] initWithContentsOfURL:url options:0 error:nil];
     if (!mapData) {
