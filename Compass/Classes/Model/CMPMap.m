@@ -79,7 +79,16 @@
 - (CMPTilesheet *)tilesheet {
     if (!_tilesheet) {
         if (self.tilesheetPath) {
-            _tilesheet = [[CMPTilesheet alloc] initWithPath:self.tilesheetPath];
+            NSString *tilesheetPath;
+            
+            if ([self.tilesheetPath hasPrefix:[[NSBundle mainBundle] resourcePath]]) {
+                tilesheetPath = self.tilesheetPath;
+            }
+            else {
+                tilesheetPath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:self.tilesheetPath];
+            }
+            
+            _tilesheet = [[CMPTilesheet alloc] initWithPath:tilesheetPath];
         }
         else {
             _tilesheet = [[CMPTilesheet alloc] init];
