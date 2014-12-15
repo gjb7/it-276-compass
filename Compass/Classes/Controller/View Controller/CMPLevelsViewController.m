@@ -10,7 +10,7 @@
 
 #import "CMPLevelViewController.h"
 
-#import "CMPLevelIconView.h"
+#import "CMPLevelIconCell.h"
 
 #import "CMPMapThumbnailManager.h"
 
@@ -132,7 +132,7 @@ static NSString * const CMPShowEditorSegueIdentifier = @"CMPShowEditorSegue";
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    CMPLevelIconView *cell = (CMPLevelIconView *)[collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([CMPLevelIconView class]) forIndexPath:indexPath];
+    CMPLevelIconCell *cell = (CMPLevelIconCell *)[collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([CMPLevelIconCell class]) forIndexPath:indexPath];
     
     cell.map = self.levels[indexPath.row];
     

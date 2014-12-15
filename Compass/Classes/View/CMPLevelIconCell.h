@@ -1,5 +1,5 @@
 //
-//  CMPLevelIconView.h
+//  CMPLevelIconCell.h
 //  Compass
 //
 //  Created by Grant Butler on 12/14/14.
@@ -10,7 +10,7 @@
 
 @class CMPMap;
 
-@interface CMPLevelIconView : UICollectionViewCell
+@interface CMPLevelIconCell : UICollectionViewCell
 
 @property (nonatomic) CMPMap *map;
 

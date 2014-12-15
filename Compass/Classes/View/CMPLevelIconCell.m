@@ -1,17 +1,17 @@
 //
-//  CMPLevelIconView.m
+//  CMPLevelIconCell.m
 //  Compass
 //
 //  Created by Grant Butler on 12/14/14.
 //  Copyright (c) 2014 Grant Butler. All rights reserved.
 //
 
-#import "CMPLevelIconView.h"
+#import "CMPLevelIconCell.h"
 #import "CMPMap.h"
 
 #import "CMPMapThumbnailManager.h"
 
-@interface CMPLevelIconView ()
+@interface CMPLevelIconCell ()
 
 @property (nonatomic) UIImageView *imageView;
 
@@ -19,7 +19,7 @@
 
 @end
 
-@implementation CMPLevelIconView
+@implementation CMPLevelIconCell
 
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];

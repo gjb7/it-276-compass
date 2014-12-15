@@ -26,7 +26,7 @@
 		C365E86D1A2FCFD3000AA8F1 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C365E86C1A2FCFD3000AA8F1 /* Images.xcassets */; };
 		C365E8701A2FCFD3000AA8F1 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C365E86E1A2FCFD3000AA8F1 /* LaunchScreen.xib */; };
 		C365E88D1A2FD145000AA8F1 /* CMPAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C365E88A1A2FD145000AA8F1 /* CMPAppDelegate.m */; };
-		C3E14CCD1A3E51250061EC15 /* CMPLevelIconView.m in Sources */ = {isa = PBXBuildFile; fileRef = C3E14CCC1A3E51250061EC15 /* CMPLevelIconView.m */; };
+		C3E14CCD1A3E51250061EC15 /* CMPLevelIconCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C3E14CCC1A3E51250061EC15 /* CMPLevelIconCell.m */; };
 		C3E14CD51A3E51D10061EC15 /* CMPRendering.m in Sources */ = {isa = PBXBuildFile; fileRef = C3E14CD31A3E51D10061EC15 /* CMPRendering.m */; };
 		C3E14CD81A3E55BD0061EC15 /* CMPMapThumbnailManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C3E14CD71A3E55BD0061EC15 /* CMPMapThumbnailManager.m */; };
 		C3E14CDB1A3E55EE0061EC15 /* CMPLevelsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3E14CDA1A3E55EE0061EC15 /* CMPLevelsViewController.m */; };
@@ -119,8 +119,8 @@
 		C365E87A1A2FCFD3000AA8F1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C365E8891A2FD145000AA8F1 /* CMPAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMPAppDelegate.h; sourceTree = "<group>"; };
 		C365E88A1A2FD145000AA8F1 /* CMPAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMPAppDelegate.m; sourceTree = "<group>"; };
-		C3E14CCB1A3E51250061EC15 /* CMPLevelIconView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMPLevelIconView.h; sourceTree = "<group>"; };
-		C3E14CCC1A3E51250061EC15 /* CMPLevelIconView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMPLevelIconView.m; sourceTree = "<group>"; };
+		C3E14CCB1A3E51250061EC15 /* CMPLevelIconCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMPLevelIconCell.h; sourceTree = "<group>"; };
+		C3E14CCC1A3E51250061EC15 /* CMPLevelIconCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMPLevelIconCell.m; sourceTree = "<group>"; };
 		C3E14CD31A3E51D10061EC15 /* CMPRendering.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMPRendering.m; sourceTree = "<group>"; };
 		C3E14CD41A3E51D10061EC15 /* CMPRendering.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMPRendering.h; sourceTree = "<group>"; };
 		C3E14CD61A3E55BD0061EC15 /* CMPMapThumbnailManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMPMapThumbnailManager.h; sourceTree = "<group>"; };
@@ -312,8 +312,8 @@
 				C316E6451A37C71D00446FD6 /* CMPLayerView.m */,
 				C316E64A1A39D7F300446FD6 /* CMPTileCell.h */,
 				C316E64B1A39D7F300446FD6 /* CMPTileCell.m */,
-				C3E14CCB1A3E51250061EC15 /* CMPLevelIconView.h */,
-				C3E14CCC1A3E51250061EC15 /* CMPLevelIconView.m */,
+				C3E14CCB1A3E51250061EC15 /* CMPLevelIconCell.h */,
+				C3E14CCC1A3E51250061EC15 /* CMPLevelIconCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -518,7 +518,7 @@
 				C3E14CDF1A3E58A40061EC15 /* NSString+CMPAdditions.m in Sources */,
 				C32B141F1A2FE0CD00B959C4 /* CMPMap.m in Sources */,
 				C3E14D011A3E93D30061EC15 /* CMPSplitViewControllerDetailSegue.m in Sources */,
-				C3E14CCD1A3E51250061EC15 /* CMPLevelIconView.m in Sources */,
+				C3E14CCD1A3E51250061EC15 /* CMPLevelIconCell.m in Sources */,
 				C3E14CD81A3E55BD0061EC15 /* CMPMapThumbnailManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
