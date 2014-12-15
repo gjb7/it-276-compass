@@ -10,6 +10,8 @@
 
 #import "CMPLevelViewController.h"
 
+#import "CMPLevelIconView.h"
+
 #import "CMPMap.h"
 #import "CMPTilesheet.h"
 
@@ -31,6 +33,8 @@ static NSString * const CMPShowEditorSegueIdentifier = @"CMPShowEditorSegue";
     
     UICollectionViewFlowLayout *flowLayout = (UICollectionViewFlowLayout *)self.collectionViewLayout;
     flowLayout.itemSize = itemSize;
+    
+    [self.collectionView registerClass:[CMPLevelIconView class] forCellWithReuseIdentifier:NSStringFromClass([CMPLevelIconView class])];
 }
 
 - (void)didReceiveMemoryWarning {
