@@ -26,6 +26,11 @@ static NSString * const CMPShowEditorSegueIdentifier = @"CMPShowEditorSegue";
     
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addLevel:)];
     self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    CGSize itemSize = CGSizeMake(150.0, 150.0);
+    
+    UICollectionViewFlowLayout *flowLayout = (UICollectionViewFlowLayout *)self.collectionViewLayout;
+    flowLayout.itemSize = itemSize;
 }
 
 - (void)didReceiveMemoryWarning {
