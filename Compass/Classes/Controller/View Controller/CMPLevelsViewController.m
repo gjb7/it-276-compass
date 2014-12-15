@@ -30,6 +30,8 @@ static NSString * const CMPShowEditorSegueIdentifier = @"CMPShowEditorSegue";
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.title = @"Compass";
+    
     self.navigationItem.leftBarButtonItems = @[
                                                [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addLevel:)],
 //                                               [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(exportLevels:)]
