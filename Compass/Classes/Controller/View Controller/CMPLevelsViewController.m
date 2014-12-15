@@ -75,6 +75,7 @@ static NSString * const CMPShowEditorSegueIdentifier = @"CMPShowEditorSegue";
         map.size = CGSizeMake(10.0, 10.0);
         map.tilesheetPath = @"res/tilesheets/overworld.yaml";
         map.tilesheet.sprite = [UIImage imageNamed:@"overworld.png"];
+        [self.levels insertObject:map atIndex:0];
         [self showEditorWithMap:map];
     }]];
     [self presentViewController:alertController animated:YES completion:nil];
