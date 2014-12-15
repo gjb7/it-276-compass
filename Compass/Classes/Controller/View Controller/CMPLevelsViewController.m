@@ -12,6 +12,8 @@
 
 #import "CMPLevelIconView.h"
 
+#import "CMPMapThumbnailManager.h"
+
 #import "CMPMap.h"
 #import "CMPTilesheet.h"
 
@@ -102,6 +104,15 @@ static NSString * const CMPShowEditorSegueIdentifier = @"CMPShowEditorSegue";
         NSURL *documentDirectory = documentDirectories.firstObject;
         
         [map saveToDirectory:documentDirectory error:nil];
+        
+        [[CMPMapThumbnailManager sharedManager] refreshThumbnailForMap:map context:nil completion:^(UIImage *image, id context) {
+            NSInteger mapIndex = [self.levels indexOfObject:map];
+            if (mapIndex == NSNotFound) {
+                return;
+            }
+            
+            [self.collectionView reloadItemsAtIndexPaths:@[[NSIndexPath indexPathForItem:mapIndex inSection:0]]];
+        }];
     }
 }
 
