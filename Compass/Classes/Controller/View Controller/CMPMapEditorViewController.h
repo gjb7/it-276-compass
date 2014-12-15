@@ -10,11 +10,15 @@
 
 @class CMPMap;
 
+#import "CMPMapEditorScrollView.h"
+
 @interface CMPMapEditorViewController : UIViewController
 
 @property (nonatomic) CMPMap *map;
 
 @property (nonatomic) uint8_t selectedTileIndex;
+
+@property (nonatomic) CMPMapEditorScrollViewMode mode;
 
 - (instancetype)initWithMap:(CMPMap *)map;
 

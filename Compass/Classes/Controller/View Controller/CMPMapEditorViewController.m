@@ -12,12 +12,13 @@
 
 #import "CMPMapView.h"
 #import "CMPLayerView.h"
+#import "CMPMapEditorScrollView.h"
 
 @interface CMPMapEditorViewController () <CMPMapViewDelegate, UIScrollViewDelegate>
 
-@property (nonatomic, weak) IBOutlet UIScrollView *scrollView;
+@property (nonatomic) CMPMapEditorScrollView *scrollView;
 
-@property (nonatomic) CMPMapView *mapView;
+@property (nonatomic, readonly) CMPMapView *mapView;
 
 @end
 
@@ -34,39 +35,19 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.scrollView.minimumZoomScale = 1.0;
-    self.scrollView.maximumZoomScale = 4.0;
-    
-    self.scrollView.delegate = self;
-    self.scrollView.panGestureRecognizer.minimumNumberOfTouches = 3;
-    self.scrollView.panGestureRecognizer.maximumNumberOfTouches = 3;
-    
-    [self setUpMapView];
+    [self setUpEditorScrollView];
     [self configureMapViewWithMap:self.map];
 }
 
-- (void)setUpMapView {
-    self.mapView = [[CMPMapView alloc] initWithMapSize:self.map.size tilesheet:self.map.tilesheet];
-    self.mapView.editing = YES;
-    self.mapView.delegate = self;
-    self.mapView.translatesAutoresizingMaskIntoConstraints = NO;
-    [self.scrollView addSubview:self.mapView];
+- (void)setUpEditorScrollView {
+    self.scrollView = [[CMPMapEditorScrollView alloc] initWithFrame:CGRectZero];
+    self.scrollView.mapView.delegate = self;
+    self.scrollView.translatesAutoresizingMaskIntoConstraints = NO;
+    [self.view addSubview:self.scrollView];
     
-    [self.scrollView addConstraint:[NSLayoutConstraint constraintWithItem:self.mapView
-                                                                attribute:NSLayoutAttributeCenterX
-                                                                relatedBy:NSLayoutRelationEqual
-                                                                   toItem:self.scrollView
-                                                                attribute:NSLayoutAttributeCenterX
-                                                               multiplier:1.0
-                                                                 constant:0.0]];
-    
-    [self.scrollView addConstraint:[NSLayoutConstraint constraintWithItem:self.mapView
-                                                                attribute:NSLayoutAttributeCenterY
-                                                                relatedBy:NSLayoutRelationEqual
-                                                                   toItem:self.scrollView
-                                                                attribute:NSLayoutAttributeCenterY
-                                                               multiplier:1.0
-                                                                 constant:0.0]];
+    NSDictionary *views = @{ @"scrollView": self.scrollView };
+    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[scrollView]|" options:0 metrics:nil views:views]];
+    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[scrollView]|" options:0 metrics:nil views:views]];
 }
 
 - (void)configureMapViewWithMap:(CMPMap *)map {
@@ -78,14 +59,10 @@
     self.scrollView.contentOffset = CGPointZero;
     
     [self.view setNeedsLayout];
+    [self.scrollView setNeedsLayout];
 }
 
-- (void)viewDidLayoutSubviews {
-    [super viewDidLayoutSubviews];
-    
-    CGSize mapViewContentSize = self.mapView.intrinsicContentSize;
-    self.scrollView.contentSize = CGSizeMake(MAX(CGRectGetWidth(self.view.frame), mapViewContentSize.width), MAX(CGRectGetHeight(self.view.frame), mapViewContentSize.height));
-}
+#pragma mark - Accessors
 
 - (void)setMap:(CMPMap *)map {
     if (_map == map) {
@@ -97,6 +74,20 @@
     [self configureMapViewWithMap:_map];
 }
 
+- (CMPMapView *)mapView {
+    return self.scrollView.mapView;
+}
+
+- (void)setMode:(CMPMapEditorScrollViewMode)mode {
+    self.scrollView.mode = mode;
+}
+
+- (CMPMapEditorScrollViewMode)mode {
+    return self.scrollView.mode;
+}
+
+#pragma mark - Public API
+
 - (void)deleteLayerAtIndex:(NSUInteger)layerIndex {
     [self.mapView deleteLayerAtIndex:layerIndex];
 }
@@ -107,12 +98,6 @@
 
 - (void)activateLayerAtIndex:(NSUInteger)layerIndex {
     [self.mapView activateLayerAtIndex:layerIndex];
-}
-
-#pragma mark - UIScrollViewDelegate
-
-- (UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView {
-    return self.mapView;
 }
 
 #pragma mark - CMPMapViewDelegate
