@@ -8,6 +8,10 @@
 
 @import UIKit;
 
+@class CMPMap;
+
 @interface CMPLevelIconView : UICollectionViewCell
+
+@property (nonatomic) CMPMap *map;
 
 @end
