@@ -19,6 +19,8 @@ static NSString * const CMPMapThumbnailManagerDirectoryName = @"CMPMapThumbnails
 
 @interface CMPMapThumbnailManager ()
 
+@property (nonatomic) NSCache *thumbnailCache;
+
 @property (nonatomic) NSURL *cacheURL;
 
 @end
@@ -50,13 +52,19 @@ static NSString * const CMPMapThumbnailManagerDirectoryName = @"CMPMapThumbnails
         if (![[NSFileManager defaultManager] createDirectoryAtURL:_cacheURL withIntermediateDirectories:YES attributes:nil error:&error]) {
             NSLog(@"Error creating directories for cache: %@", error);
         }
+        
+        _thumbnailCache = [[NSCache alloc] init];
     }
     return self;
 }
 
-- (NSString *)cachedThumbnailPathForMap:(CMPMap *)map {
+- (NSString *)cacheKeyForMap:(CMPMap *)map {
     NSString *mapFileName = map.filename;
-    NSString *cacheKey = [mapFileName MD5Hash];
+    return [mapFileName MD5Hash];
+}
+
+- (NSString *)cachedThumbnailPathForMap:(CMPMap *)map {
+    NSString *cacheKey = [self cacheKeyForMap:map];
     return [self.cacheURL URLByAppendingPathComponent:cacheKey].path;
 }
 
@@ -70,11 +78,21 @@ static NSString * const CMPMapThumbnailManagerDirectoryName = @"CMPMapThumbnails
 
 - (void)thumbnailForMap:(CMPMap *)map context:(id)context completion:(CMPMapThumbnailManagerCompletionBlock)completion {
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        NSString *cacheKey = [self cacheKeyForMap:map];
+        UIImage *thumbnail = [self.thumbnailCache objectForKey:cacheKey];
+        if (thumbnail) {
+            [self runCompletionBlock:completion withThumbnail:thumbnail context:context];
+            
+            return;
+        }
+        
         NSString *cacheThumbnailPath = [self cachedThumbnailPathForMap:map];
         
         if ([[NSFileManager defaultManager] fileExistsAtPath:cacheThumbnailPath]) {
-            UIImage *thumbnail = [[UIImage alloc] initWithContentsOfFile:cacheThumbnailPath];
+            thumbnail = [[UIImage alloc] initWithContentsOfFile:cacheThumbnailPath];
             if (thumbnail) {
+                [self.thumbnailCache setObject:thumbnail forKey:cacheKey];
+                
                 [self runCompletionBlock:completion withThumbnail:thumbnail context:context];
                 
                 return;
@@ -89,6 +107,7 @@ static NSString * const CMPMapThumbnailManagerDirectoryName = @"CMPMapThumbnails
 }
 
 - (void)refreshThumbnailForMap:(CMPMap *)map context:(id)context completion:(CMPMapThumbnailManagerCompletionBlock)completion {
+    NSString *cacheKey = [self cacheKeyForMap:map];
     NSString *cacheThumbnailPath = [self cachedThumbnailPathForMap:map];
     
     CGSize imageSize = CGSizeMake(map.size.width * CMPTilesheetTileSize.width, map.size.height * CMPTilesheetTileSize.height);
@@ -99,8 +118,14 @@ static NSString * const CMPMapThumbnailManagerDirectoryName = @"CMPMapThumbnails
     UIImage *thumbnail = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     
+    [self.thumbnailCache setObject:thumbnail forKey:cacheKey];
+    
     NSData *thumbnailData = UIImagePNGRepresentation(thumbnail);
-    [thumbnailData writeToFile:cacheThumbnailPath atomically:YES];
+    
+    NSError *error;
+    if (![thumbnailData writeToFile:cacheThumbnailPath options:NSDataWritingAtomic error:&error]) {
+        NSLog(@"Error saving thumbnail: %@", error);
+    }
     
     [self runCompletionBlock:completion withThumbnail:thumbnail context:context];
 }
