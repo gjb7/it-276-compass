@@ -19,7 +19,7 @@ static NSString * const CMPShowEditorSegueIdentifier = @"CMPShowEditorSegue";
 
 @interface CMPLevelsViewController ()
 
-@property (nonatomic) NSArray *levels;
+@property (nonatomic) NSMutableArray *levels;
 
 @end
 
