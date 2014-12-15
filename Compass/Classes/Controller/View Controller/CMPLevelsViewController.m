@@ -30,8 +30,11 @@ static NSString * const CMPShowEditorSegueIdentifier = @"CMPShowEditorSegue";
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addLevel:)];
-    self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    self.navigationItem.leftBarButtonItems = @[
+                                               [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addLevel:)],
+//                                               [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(exportLevels:)]
+                                               ];
+//    self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
     CGSize itemSize = CGSizeMake(150.0, 150.0);
     
@@ -59,6 +62,10 @@ static NSString * const CMPShowEditorSegueIdentifier = @"CMPShowEditorSegue";
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (IBAction)exportLevels:(id)sender {
+    
 }
 
 - (IBAction)addLevel:(id)sender {
