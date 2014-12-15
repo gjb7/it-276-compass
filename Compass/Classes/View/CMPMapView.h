@@ -25,6 +25,12 @@
 
 - (instancetype)initWithMapSize:(CGSize)mapSize tilesheet:(CMPTilesheet *)tilesheet;
 
+- (void)deleteLayerAtIndex:(NSUInteger)layerIndex;
+
+- (void)insertLayerAtIndex:(NSUInteger)layerIndex withData:(NSData *)data;
+
+- (void)activateLayerAtIndex:(NSUInteger)layerIndex;
+
 @end
 
 @protocol CMPMapViewDelegate <NSObject>

@@ -97,6 +97,18 @@
     [self configureMapViewWithMap:_map];
 }
 
+- (void)deleteLayerAtIndex:(NSUInteger)layerIndex {
+    [self.mapView deleteLayerAtIndex:layerIndex];
+}
+
+- (void)insertLayerAtIndex:(NSUInteger)layerIndex withData:(NSData *)data {
+    [self.mapView insertLayerAtIndex:layerIndex withData:data];
+}
+
+- (void)activateLayerAtIndex:(NSUInteger)layerIndex {
+    [self.mapView activateLayerAtIndex:layerIndex];
+}
+
 #pragma mark - UIScrollViewDelegate
 
 - (UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView {

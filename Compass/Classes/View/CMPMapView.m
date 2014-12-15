@@ -114,19 +114,25 @@
     }];
 }
 
+- (CMPLayerView *)createNewLayerView {
+    CMPLayerView *layerView = [[CMPLayerView alloc] initWithLayerSize:self.mapSize tilesheet:self.tilesheet];
+    layerView.translatesAutoresizingMaskIntoConstraints = NO;
+    [self addSubview:layerView];
+    
+    NSDictionary *views = NSDictionaryOfVariableBindings(layerView);
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[layerView]|" options:0 metrics:nil views:views]];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[layerView]|" options:0 metrics:nil views:views]];
+    
+    return layerView;
+}
+
 - (void)setLayers:(NSArray *)layers {
     BOOL hasActiveLayerView = self.layerViews.count > 0;
     
     if (layers.count > self.layerViews.count) {
         for (NSUInteger i = self.layerViews.count; i < layers.count; i++) {
-            CMPLayerView *layerView = [[CMPLayerView alloc] initWithLayerSize:self.mapSize tilesheet:self.tilesheet];
-            layerView.translatesAutoresizingMaskIntoConstraints = NO;
-            [self addSubview:layerView];
+            CMPLayerView *layerView = [self createNewLayerView];
             [self.layerViews addObject:layerView];
-            
-            NSDictionary *views = NSDictionaryOfVariableBindings(layerView);
-            [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[layerView]|" options:0 metrics:nil views:views]];
-            [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[layerView]|" options:0 metrics:nil views:views]];
         }
     }
     else if (layers.count < self.layerViews.count) {
@@ -154,6 +160,34 @@
 
 - (NSArray *)layers {
     return [self.layerViews valueForKey:NSStringFromSelector(@selector(layerData))];
+}
+
+- (void)deleteLayerAtIndex:(NSUInteger)layerIndex {
+    CMPLayerView *layerView = self.layerViews[layerIndex];
+    [self.layerViews removeObjectAtIndex:layerIndex];
+    [layerView removeFromSuperview];
+}
+
+- (void)insertLayerAtIndex:(NSUInteger)layerIndex withData:(NSData *)data {
+    CMPLayerView *layerView = [self createNewLayerView];
+    [self.layerViews insertObject:layerView atIndex:layerIndex];
+    layerView.layerData = data;
+}
+
+- (void)activateLayerAtIndex:(NSUInteger)layerIndex {
+    __block CMPLayerView *activeLayerView;
+    [self.layerViews enumerateObjectsUsingBlock:^(CMPLayerView *aLayerView, NSUInteger idx, BOOL *stop) {
+        if (aLayerView.isActive) {
+            activeLayerView = aLayerView;
+            
+            *stop = YES;
+        }
+    }];
+    
+    activeLayerView.active = NO;
+    
+    CMPLayerView *layerView = self.layerViews[layerIndex];
+    layerView.active = YES;
 }
 
 #pragma mark - CMPLayerViewDelegate

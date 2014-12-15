@@ -18,4 +18,10 @@
 
 - (instancetype)initWithMap:(CMPMap *)map;
 
+- (void)deleteLayerAtIndex:(NSUInteger)layerIndex;
+
+- (void)insertLayerAtIndex:(NSUInteger)layerIndex withData:(NSData *)data;
+
+- (void)activateLayerAtIndex:(NSUInteger)layerIndex;
+
 @end

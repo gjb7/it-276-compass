@@ -54,7 +54,7 @@
 
     [self.tableView insertRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:self.mutableLayers.count - 1 inSection:0]] withRowAnimation:UITableViewRowAnimationAutomatic];
 
-    [self.delegate layersViewController:self didInsertLayerAtIndex:self.layers.count - 1];
+    [self.delegate layersViewController:self didInsertLayerAtIndex:self.layers.count - 1 withData:newLayerData];
 }
 
 #pragma mark -
