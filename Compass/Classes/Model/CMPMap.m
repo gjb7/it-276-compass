@@ -31,7 +31,10 @@
     
     CMPMapParser *parser = [[CMPMapParser alloc] initWithData:mapData];
     
-    if (![parser parseIntoMap:map error:nil]) {
+    NSError *error;
+    if (![parser parseIntoMap:map error:&error]) {
+        NSLog(@"Error parsing map: %@", error);
+        
         return nil;
     }
     
