@@ -49,7 +49,7 @@ static NSString * const CMPMapThumbnailManagerDirectoryName = @"CMPMapThumbnails
     return self;
 }
 
-- (void)thumbnailForMap:(CMPMap *)map completion:(CMPMapThumbnailManagerCompletionBlock)completion {
+- (void)thumbnailForMap:(CMPMap *)map context:(id)context completion:(CMPMapThumbnailManagerCompletionBlock)completion {
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         NSString *mapFileName = map.filename;
         NSString *cacheKey = [mapFileName MD5Hash];
@@ -58,7 +58,7 @@ static NSString * const CMPMapThumbnailManagerDirectoryName = @"CMPMapThumbnails
         if ([[NSFileManager defaultManager] fileExistsAtPath:cacheThumbnailPath]) {
             UIImage *thumbnail = [[UIImage alloc] initWithContentsOfFile:cacheThumbnailPath];
             if (thumbnail) {
-                completion(thumbnail);
+                completion(thumbnail, context);
                 
                 return;
             }
@@ -78,7 +78,7 @@ static NSString * const CMPMapThumbnailManagerDirectoryName = @"CMPMapThumbnails
         NSData *thumbnailData = UIImagePNGRepresentation(thumbnail);
         [thumbnailData writeToFile:cacheThumbnailPath atomically:YES];
         
-        completion(thumbnail);
+        completion(thumbnail, context);
     });
 }
 
