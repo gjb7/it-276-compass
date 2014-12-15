@@ -30,40 +30,19 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="aKG-U8-AeS" kind="relationship" relationship="rootViewController" id="ccQ-ff-PL6"/>
+                        <segue destination="23s-k3-Ygp" kind="relationship" relationship="rootViewController" id="XFu-H8-k9h"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JiD-7n-SDO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-918" y="1724"/>
         </scene>
-        <!--Level View Controller-->
-        <scene sceneID="RIN-Lc-jgy">
-            <objects>
-                <splitViewController id="aKG-U8-AeS" customClass="CMPLevelViewController" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="kk6-Qr-zJg">
-                        <barButtonItem key="leftBarButtonItem" title="Levels" id="Uz4-zW-Muz">
-                            <connections>
-                                <segue destination="Go2-0W-Ltc" kind="unwind" unwindAction="unwindToLevels:" id="tgo-vM-vrP"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                    <connections>
-                        <segue destination="Tgq-6W-NDe" kind="relationship" relationship="detailViewController" id="srT-bF-CXw"/>
-                        <segue destination="dAr-Jx-Lwz" kind="relationship" relationship="masterViewController" id="bRf-tN-KeH"/>
-                    </connections>
-                </splitViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="lkA-qm-2wM" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="Go2-0W-Ltc" userLabel="Exit" sceneMemberID="exit"/>
-            </objects>
-            <point key="canvasLocation" x="-178" y="1724"/>
-        </scene>
         <!--Tilesheet-->
         <scene sceneID="6Wu-qj-vqH">
             <objects>
-                <collectionViewController id="eL8-ai-jsP" customClass="CMPTilesheetViewController" sceneMemberID="viewController">
+                <collectionViewController extendedLayoutIncludesOpaqueBars="YES" id="eL8-ai-jsP" customClass="CMPTilesheetViewController" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="973-ov-1By">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="FbA-Py-3D9">
@@ -78,6 +57,7 @@
                             <outlet property="delegate" destination="eL8-ai-jsP" id="f6I-44-Xag"/>
                         </connections>
                     </collectionView>
+                    <extendedEdge key="edgesForExtendedLayout"/>
                     <tabBarItem key="tabBarItem" title="Tilesheet" image="Tiles" id="eQj-ec-vwc">
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="image" keyPath="selectedImage" value="Tiles Selected"/>
@@ -158,10 +138,41 @@
             </objects>
             <point key="canvasLocation" x="1744" y="2484"/>
         </scene>
+        <!--Level View Controller-->
+        <scene sceneID="DzU-N7-dnM">
+            <objects>
+                <viewController id="23s-k3-Ygp" customClass="CMPLevelViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="IZT-GI-yRU"/>
+                        <viewControllerLayoutGuide type="bottom" id="RIS-hZ-gcX"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="brq-Sk-ugj">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="LcN-qH-bTe">
+                        <barButtonItem key="leftBarButtonItem" title="Levels" id="t6v-HE-5NP">
+                            <connections>
+                                <segue destination="LHj-nB-Uf8" kind="unwind" unwindAction="unwindToLevels:" id="GdM-oC-GaM"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <segue destination="dAr-Jx-Lwz" kind="custom" identifier="CMPSplitViewControllerMasterSegue" customClass="CMPSplitViewControllerMasterSegue" id="9Lp-ch-B7G"/>
+                        <segue destination="Tgq-6W-NDe" kind="custom" identifier="CMPSplitViewControllerDetailSegue" customClass="CMPSplitViewControllerDetailSegue" id="DdZ-uY-Bch"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MQ9-XO-gew" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="LHj-nB-Uf8" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="-160" y="1724"/>
+        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="fKu-Yc-B8h">
             <objects>
                 <tabBarController id="dAr-Jx-Lwz" sceneMemberID="viewController">
+                    <extendedEdge key="edgesForExtendedLayout"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="9d3-sC-tFt">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
