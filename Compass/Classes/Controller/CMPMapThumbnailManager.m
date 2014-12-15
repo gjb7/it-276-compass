@@ -45,6 +45,11 @@ static NSString * const CMPMapThumbnailManagerDirectoryName = @"CMPMapThumbnails
     self = [super init];
     if (self) {
         _cacheURL = [cacheURL URLByAppendingPathComponent:CMPMapThumbnailManagerDirectoryName isDirectory:YES];
+        
+        NSError *error;
+        if (![[NSFileManager defaultManager] createDirectoryAtURL:_cacheURL withIntermediateDirectories:YES attributes:nil error:&error]) {
+            NSLog(@"Error creating directories for cache: %@", error);
+        }
     }
     return self;
 }
