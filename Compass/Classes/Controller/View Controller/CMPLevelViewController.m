@@ -10,6 +10,7 @@
 
 #import "CMPMapEditorViewController.h"
 #import "CMPTilesheetViewController.h"
+#import "CMPLayersViewController.h"
 
 #import "CMPMap.h"
 
@@ -17,6 +18,7 @@
 
 @property (nonatomic) CMPMapEditorViewController *mapEditorViewController;
 @property (nonatomic) CMPTilesheetViewController *tilesheetViewController;
+@property (nonatomic) CMPLayersViewController *layersViewController;
 
 @end
 
@@ -27,10 +29,13 @@
     
     UITabBarController *tabBarController = (UITabBarController *)self.masterViewController;
     self.tilesheetViewController = tabBarController.viewControllers[0];
+    self.layersViewController = tabBarController.viewControllers[1];
     self.mapEditorViewController = (CMPMapEditorViewController *)self.detailViewController;
     
     self.tilesheetViewController.tilesheet = self.map.tilesheet;
     self.tilesheetViewController.delegate = self;
+    
+    self.layersViewController.layers = self.map.layers;
     
     self.mapEditorViewController.map = self.map;
 }
