@@ -58,6 +58,7 @@
 - (void)setUpFileNameLabel {
     self.fileNameLabel = [[UILabel alloc] initWithFrame:CGRectZero];
     self.fileNameLabel.translatesAutoresizingMaskIntoConstraints = NO;
+    self.fileNameLabel.textAlignment = NSTextAlignmentCenter;
     [self.contentView addSubview:self.fileNameLabel];
     
     NSDictionary *views = @{ @"fileNameLabel": self.fileNameLabel };
