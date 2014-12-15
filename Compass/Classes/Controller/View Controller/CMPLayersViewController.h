@@ -8,6 +8,10 @@
 
 @import UIKit;
 
+@class CMPMap;
+
 @interface CMPLayersViewController : UITableViewController
+
+@property (nonatomic) CMPMap *map;
 
 @end
