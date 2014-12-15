@@ -8,10 +8,20 @@
 
 @import UIKit;
 
-@class CMPMap;
+@protocol CMPLayersViewControllerDelegate;
 
 @interface CMPLayersViewController : UITableViewController
 
-@property (nonatomic) CMPMap *map;
+@property (nonatomic) NSArray *layers;
+
+@property (nonatomic, weak) id <CMPLayersViewControllerDelegate> delegate;
+
+@end
+
+@protocol CMPLayersViewControllerDelegate <NSObject>
+
+- (void)layersViewController:(CMPLayersViewController *)layersViewController didSelectLayerAtIndex:(NSUInteger)layerIndex;
+
+- (void)layersViewController:(CMPLayersViewController *)layersViewController didInsertLayerAtIndex:(NSUInteger)layerIndex;
 
 @end
