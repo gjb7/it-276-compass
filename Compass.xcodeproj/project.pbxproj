@@ -36,6 +36,7 @@
 		C3E14D011A3E93D30061EC15 /* CMPSplitViewControllerDetailSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = C3E14CFE1A3E93D30061EC15 /* CMPSplitViewControllerDetailSegue.m */; };
 		C3E14D021A3E93D30061EC15 /* CMPSplitViewControllerMasterSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = C3E14D001A3E93D30061EC15 /* CMPSplitViewControllerMasterSegue.m */; };
 		C3E14D081A3E9D450061EC15 /* CMPLayersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3E14D071A3E9D450061EC15 /* CMPLayersViewController.m */; };
+		C3E14D0E1A3EA9970061EC15 /* CMPLayerFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = C3E14D0D1A3EA9970061EC15 /* CMPLayerFooterView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -138,6 +139,8 @@
 		C3E14D001A3E93D30061EC15 /* CMPSplitViewControllerMasterSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMPSplitViewControllerMasterSegue.m; sourceTree = "<group>"; };
 		C3E14D061A3E9D450061EC15 /* CMPLayersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMPLayersViewController.h; sourceTree = "<group>"; };
 		C3E14D071A3E9D450061EC15 /* CMPLayersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMPLayersViewController.m; sourceTree = "<group>"; };
+		C3E14D0C1A3EA9970061EC15 /* CMPLayerFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMPLayerFooterView.h; sourceTree = "<group>"; };
+		C3E14D0D1A3EA9970061EC15 /* CMPLayerFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMPLayerFooterView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -314,6 +317,8 @@
 				C316E64B1A39D7F300446FD6 /* CMPTileCell.m */,
 				C3E14CCB1A3E51250061EC15 /* CMPLevelIconCell.h */,
 				C3E14CCC1A3E51250061EC15 /* CMPLevelIconCell.m */,
+				C3E14D0C1A3EA9970061EC15 /* CMPLayerFooterView.h */,
+				C3E14D0D1A3EA9970061EC15 /* CMPLayerFooterView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -503,6 +508,7 @@
 				5FACD3C31A366A510020E1B8 /* CMPTilesheetViewController.m in Sources */,
 				C316E6461A37C71D00446FD6 /* CMPLayerView.m in Sources */,
 				C35DB9231A32704E0011FC1C /* CMPV1MapParser.m in Sources */,
+				C3E14D0E1A3EA9970061EC15 /* CMPLayerFooterView.m in Sources */,
 				C365E88D1A2FD145000AA8F1 /* CMPAppDelegate.m in Sources */,
 				C316E6351A34D2A100446FD6 /* CMPV1MapSerializer.m in Sources */,
 				C316E64C1A39D7F300446FD6 /* CMPTileCell.m in Sources */,
