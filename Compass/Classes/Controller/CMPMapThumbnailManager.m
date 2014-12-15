@@ -55,6 +55,14 @@ static NSString * const CMPMapThumbnailManagerDirectoryName = @"CMPMapThumbnails
     return [self.cacheURL URLByAppendingPathComponent:cacheKey].path;
 }
 
+- (void)runCompletionBlock:(CMPMapThumbnailManagerCompletionBlock)completionBlock withThumbnail:(UIImage *)thumbnail context:(id)context {
+    if (completionBlock) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            completionBlock(thumbnail, context);
+        });
+    }
+}
+
 - (void)thumbnailForMap:(CMPMap *)map context:(id)context completion:(CMPMapThumbnailManagerCompletionBlock)completion {
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         NSString *cacheThumbnailPath = [self cachedThumbnailPathForMap:map];
@@ -62,7 +70,7 @@ static NSString * const CMPMapThumbnailManagerDirectoryName = @"CMPMapThumbnails
         if ([[NSFileManager defaultManager] fileExistsAtPath:cacheThumbnailPath]) {
             UIImage *thumbnail = [[UIImage alloc] initWithContentsOfFile:cacheThumbnailPath];
             if (thumbnail) {
-                completion(thumbnail, context);
+                [self runCompletionBlock:completion withThumbnail:thumbnail context:context];
                 
                 return;
             }
@@ -89,7 +97,7 @@ static NSString * const CMPMapThumbnailManagerDirectoryName = @"CMPMapThumbnails
     NSData *thumbnailData = UIImagePNGRepresentation(thumbnail);
     [thumbnailData writeToFile:cacheThumbnailPath atomically:YES];
     
-    completion(thumbnail, context);
+    [self runCompletionBlock:completion withThumbnail:thumbnail context:context];
 }
 
 @end
