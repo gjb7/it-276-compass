@@ -12,6 +12,12 @@
 
 @implementation CMPLayersViewController
 
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    
+    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:NSStringFromClass([UITableViewCell class])];
+}
+
 - (void)setMap:(CMPMap *)map {
     _map = map;
     
@@ -25,7 +31,11 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return nil;
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([UITableViewCell class]) forIndexPath:indexPath];
+    
+    cell.textLabel.text = [NSString stringWithFormat:NSLocalizedString(@"Layer %li", nil), (long)indexPath.row];
+    
+    return cell;
 }
 
 @end
