@@ -6,11 +6,11 @@
 //  Copyright (c) 2014 Grant Butler. All rights reserved.
 //
 
-@import UIKit;
+#import "CMPSplitViewController.h"
 
 @class CMPMap;
 
-@interface CMPLevelViewController : UISplitViewController
+@interface CMPLevelViewController : CMPSplitViewController
 
 @property (nonatomic) CMPMap *map;
 
