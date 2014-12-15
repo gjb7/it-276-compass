@@ -43,7 +43,7 @@ static NSString * const CMPShowEditorSegueIdentifier = @"CMPShowEditorSegue";
     UICollectionViewFlowLayout *flowLayout = (UICollectionViewFlowLayout *)self.collectionViewLayout;
     flowLayout.itemSize = itemSize;
     
-    [self.collectionView registerClass:[CMPLevelIconView class] forCellWithReuseIdentifier:NSStringFromClass([CMPLevelIconView class])];
+    [self.collectionView registerClass:[CMPLevelIconCell class] forCellWithReuseIdentifier:NSStringFromClass([CMPLevelIconCell class])];
     
     NSArray *documentDirectories = [[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask];
     NSURL *documentDirectory = documentDirectories.firstObject;
