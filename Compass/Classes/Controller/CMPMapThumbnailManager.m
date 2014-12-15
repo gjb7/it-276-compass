@@ -71,19 +71,25 @@ static NSString * const CMPMapThumbnailManagerDirectoryName = @"CMPMapThumbnails
             }
         }
         
-        CGSize imageSize = CGSizeMake(map.size.width * CMPTilesheetTileSize.width, map.size.height * CMPTilesheetTileSize.height);
-        UIGraphicsBeginImageContextWithOptions(imageSize, YES, 1.0);
-        
-        CMPRenderMap(map.layers, map.tilesheet, map.size);
-        
-        UIImage *thumbnail = UIGraphicsGetImageFromCurrentImageContext();
-        UIGraphicsEndImageContext();
-        
-        NSData *thumbnailData = UIImagePNGRepresentation(thumbnail);
-        [thumbnailData writeToFile:cacheThumbnailPath atomically:YES];
-        
-        completion(thumbnail, context);
+        [self refreshThumbnailForMap:map context:context completion:completion];
     });
+}
+
+- (void)refreshThumbnailForMap:(CMPMap *)map context:(id)context completion:(CMPMapThumbnailManagerCompletionBlock)completion {
+    NSString *cacheThumbnailPath = [self cachedThumbnailPathForMap:map];
+    
+    CGSize imageSize = CGSizeMake(map.size.width * CMPTilesheetTileSize.width, map.size.height * CMPTilesheetTileSize.height);
+    UIGraphicsBeginImageContextWithOptions(imageSize, YES, 1.0);
+    
+    CMPRenderMap(map.layers, map.tilesheet, map.size);
+    
+    UIImage *thumbnail = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    NSData *thumbnailData = UIImagePNGRepresentation(thumbnail);
+    [thumbnailData writeToFile:cacheThumbnailPath atomically:YES];
+    
+    completion(thumbnail, context);
 }
 
 @end

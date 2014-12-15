@@ -20,4 +20,6 @@ typedef void(^CMPMapThumbnailManagerCompletionBlock)(UIImage *image, id context)
 
 - (void)thumbnailForMap:(CMPMap *)map context:(id)context completion:(CMPMapThumbnailManagerCompletionBlock)completion;
 
+- (void)refreshThumbnailForMap:(CMPMap *)map context:(id)context completion:(CMPMapThumbnailManagerCompletionBlock)completion;
+
 @end
