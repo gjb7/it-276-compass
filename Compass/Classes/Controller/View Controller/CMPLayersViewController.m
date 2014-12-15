@@ -83,6 +83,16 @@
     [self.mutableLayers removeObjectAtIndex:indexPath.row];
     
     [self.delegate layersViewController:self didDeleteLayerAtIndex:indexPath.row];
+    
+    if ([self.lastSelectedIndexPath compare:indexPath] == NSOrderedSame) {
+        if (self.lastSelectedIndexPath.row > 0) {
+            self.lastSelectedIndexPath = [NSIndexPath indexPathForRow:self.lastSelectedIndexPath.row - 1 inSection:self.lastSelectedIndexPath.section];
+        }
+        
+        [tableView selectRowAtIndexPath:self.lastSelectedIndexPath animated:YES scrollPosition:UITableViewScrollPositionNone];
+        
+        [self.delegate layersViewController:self didSelectLayerAtIndex:self.lastSelectedIndexPath.row];
+    }
 }
 
 - (void)tableView:(UITableView *)tableView didEndEditingRowAtIndexPath:(NSIndexPath *)indexPath {
