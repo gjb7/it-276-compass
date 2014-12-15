@@ -44,6 +44,10 @@ static NSString * const CMPShowEditorSegueIdentifier = @"CMPShowEditorSegue";
     
     NSMutableArray *levels = [NSMutableArray array];
     [levelFiles enumerateObjectsUsingBlock:^(NSURL *mapURL, NSUInteger idx, BOOL *stop) {
+        if (![mapURL.pathExtension isEqualToString:@"map"]) {
+            return;
+        }
+        
         CMPMap *map = [CMPMap mapWithContentsOfURL:mapURL];
         [levels addObject:map];
     }];
