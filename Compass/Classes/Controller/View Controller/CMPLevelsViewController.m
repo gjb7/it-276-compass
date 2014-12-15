@@ -108,11 +108,15 @@ static NSString * const CMPShowEditorSegueIdentifier = @"CMPShowEditorSegue";
 #pragma mark - UICollectionViewDataSource
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return 0;
+    return self.levels.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    return nil;
+    CMPLevelIconView *cell = (CMPLevelIconView *)[collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([CMPLevelIconView class]) forIndexPath:indexPath];
+    
+    cell.map = self.levels[indexPath.row];
+    
+    return cell;
 }
 
 @end
