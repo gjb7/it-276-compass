@@ -33,6 +33,7 @@
 - (void)setUpImageView {
     self.imageView = [[UIImageView alloc] initWithFrame:CGRectZero];
     self.imageView.translatesAutoresizingMaskIntoConstraints = NO;
+    self.imageView.contentMode = UIViewContentModeScaleAspectFit;
     [self.contentView addSubview:self.imageView];
     
     NSDictionary *views = @{ @"imageView": self.imageView };
