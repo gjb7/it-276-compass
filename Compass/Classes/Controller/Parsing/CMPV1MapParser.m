@@ -259,6 +259,8 @@
         goto cleanup;
     }
     
+    map.tilesheetPath = tilesetFilename;
+    
     if (layers.count < layerCount) {
         if (error) {
             NSString *localizedDescription = [NSString stringWithFormat:NSLocalizedString(@"Invalid file format. Found %i layers when %i specified.", nil), layers.count, layerCount];
