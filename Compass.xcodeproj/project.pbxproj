@@ -33,6 +33,8 @@
 		C3E14CDF1A3E58A40061EC15 /* NSString+CMPAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = C3E14CDE1A3E58A40061EC15 /* NSString+CMPAdditions.m */; };
 		C3E14CF31A3E64AB0061EC15 /* res in Resources */ = {isa = PBXBuildFile; fileRef = C3E14CF21A3E64AB0061EC15 /* res */; };
 		C3E14CF61A3E8E350061EC15 /* CMPSplitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3E14CF51A3E8E350061EC15 /* CMPSplitViewController.m */; };
+		C3E14D011A3E93D30061EC15 /* CMPSplitViewControllerDetailSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = C3E14CFE1A3E93D30061EC15 /* CMPSplitViewControllerDetailSegue.m */; };
+		C3E14D021A3E93D30061EC15 /* CMPSplitViewControllerMasterSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = C3E14D001A3E93D30061EC15 /* CMPSplitViewControllerMasterSegue.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -129,6 +131,10 @@
 		C3E14CF21A3E64AB0061EC15 /* res */ = {isa = PBXFileReference; lastKnownFileType = folder; path = res; sourceTree = "<group>"; };
 		C3E14CF41A3E8E350061EC15 /* CMPSplitViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMPSplitViewController.h; sourceTree = "<group>"; };
 		C3E14CF51A3E8E350061EC15 /* CMPSplitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMPSplitViewController.m; sourceTree = "<group>"; };
+		C3E14CFD1A3E93D30061EC15 /* CMPSplitViewControllerDetailSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMPSplitViewControllerDetailSegue.h; sourceTree = "<group>"; };
+		C3E14CFE1A3E93D30061EC15 /* CMPSplitViewControllerDetailSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMPSplitViewControllerDetailSegue.m; sourceTree = "<group>"; };
+		C3E14CFF1A3E93D30061EC15 /* CMPSplitViewControllerMasterSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMPSplitViewControllerMasterSegue.h; sourceTree = "<group>"; };
+		C3E14D001A3E93D30061EC15 /* CMPSplitViewControllerMasterSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMPSplitViewControllerMasterSegue.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -284,6 +290,10 @@
 				C365E88A1A2FD145000AA8F1 /* CMPAppDelegate.m */,
 				C3E14CD61A3E55BD0061EC15 /* CMPMapThumbnailManager.h */,
 				C3E14CD71A3E55BD0061EC15 /* CMPMapThumbnailManager.m */,
+				C3E14CFD1A3E93D30061EC15 /* CMPSplitViewControllerDetailSegue.h */,
+				C3E14CFE1A3E93D30061EC15 /* CMPSplitViewControllerDetailSegue.m */,
+				C3E14CFF1A3E93D30061EC15 /* CMPSplitViewControllerMasterSegue.h */,
+				C3E14D001A3E93D30061EC15 /* CMPSplitViewControllerMasterSegue.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -497,9 +507,11 @@
 				C3E14CDB1A3E55EE0061EC15 /* CMPLevelsViewController.m in Sources */,
 				5F2BFFE71A367CF60023FF05 /* CMPLevelViewController.m in Sources */,
 				C35DB91C1A31EC3C0011FC1C /* CMPTilesheet.m in Sources */,
+				C3E14D021A3E93D30061EC15 /* CMPSplitViewControllerMasterSegue.m in Sources */,
 				C3E14CD51A3E51D10061EC15 /* CMPRendering.m in Sources */,
 				C3E14CDF1A3E58A40061EC15 /* NSString+CMPAdditions.m in Sources */,
 				C32B141F1A2FE0CD00B959C4 /* CMPMap.m in Sources */,
+				C3E14D011A3E93D30061EC15 /* CMPSplitViewControllerDetailSegue.m in Sources */,
 				C3E14CCD1A3E51250061EC15 /* CMPLevelIconView.m in Sources */,
 				C3E14CD81A3E55BD0061EC15 /* CMPMapThumbnailManager.m in Sources */,
 			);
