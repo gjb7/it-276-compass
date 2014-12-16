@@ -100,7 +100,7 @@
     [self.delegate mapView:self didTouchTileAtPoint:calculatedLocation inLayerView:layerView];
 }
 
-#pragma mark -
+#pragma mark - Accessors
 
 - (void)setTilesheet:(CMPTilesheet *)tilesheet {
     _tilesheet = tilesheet;
@@ -118,18 +118,6 @@
     }];
     
     [self setNeedsLayout];
-}
-
-- (CMPLayerView *)createNewLayerView {
-    CMPLayerView *layerView = [[CMPLayerView alloc] initWithLayerSize:self.mapSize tilesheet:self.tilesheet];
-    layerView.translatesAutoresizingMaskIntoConstraints = NO;
-    [self addSubview:layerView];
-    
-    NSDictionary *views = NSDictionaryOfVariableBindings(layerView);
-    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[layerView]|" options:0 metrics:nil views:views]];
-    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[layerView]|" options:0 metrics:nil views:views]];
-    
-    return layerView;
 }
 
 - (void)setLayers:(NSArray *)layers {
@@ -166,6 +154,20 @@
 
 - (NSArray *)layers {
     return [self.layerViews valueForKey:NSStringFromSelector(@selector(layerData))];
+}
+
+#pragma mark - 
+
+- (CMPLayerView *)createNewLayerView {
+    CMPLayerView *layerView = [[CMPLayerView alloc] initWithLayerSize:self.mapSize tilesheet:self.tilesheet];
+    layerView.translatesAutoresizingMaskIntoConstraints = NO;
+    [self addSubview:layerView];
+    
+    NSDictionary *views = NSDictionaryOfVariableBindings(layerView);
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[layerView]|" options:0 metrics:nil views:views]];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[layerView]|" options:0 metrics:nil views:views]];
+    
+    return layerView;
 }
 
 - (void)deleteLayerAtIndex:(NSUInteger)layerIndex {
