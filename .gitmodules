@@ -4,3 +4,6 @@
 [submodule "Vendor/JCTiledScrollView"]
 	path = Vendor/JCTiledScrollView
 	url = https://github.com/jessedc/JCTiledScrollView.git
+[submodule "Vendor/MGImageUtilities"]
+	path = Vendor/MGImageUtilities
+	url = https://github.com/mattgemmell/MGImageUtilities.git
