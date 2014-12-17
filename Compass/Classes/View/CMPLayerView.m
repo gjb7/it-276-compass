@@ -10,11 +10,15 @@
 #import "CMPTilesheet.h"
 #import "CMPRendering.h"
 
+#import "CMPTilesheetTileManager.h"
+
 @import QuartzCore;
 
 @interface CMPLayerView ()
 
 @property (nonatomic) NSMutableData *mutableLayerData;
+
+@property (nonatomic) CMPTilesheetTileManager *tileManager;
 
 @end
 
@@ -32,12 +36,8 @@
     return self;
 }
 
-//+ (Class)layerClass {
-//    return [CATiledLayer class];
-//}
-
 - (void)drawRect:(CGRect)rect {
-    CMPRenderMapLayer(self.layerData, self.tilesheet, self.layerSize, self.zoomScale, self.isActive);
+    CMPRenderMapLayer(self.layerData, self.tileManager, self.layerSize, self.zoomScale, self.isActive);
 }
 
 - (CGSize)intrinsicContentSize {
@@ -59,7 +59,16 @@
 - (void)setTilesheet:(CMPTilesheet *)tilesheet {
     _tilesheet = tilesheet;
     
+    self.tileManager = nil;
+    
     [self setNeedsDisplay];
+}
+
+- (CMPTilesheetTileManager *)tileManager {
+    if (!_tileManager) {
+        _tileManager = [[CMPTilesheetTileManager alloc] initWithTilesheet:self.tilesheet];
+    }
+    return _tileManager;
 }
 
 - (void)setLayerData:(NSData *)layerData {
