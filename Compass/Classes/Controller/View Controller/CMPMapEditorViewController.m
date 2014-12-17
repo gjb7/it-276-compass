@@ -9,16 +9,18 @@
 #import "CMPMapEditorViewController.h"
 
 #import "CMPMap.h"
+#import "CMPTilesheet.h"
 
-#import "CMPMapView.h"
-#import "CMPLayerView.h"
-#import "CMPMapEditorScrollView.h"
+#import "CMPEditorTileManager.h"
 
-@interface CMPMapEditorViewController () <CMPMapViewDelegate, UIScrollViewDelegate>
+#import <JCTiledScrollView/JCTiledScrollView.h>
+#import <JCTiledScrollView/JCTiledView.h>
 
-@property (nonatomic) CMPMapEditorScrollView *scrollView;
+@interface CMPMapEditorViewController () <JCTileSource>
 
-@property (nonatomic, readonly) CMPMapView *mapView;
+@property (nonatomic) JCTiledScrollView *scrollView;
+
+@property (nonatomic) CMPEditorTileManager *tileManager;
 
 @end
 
@@ -35,32 +37,38 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self setUpEditorScrollView];
-    [self configureMapViewWithMap:self.map];
+    [self setUpEditorScrollViewWithMap:self.map];
 }
 
-- (void)setUpEditorScrollView {
-    self.scrollView = [[CMPMapEditorScrollView alloc] initWithFrame:CGRectZero];
-    self.scrollView.mapView.delegate = self;
+- (void)setUpEditorScrollViewWithMap:(CMPMap *)map {
+    CGSize mapSize = map.size;
+    self.scrollView = [[JCTiledScrollView alloc] initWithFrame:CGRectZero contentSize:CGSizeMake(mapSize.width * CMPTilesheetTileSize.width, mapSize.height * CMPTilesheetTileSize.height)];
     self.scrollView.translatesAutoresizingMaskIntoConstraints = NO;
+    self.scrollView.dataSource = self;
     [self.view addSubview:self.scrollView];
+    
+//    
+//    self.scrollView = [[CMPMapEditorScrollView alloc] initWithFrame:CGRectZero];
+//    self.scrollView.mapView.delegate = self;
+//    self.scrollView.translatesAutoresizingMaskIntoConstraints = NO;
+//    [self.view addSubview:self.scrollView];
     
     NSDictionary *views = @{ @"scrollView": self.scrollView };
     [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[scrollView]|" options:0 metrics:nil views:views]];
     [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[scrollView]|" options:0 metrics:nil views:views]];
 }
 
-- (void)configureMapViewWithMap:(CMPMap *)map {
-    self.mapView.tilesheet = map.tilesheet;
-    self.mapView.mapSize = map.size;
-    self.mapView.layers = map.layers;
-    
-    self.scrollView.zoomScale = 1.0;
-    self.scrollView.contentOffset = CGPointZero;
-    
-    [self.view setNeedsLayout];
-    [self.scrollView setNeedsLayout];
-}
+//- (void)configureMapViewWithMap:(CMPMap *)map {
+//    self.mapView.tilesheet = map.tilesheet;
+//    self.mapView.mapSize = map.size;
+//    self.mapView.layers = map.layers;
+//    
+//    self.scrollView.zoomScale = 1.0;
+//    self.scrollView.contentOffset = CGPointZero;
+//    
+//    [self.view setNeedsLayout];
+//    [self.scrollView setNeedsLayout];
+//}
 
 #pragma mark - Accessors
 
@@ -71,43 +79,66 @@
     
     _map = map;
     
-    [self configureMapViewWithMap:_map];
+    self.tileManager = nil;
+    
+    if (self.isViewLoaded) {
+        [self.scrollView removeFromSuperview];
+        [self setUpEditorScrollViewWithMap:_map];
+    }
 }
 
-- (CMPMapView *)mapView {
-    return self.scrollView.mapView;
+- (CMPEditorTileManager *)tileManager {
+    if (!_tileManager) {
+        _tileManager = [[CMPEditorTileManager alloc] initWithTilesheet:self.map.tilesheet];
+    }
+    
+    return _tileManager;
 }
 
-- (void)setMode:(CMPMapEditorScrollViewMode)mode {
-    self.scrollView.mode = mode;
-}
-
-- (CMPMapEditorScrollViewMode)mode {
-    return self.scrollView.mode;
-}
+//
+//- (CMPMapView *)mapView {
+//    return self.scrollView.mapView;
+//}
+//
+//- (void)setMode:(CMPMapEditorScrollViewMode)mode {
+//    self.scrollView.mode = mode;
+//}
+//
+//- (CMPMapEditorScrollViewMode)mode {
+//    return self.scrollView.mode;
+//}
 
 #pragma mark - Public API
 
 - (void)deleteLayerAtIndex:(NSUInteger)layerIndex {
-    [self.mapView deleteLayerAtIndex:layerIndex];
+//    [self.mapView deleteLayerAtIndex:layerIndex];
 }
 
 - (void)insertLayerAtIndex:(NSUInteger)layerIndex withData:(NSData *)data {
-    [self.mapView insertLayerAtIndex:layerIndex withData:data];
+//    [self.mapView insertLayerAtIndex:layerIndex withData:data];
 }
 
 - (void)activateLayerAtIndex:(NSUInteger)layerIndex {
-    [self.mapView activateLayerAtIndex:layerIndex];
+//    [self.mapView activateLayerAtIndex:layerIndex];
 }
 
 #pragma mark - CMPMapViewDelegate
 
-- (void)mapView:(CMPMapView *)mapView didTouchTileAtPoint:(CGPoint)point inLayerView:(CMPLayerView *)layerView {
-    NSUInteger tileIndex = point.x + (point.y * self.map.size.height);
+//- (void)mapView:(CMPMapView *)mapView didTouchTileAtPoint:(CGPoint)point inLayerView:(CMPLayerView *)layerView {
+//    NSUInteger tileIndex = point.x + (point.y * self.map.size.height);
+//    
+//    [layerView setTile:self.selectedTileIndex atIndex:tileIndex];
+//    
+//    self.map.layers = [mapView.layers mutableCopy];
+//}
+
+#pragma mark - JCTileSource
+
+- (UIImage *)tiledScrollView:(JCTiledScrollView *)scrollView imageForRow:(NSInteger)row column:(NSInteger)column scale:(NSInteger)scale {
+    CGSize tileSize = scrollView.tiledView.tileSize;
+    CGRect tileRect = CGRectMake(column * tileSize.width, row * tileSize.height, tileSize.width, tileSize.height);
     
-    [layerView setTile:self.selectedTileIndex atIndex:tileIndex];
-    
-    self.map.layers = [mapView.layers mutableCopy];
+    return [self.tileManager tileForRect:tileRect scale:scale withMap:self.map activeLayerIndex:0];
 }
 
 /*
