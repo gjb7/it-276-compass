@@ -176,16 +176,6 @@
     [self.scrollView.tiledView setNeedsDisplay];
 }
 
-#pragma mark - CMPMapViewDelegate
-
-//- (void)mapView:(CMPMapView *)mapView didTouchTileAtPoint:(CGPoint)point inLayerView:(CMPLayerView *)layerView {
-//    NSUInteger tileIndex = point.x + (point.y * self.map.size.height);
-//    
-//    [layerView setTile:self.selectedTileIndex atIndex:tileIndex];
-//    
-//    self.map.layers = [mapView.layers mutableCopy];
-//}
-
 #pragma mark - JCTileSource
 
 - (UIImage *)tiledScrollView:(JCTiledScrollView *)scrollView imageForRow:(NSInteger)row column:(NSInteger)column scale:(NSInteger)scale {

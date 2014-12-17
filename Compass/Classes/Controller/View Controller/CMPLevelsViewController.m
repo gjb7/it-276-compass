@@ -9,6 +9,7 @@
 #import "CMPLevelsViewController.h"
 
 #import "CMPLevelViewController.h"
+#import "CMPAddLevelViewController.h"
 
 #import "CMPLevelIconCell.h"
 
@@ -18,8 +19,9 @@
 #import "CMPTilesheet.h"
 
 static NSString * const CMPShowEditorSegueIdentifier = @"CMPShowEditorSegue";
+static NSString * const CMPLevelsViewControllerShowAddLevelSegueIdentifier = @"CMPLevelsViewControllerShowAddLevelSegue";
 
-@interface CMPLevelsViewController ()
+@interface CMPLevelsViewController () <CMPAddLevelViewControllerDelegate>
 
 @property (nonatomic) NSMutableArray *levels;
 
@@ -71,24 +73,13 @@ static NSString * const CMPShowEditorSegueIdentifier = @"CMPShowEditorSegue";
 }
 
 - (IBAction)addLevel:(id)sender {
-    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"New Level", nil) message:NSLocalizedString(@"What do you want to call this level?", nil) preferredStyle:UIAlertControllerStyleAlert];
-    [alertController addTextFieldWithConfigurationHandler:^(UITextField *textField) {
-        textField.placeholder = @"level.map";
-    }];
-    [alertController addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"Cancel", nil) style:UIAlertActionStyleCancel handler:nil]];
+    // Things are stupid and I can't use storyboards for this. :(
     
-    __weak __typeof(alertController) weakAlertController = alertController;
-    [alertController addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"Create", nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-        UITextField *textField = weakAlertController.textFields.firstObject;
-        
-        CMPMap *map = [[CMPMap alloc] init];
-        map.filename = textField.text;
-        map.size = CGSizeMake(10.0, 10.0);
-        map.tilesheetPath = @"res/tilesheets/overworld.yaml";
-        [self.levels insertObject:map atIndex:0];
-        [self showEditorWithMap:map];
-    }]];
-    [self presentViewController:alertController animated:YES completion:nil];
+    CMPAddLevelViewController *addLevelViewController = [[CMPAddLevelViewController alloc] initWithStyle:UITableViewStyleGrouped];
+    addLevelViewController.delegate = self;
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:addLevelViewController];
+    navigationController.modalPresentationStyle = UIModalPresentationFormSheet;
+    [self presentViewController:navigationController animated:YES completion:nil];
 }
 
 - (IBAction)showEditorWithMap:(CMPMap *)map {
@@ -108,10 +99,7 @@ static NSString * const CMPShowEditorSegueIdentifier = @"CMPShowEditorSegue";
         CMPLevelViewController *levelViewController = (CMPLevelViewController *)segue.sourceViewController;
         CMPMap *map = levelViewController.map;
         
-        NSArray *documentDirectories = [[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask];
-        NSURL *documentDirectory = documentDirectories.firstObject;
-        
-        [map saveToDirectory:documentDirectory error:nil];
+        [self saveMap:map];
         
         [[CMPMapThumbnailManager sharedManager] refreshThumbnailForMap:map context:nil completion:^(UIImage *image, id context) {
             NSInteger mapIndex = [self.levels indexOfObject:map];
@@ -122,6 +110,29 @@ static NSString * const CMPShowEditorSegueIdentifier = @"CMPShowEditorSegue";
             [self.collectionView reloadItemsAtIndexPaths:@[[NSIndexPath indexPathForItem:mapIndex inSection:0]]];
         }];
     }
+}
+
+- (void)saveMap:(CMPMap *)map {
+    NSArray *documentDirectories = [[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask];
+    NSURL *documentDirectory = documentDirectories.firstObject;
+    
+    [map saveToDirectory:documentDirectory error:nil];
+}
+
+#pragma mark - CMPAddLevelViewControllerDelegate
+
+- (void)addLevelViewControllerDidCancel:(CMPAddLevelViewController *)addLevelViewController {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)addLevelViewController:(CMPAddLevelViewController *)addLevelViewController didCompleteWithMap:(CMPMap *)map {
+    [self.levels insertObject:map atIndex:0];
+    [self saveMap:map];
+    [self.collectionView insertItemsAtIndexPaths:@[[NSIndexPath indexPathForItem:0 inSection:0]]];
+    
+    [self dismissViewControllerAnimated:YES completion:^{
+        [self showEditorWithMap:map];
+    }];
 }
 
 #pragma mark - UICollectionViewDataSource

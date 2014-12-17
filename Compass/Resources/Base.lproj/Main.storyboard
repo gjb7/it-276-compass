@@ -221,7 +221,6 @@
         <!--Map Editor View Controller-->
         <scene sceneID="OHD-ra-H7B">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="4Wv-Ch-gnW" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="Tgq-6W-NDe" customClass="CMPMapEditorViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="xvp-yn-AwE"/>
@@ -237,6 +236,7 @@
                         <outlet property="view" destination="oYG-u4-5cy" id="RfO-dv-Ue5"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4Wv-Ch-gnW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="742" y="2238"/>
         </scene>
