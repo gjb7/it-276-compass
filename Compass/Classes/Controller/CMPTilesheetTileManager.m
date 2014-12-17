@@ -10,6 +10,10 @@
 
 #import "CMPTilesheet.h"
 
+#import "NSString+CMPAdditions.h"
+#import "UIImage+CMPAdditions.h"
+#import "UIImage+Tint.h"
+
 static NSString * const CMPTilesheetTileManagerDirectoryName = @"CMPTilesheetTileManager";
 
 @interface CMPTilesheetTileManager ()
@@ -29,7 +33,7 @@ static NSString * const CMPTilesheetTileManagerDirectoryName = @"CMPTilesheetTil
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         NSArray *cacheURLs = [[NSFileManager defaultManager] URLsForDirectory:NSCachesDirectory inDomains:NSUserDomainMask];
-        cacheDirectoryURL = [cacheURLs firstObject];
+        cacheDirectoryURL = [[cacheURLs firstObject] URLByAppendingPathComponent:CMPTilesheetTileManagerDirectoryName isDirectory:YES];
     });
     
     return cacheDirectoryURL;
@@ -38,7 +42,8 @@ static NSString * const CMPTilesheetTileManagerDirectoryName = @"CMPTilesheetTil
 - (instancetype)initWithTilesheet:(CMPTilesheet *)tilesheet {
     self = [super init];
     if (self) {
-        _tileCacheURL = [[[self class] cacheDirectoryURL] URLByAppendingPathComponent:CMPTilesheetTileManagerDirectoryName isDirectory:YES];
+        NSString *tilesheetNameKey = [tilesheet.path MD5Hash];
+        _tileCacheURL = [[[self class] cacheDirectoryURL] URLByAppendingPathComponent:tilesheetNameKey isDirectory:YES];
         
         NSError *error;
         if (![[NSFileManager defaultManager] createDirectoryAtURL:_tileCacheURL withIntermediateDirectories:YES attributes:nil error:&error]) {
@@ -49,6 +54,47 @@ static NSString * const CMPTilesheetTileManagerDirectoryName = @"CMPTilesheetTil
     }
     
     return self;
+}
+
+- (NSString *)cacheKeyForTileIndex:(NSUInteger)tileIndex isActive:(BOOL)active {
+    NSString *activeString = active ? @"_active" : @"";
+    NSString *key = [NSString stringWithFormat:@"%li%@", (unsigned long)tileIndex, activeString];
+    return [key MD5Hash];
+}
+
+- (UIImage *)tileAtIndex:(NSUInteger)tileIndex isActive:(BOOL)active {
+    NSString *key = [self cacheKeyForTileIndex:tileIndex isActive:active];
+    UIImage *tile = [self.tileCache objectForKey:key];
+    if (tile) {
+        return tile;
+    }
+    
+    NSURL *tileURL = [self.tileCacheURL URLByAppendingPathComponent:key];
+    if ([[NSFileManager defaultManager] fileExistsAtPath:tileURL.path]) {
+        tile = [UIImage imageWithContentsOfFile:tileURL.path];
+        [self.tileCache setObject:tile forKey:key];
+        
+        return tile;
+    }
+    
+    NSUInteger columnCount = self.tilesheet.numberOfColumns;
+    CGFloat x = (tileIndex % columnCount) * CMPTilesheetTileSize.width;
+    CGFloat y = floor(tileIndex / columnCount) * CMPTilesheetTileSize.height;
+    
+    tile = [self.tilesheet.sprite imageWithRect:CGRectMake(x, y, CMPTilesheetTileSize.width, CMPTilesheetTileSize.height)];
+    if (active) {
+        tile = [tile imageTintedWithColor:[UIColor blackColor] fraction:0.75];
+    }
+    
+    NSData *pngData = UIImagePNGRepresentation(tile);
+    NSError *error;
+    if (![pngData writeToURL:tileURL options:NSDataWritingAtomic error:&error]) {
+        NSLog(@"Error saving thumbnail: %@", error);
+    }
+    
+    [self.tileCache setObject:tile forKey:key];
+    
+    return tile;
 }
 
 @end

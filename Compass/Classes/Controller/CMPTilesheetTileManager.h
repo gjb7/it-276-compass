@@ -19,4 +19,6 @@
 
 - (instancetype)initWithTilesheet:(CMPTilesheet *)tilesheet;
 
+- (UIImage *)tileAtIndex:(NSUInteger)tileIndex isActive:(BOOL)active;
+
 @end
