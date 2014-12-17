@@ -1,10 +1,13 @@
 PODS:
   - JCTiledScrollView (0.0.1)
+  - JMStaticContentTableViewController (0.3.1)
 
 DEPENDENCIES:
   - JCTiledScrollView
+  - JMStaticContentTableViewController
 
 SPEC CHECKSUMS:
   JCTiledScrollView: 34e7a0b7c481ea49072b3ccec053a4f24f92f75e
+  JMStaticContentTableViewController: be138bbff638f6b8763ec828dacac574efbe9640
 
 COCOAPODS: 0.33.1

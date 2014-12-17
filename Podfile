@@ -3,6 +3,7 @@ platform :ios, "8.0"
 
 target "Compass" do
 	pod "JCTiledScrollView"
+	pod "JMStaticContentTableViewController"
 end
 
 target "CompassTests" do
