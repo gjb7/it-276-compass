@@ -29,9 +29,6 @@
 		C3697C4A1A41E437003B003C /* CMPEditorTileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C3697C491A41E437003B003C /* CMPEditorTileManager.m */; };
 		C3697C4E1A41F1AB003B003C /* UIImage+Tint.m in Sources */ = {isa = PBXBuildFile; fileRef = C3697C4D1A41F1AB003B003C /* UIImage+Tint.m */; };
 		C3697C511A41F1CE003B003C /* UIImage+CMPAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = C3697C501A41F1CE003B003C /* UIImage+CMPAdditions.m */; };
-		C3697C5C1A42272B003B003C /* CMPTiledScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = C3697C5B1A42272B003B003C /* CMPTiledScrollView.m */; };
-		C3697C5F1A42274F003B003C /* CMPTiledLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = C3697C5E1A42274F003B003C /* CMPTiledLayer.m */; };
-		C3697C621A42280F003B003C /* CMPTiledView.m in Sources */ = {isa = PBXBuildFile; fileRef = C3697C611A42280F003B003C /* CMPTiledView.m */; };
 		C3B5C6991A422FBD002EDE1F /* CMPAddLevelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3B5C6981A422FBD002EDE1F /* CMPAddLevelViewController.m */; };
 		C3B5C6A21A424245002EDE1F /* CMPMapEditorScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = C3B5C6A11A424245002EDE1F /* CMPMapEditorScrollView.m */; };
 		C3E14CCD1A3E51250061EC15 /* CMPLevelIconCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C3E14CCC1A3E51250061EC15 /* CMPLevelIconCell.m */; };
@@ -137,12 +134,6 @@
 		C3697C4D1A41F1AB003B003C /* UIImage+Tint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+Tint.m"; path = "Vendor/MGImageUtilities/Classes/UIImage+Tint.m"; sourceTree = "<group>"; };
 		C3697C4F1A41F1CE003B003C /* UIImage+CMPAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+CMPAdditions.h"; sourceTree = "<group>"; };
 		C3697C501A41F1CE003B003C /* UIImage+CMPAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+CMPAdditions.m"; sourceTree = "<group>"; };
-		C3697C5A1A42272B003B003C /* CMPTiledScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMPTiledScrollView.h; sourceTree = "<group>"; };
-		C3697C5B1A42272B003B003C /* CMPTiledScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMPTiledScrollView.m; sourceTree = "<group>"; };
-		C3697C5D1A42274F003B003C /* CMPTiledLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMPTiledLayer.h; sourceTree = "<group>"; };
-		C3697C5E1A42274F003B003C /* CMPTiledLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMPTiledLayer.m; sourceTree = "<group>"; };
-		C3697C601A42280F003B003C /* CMPTiledView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMPTiledView.h; sourceTree = "<group>"; };
-		C3697C611A42280F003B003C /* CMPTiledView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMPTiledView.m; sourceTree = "<group>"; };
 		C3B5C6971A422FBD002EDE1F /* CMPAddLevelViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMPAddLevelViewController.h; sourceTree = "<group>"; };
 		C3B5C6981A422FBD002EDE1F /* CMPAddLevelViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMPAddLevelViewController.m; sourceTree = "<group>"; };
 		C3B5C6A11A424245002EDE1F /* CMPMapEditorScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMPMapEditorScrollView.m; sourceTree = "<group>"; };
@@ -369,12 +360,6 @@
 				C3E14D0D1A3EA9970061EC15 /* CMPLayerFooterView.m */,
 				C3B5C6A31A42424F002EDE1F /* CMPMapEditorScrollView.h */,
 				C3B5C6A11A424245002EDE1F /* CMPMapEditorScrollView.m */,
-				C3697C5A1A42272B003B003C /* CMPTiledScrollView.h */,
-				C3697C5B1A42272B003B003C /* CMPTiledScrollView.m */,
-				C3697C601A42280F003B003C /* CMPTiledView.h */,
-				C3697C611A42280F003B003C /* CMPTiledView.m */,
-				C3697C5D1A42274F003B003C /* CMPTiledLayer.h */,
-				C3697C5E1A42274F003B003C /* CMPTiledLayer.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -611,7 +596,6 @@
 				C3B5C6A21A424245002EDE1F /* CMPMapEditorScrollView.m in Sources */,
 				C3697C4A1A41E437003B003C /* CMPEditorTileManager.m in Sources */,
 				5FACD3C31A366A510020E1B8 /* CMPTilesheetViewController.m in Sources */,
-				C3697C5F1A42274F003B003C /* CMPTiledLayer.m in Sources */,
 				C316E6461A37C71D00446FD6 /* CMPLayerView.m in Sources */,
 				C35DB9231A32704E0011FC1C /* CMPV1MapParser.m in Sources */,
 				C3FA15951A409CB1009CAFFB /* CMPTilesheetTileManager.m in Sources */,
@@ -621,7 +605,6 @@
 				C316E64C1A39D7F300446FD6 /* CMPTileCell.m in Sources */,
 				5FACD3C61A366D9A0020E1B8 /* CMPMapEditorViewController.m in Sources */,
 				C35DB9201A31F20E0011FC1C /* CMPMapParser.m in Sources */,
-				C3697C621A42280F003B003C /* CMPTiledView.m in Sources */,
 				C365E8621A2FCFD3000AA8F1 /* main.m in Sources */,
 				C3697C4E1A41F1AB003B003C /* UIImage+Tint.m in Sources */,
 				C316E6431A37C71400446FD6 /* CMPMapView.m in Sources */,
@@ -629,7 +612,6 @@
 				5F2BFFE71A367CF60023FF05 /* CMPLevelViewController.m in Sources */,
 				C3B5C6991A422FBD002EDE1F /* CMPAddLevelViewController.m in Sources */,
 				C35DB91C1A31EC3C0011FC1C /* CMPTilesheet.m in Sources */,
-				C3697C5C1A42272B003B003C /* CMPTiledScrollView.m in Sources */,
 				C3697C511A41F1CE003B003C /* UIImage+CMPAdditions.m in Sources */,
 				C3E14D021A3E93D30061EC15 /* CMPSplitViewControllerMasterSegue.m in Sources */,
 				C3E14CD51A3E51D10061EC15 /* CMPRendering.m in Sources */,
