@@ -42,6 +42,9 @@ static NSString * const CMPTilesheetTileManagerDirectoryName = @"CMPTilesheetTil
 - (instancetype)initWithTilesheet:(CMPTilesheet *)tilesheet {
     self = [super init];
     if (self) {
+        _tilesheet = tilesheet;
+        
+        
         NSString *tilesheetNameKey = [tilesheet.path MD5Hash];
         _tileCacheURL = [[[self class] cacheDirectoryURL] URLByAppendingPathComponent:tilesheetNameKey isDirectory:YES];
         
