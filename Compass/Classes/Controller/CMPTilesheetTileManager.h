@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 Grant Butler. All rights reserved.
 //
 
-@import Foundation;
+@import UIKit;
 
 @class CMPTilesheet;
 
