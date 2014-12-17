@@ -28,6 +28,8 @@
 		C365E88D1A2FD145000AA8F1 /* CMPAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C365E88A1A2FD145000AA8F1 /* CMPAppDelegate.m */; };
 		C3697C471A41DFF0003B003C /* libJCTiledScrollView.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C3697C441A41DFE2003B003C /* libJCTiledScrollView.a */; };
 		C3697C4A1A41E437003B003C /* CMPEditorTileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C3697C491A41E437003B003C /* CMPEditorTileManager.m */; };
+		C3697C4E1A41F1AB003B003C /* UIImage+Tint.m in Sources */ = {isa = PBXBuildFile; fileRef = C3697C4D1A41F1AB003B003C /* UIImage+Tint.m */; };
+		C3697C511A41F1CE003B003C /* UIImage+CMPAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = C3697C501A41F1CE003B003C /* UIImage+CMPAdditions.m */; };
 		C3E14CCD1A3E51250061EC15 /* CMPLevelIconCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C3E14CCC1A3E51250061EC15 /* CMPLevelIconCell.m */; };
 		C3E14CD51A3E51D10061EC15 /* CMPRendering.m in Sources */ = {isa = PBXBuildFile; fileRef = C3E14CD31A3E51D10061EC15 /* CMPRendering.m */; };
 		C3E14CD81A3E55BD0061EC15 /* CMPMapThumbnailManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C3E14CD71A3E55BD0061EC15 /* CMPMapThumbnailManager.m */; };
@@ -140,6 +142,10 @@
 		C3697C3B1A41DFE2003B003C /* JCTiledScrollView.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = JCTiledScrollView.xcodeproj; path = Vendor/JCTiledScrollView/JCTiledScrollView/JCTiledScrollView.xcodeproj; sourceTree = "<group>"; };
 		C3697C481A41E437003B003C /* CMPEditorTileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMPEditorTileManager.h; sourceTree = "<group>"; };
 		C3697C491A41E437003B003C /* CMPEditorTileManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMPEditorTileManager.m; sourceTree = "<group>"; };
+		C3697C4C1A41F1AB003B003C /* UIImage+Tint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+Tint.h"; path = "Vendor/MGImageUtilities/Classes/UIImage+Tint.h"; sourceTree = "<group>"; };
+		C3697C4D1A41F1AB003B003C /* UIImage+Tint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+Tint.m"; path = "Vendor/MGImageUtilities/Classes/UIImage+Tint.m"; sourceTree = "<group>"; };
+		C3697C4F1A41F1CE003B003C /* UIImage+CMPAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+CMPAdditions.h"; sourceTree = "<group>"; };
+		C3697C501A41F1CE003B003C /* UIImage+CMPAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+CMPAdditions.m"; sourceTree = "<group>"; };
 		C3E14CCB1A3E51250061EC15 /* CMPLevelIconCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMPLevelIconCell.h; sourceTree = "<group>"; };
 		C3E14CCC1A3E51250061EC15 /* CMPLevelIconCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMPLevelIconCell.m; sourceTree = "<group>"; };
 		C3E14CD31A3E51D10061EC15 /* CMPRendering.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMPRendering.m; sourceTree = "<group>"; };
@@ -218,6 +224,7 @@
 		C316E62E1A34CF5F00446FD6 /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
+				C3697C4B1A41F19E003B003C /* MGImageUtilities */,
 				C3697C3B1A41DFE2003B003C /* JCTiledScrollView.xcodeproj */,
 				C316E61E1A34CF5C00446FD6 /* CocoaYAML.xcodeproj */,
 			);
@@ -381,6 +388,15 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		C3697C4B1A41F19E003B003C /* MGImageUtilities */ = {
+			isa = PBXGroup;
+			children = (
+				C3697C4C1A41F1AB003B003C /* UIImage+Tint.h */,
+				C3697C4D1A41F1AB003B003C /* UIImage+Tint.m */,
+			);
+			name = MGImageUtilities;
+			sourceTree = "<group>";
+		};
 		C3E14CD21A3E51B40061EC15 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
@@ -395,6 +411,8 @@
 			children = (
 				C3E14CDD1A3E58A40061EC15 /* NSString+CMPAdditions.h */,
 				C3E14CDE1A3E58A40061EC15 /* NSString+CMPAdditions.m */,
+				C3697C4F1A41F1CE003B003C /* UIImage+CMPAdditions.h */,
+				C3697C501A41F1CE003B003C /* UIImage+CMPAdditions.m */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -566,10 +584,12 @@
 				5FACD3C61A366D9A0020E1B8 /* CMPMapEditorViewController.m in Sources */,
 				C35DB9201A31F20E0011FC1C /* CMPMapParser.m in Sources */,
 				C365E8621A2FCFD3000AA8F1 /* main.m in Sources */,
+				C3697C4E1A41F1AB003B003C /* UIImage+Tint.m in Sources */,
 				C316E6431A37C71400446FD6 /* CMPMapView.m in Sources */,
 				C3E14CDB1A3E55EE0061EC15 /* CMPLevelsViewController.m in Sources */,
 				5F2BFFE71A367CF60023FF05 /* CMPLevelViewController.m in Sources */,
 				C35DB91C1A31EC3C0011FC1C /* CMPTilesheet.m in Sources */,
+				C3697C511A41F1CE003B003C /* UIImage+CMPAdditions.m in Sources */,
 				C3E14D021A3E93D30061EC15 /* CMPSplitViewControllerMasterSegue.m in Sources */,
 				C3E14CD51A3E51D10061EC15 /* CMPRendering.m in Sources */,
 				C3E14CDF1A3E58A40061EC15 /* NSString+CMPAdditions.m in Sources */,
