@@ -85,7 +85,7 @@ static NSString * const CMPTilesheetTileManagerDirectoryName = @"CMPTilesheetTil
     CGFloat y = floor(tileIndex / columnCount) * CMPTilesheetTileSize.height;
     
     tile = [self.tilesheet.sprite imageWithRect:CGRectMake(x, y, CMPTilesheetTileSize.width, CMPTilesheetTileSize.height)];
-    if (active) {
+    if (!active) {
         tile = [tile imageTintedWithColor:[UIColor blackColor] fraction:0.75];
     }
     
