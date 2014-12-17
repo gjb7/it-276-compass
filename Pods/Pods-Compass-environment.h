@@ -6,12 +6,6 @@
 // project.
 
 
-// JCTiledScrollView
-#define COCOAPODS_POD_AVAILABLE_JCTiledScrollView
-#define COCOAPODS_VERSION_MAJOR_JCTiledScrollView 0
-#define COCOAPODS_VERSION_MINOR_JCTiledScrollView 0
-#define COCOAPODS_VERSION_PATCH_JCTiledScrollView 1
-
 // JMStaticContentTableViewController
 #define COCOAPODS_POD_AVAILABLE_JMStaticContentTableViewController
 #define COCOAPODS_VERSION_MAJOR_JMStaticContentTableViewController 0

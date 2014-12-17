@@ -1,5 +1,5 @@
 #include "Pods-Compass-JMStaticContentTableViewController.xcconfig"
 GCC_PREPROCESSOR_DEFINITIONS = COCOAPODS=1
-HEADER_SEARCH_PATHS = "${PODS_ROOT}/BuildHeaders" "${PODS_ROOT}/BuildHeaders/JMStaticContentTableViewController" "${PODS_ROOT}/Headers" "${PODS_ROOT}/Headers/JCTiledScrollView" "${PODS_ROOT}/Headers/JMStaticContentTableViewController"
+HEADER_SEARCH_PATHS = "${PODS_ROOT}/BuildHeaders" "${PODS_ROOT}/BuildHeaders/JMStaticContentTableViewController" "${PODS_ROOT}/Headers" "${PODS_ROOT}/Headers/JMStaticContentTableViewController"
 OTHER_LDFLAGS = -ObjC
 PODS_ROOT = ${SRCROOT}
