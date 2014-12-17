@@ -15,6 +15,6 @@
 
 - (instancetype)initWithTilesheet:(CMPTilesheet *)tilesheet;
 
-- (UIImage *)tileForRect:(CGRect)tileRect withMap:(CMPMap *)map activeLayerIndex:(NSUInteger)activeLayerIndex;
+- (UIImage *)tileForRect:(CGRect)tileRect scale:(NSInteger)scale withMap:(CMPMap *)map activeLayerIndex:(NSUInteger)activeLayerIndex;
 
 @end
