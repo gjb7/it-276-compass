@@ -80,7 +80,7 @@
 - (IBAction)addLevel:(id)sender {
     CMPMap *map = [[CMPMap alloc] init];
     map.filename = self.levelNameTextField.text;
-    map.size = CGSizeMake(10.0, 10.0);
+    map.size = CGSizeMake(self.widthStepper.value, self.heightStepper.value);
     map.tilesheetPath = @"res/tilesheets/overworld.yaml";
     
     [self.delegate addLevelViewController:self didCompleteWithMap:map];
