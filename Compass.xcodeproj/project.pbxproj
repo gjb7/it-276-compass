@@ -26,7 +26,6 @@
 		C365E86D1A2FCFD3000AA8F1 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C365E86C1A2FCFD3000AA8F1 /* Images.xcassets */; };
 		C365E8701A2FCFD3000AA8F1 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C365E86E1A2FCFD3000AA8F1 /* LaunchScreen.xib */; };
 		C365E88D1A2FD145000AA8F1 /* CMPAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C365E88A1A2FD145000AA8F1 /* CMPAppDelegate.m */; };
-		C3697C471A41DFF0003B003C /* libJCTiledScrollView.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C3697C441A41DFE2003B003C /* libJCTiledScrollView.a */; };
 		C3697C4A1A41E437003B003C /* CMPEditorTileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C3697C491A41E437003B003C /* CMPEditorTileManager.m */; };
 		C3697C4E1A41F1AB003B003C /* UIImage+Tint.m in Sources */ = {isa = PBXBuildFile; fileRef = C3697C4D1A41F1AB003B003C /* UIImage+Tint.m */; };
 		C3697C511A41F1CE003B003C /* UIImage+CMPAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = C3697C501A41F1CE003B003C /* UIImage+CMPAdditions.m */; };
@@ -42,6 +41,7 @@
 		C3E14D081A3E9D450061EC15 /* CMPLayersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3E14D071A3E9D450061EC15 /* CMPLayersViewController.m */; };
 		C3E14D0E1A3EA9970061EC15 /* CMPLayerFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = C3E14D0D1A3EA9970061EC15 /* CMPLayerFooterView.m */; };
 		C3FA15951A409CB1009CAFFB /* CMPTilesheetTileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C3FA15941A409CB1009CAFFB /* CMPTilesheetTileManager.m */; };
+		CAA239643E62422E8D3A9763 /* libPods-Compass.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D685D42E8684432780C70413 /* libPods-Compass.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,20 +87,6 @@
 			remoteGlobalIDString = C365E85B1A2FCFD3000AA8F1;
 			remoteInfo = Compass;
 		};
-		C3697C431A41DFE2003B003C /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = C3697C3B1A41DFE2003B003C /* JCTiledScrollView.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 88BCDD8C15C4E13900E6515A;
-			remoteInfo = JCTiledScrollView;
-		};
-		C3697C451A41DFEB003B003C /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = C3697C3B1A41DFE2003B003C /* JCTiledScrollView.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 88BCDD8B15C4E13900E6515A;
-			remoteInfo = JCTiledScrollView;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -110,6 +96,7 @@
 		5FACD3C21A366A510020E1B8 /* CMPTilesheetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMPTilesheetViewController.m; sourceTree = "<group>"; };
 		5FACD3C41A366D9A0020E1B8 /* CMPMapEditorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMPMapEditorViewController.h; sourceTree = "<group>"; };
 		5FACD3C51A366D9A0020E1B8 /* CMPMapEditorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMPMapEditorViewController.m; sourceTree = "<group>"; };
+		981453129E234D74A924F7EB /* Pods-Compass.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Compass.xcconfig"; path = "Pods/Pods-Compass.xcconfig"; sourceTree = "<group>"; };
 		C316E61E1A34CF5C00446FD6 /* CocoaYAML.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CocoaYAML.xcodeproj; path = Vendor/CocoaYAML/CocoaYAML.xcodeproj; sourceTree = "<group>"; };
 		C316E6331A34D2A100446FD6 /* CMPV1MapSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMPV1MapSerializer.h; sourceTree = "<group>"; };
 		C316E6341A34D2A100446FD6 /* CMPV1MapSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMPV1MapSerializer.m; sourceTree = "<group>"; };
@@ -139,7 +126,6 @@
 		C365E87A1A2FCFD3000AA8F1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C365E8891A2FD145000AA8F1 /* CMPAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMPAppDelegate.h; sourceTree = "<group>"; };
 		C365E88A1A2FD145000AA8F1 /* CMPAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMPAppDelegate.m; sourceTree = "<group>"; };
-		C3697C3B1A41DFE2003B003C /* JCTiledScrollView.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = JCTiledScrollView.xcodeproj; path = Vendor/JCTiledScrollView/JCTiledScrollView/JCTiledScrollView.xcodeproj; sourceTree = "<group>"; };
 		C3697C481A41E437003B003C /* CMPEditorTileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMPEditorTileManager.h; sourceTree = "<group>"; };
 		C3697C491A41E437003B003C /* CMPEditorTileManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMPEditorTileManager.m; sourceTree = "<group>"; };
 		C3697C4C1A41F1AB003B003C /* UIImage+Tint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+Tint.h"; path = "Vendor/MGImageUtilities/Classes/UIImage+Tint.h"; sourceTree = "<group>"; };
@@ -169,6 +155,7 @@
 		C3E14D0D1A3EA9970061EC15 /* CMPLayerFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMPLayerFooterView.m; sourceTree = "<group>"; };
 		C3FA15931A409CB1009CAFFB /* CMPTilesheetTileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMPTilesheetTileManager.h; sourceTree = "<group>"; };
 		C3FA15941A409CB1009CAFFB /* CMPTilesheetTileManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMPTilesheetTileManager.m; sourceTree = "<group>"; };
+		D685D42E8684432780C70413 /* libPods-Compass.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Compass.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -176,8 +163,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C3697C471A41DFF0003B003C /* libJCTiledScrollView.a in Frameworks */,
 				C316E6311A34CF7100446FD6 /* libCocoaYAML iOS Library.a in Frameworks */,
+				CAA239643E62422E8D3A9763 /* libPods-Compass.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -191,6 +178,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		59CA0EA771ED489BAD04F6B2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D685D42E8684432780C70413 /* libPods-Compass.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		5FACD3C01A366A2C0020E1B8 /* View Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -225,7 +220,6 @@
 			isa = PBXGroup;
 			children = (
 				C3697C4B1A41F19E003B003C /* MGImageUtilities */,
-				C3697C3B1A41DFE2003B003C /* JCTiledScrollView.xcodeproj */,
 				C316E61E1A34CF5C00446FD6 /* CocoaYAML.xcodeproj */,
 			);
 			name = Vendor;
@@ -258,6 +252,8 @@
 				C365E8781A2FCFD3000AA8F1 /* CompassTests */,
 				C316E62E1A34CF5F00446FD6 /* Vendor */,
 				C365E85D1A2FCFD3000AA8F1 /* Products */,
+				981453129E234D74A924F7EB /* Pods-Compass.xcconfig */,
+				59CA0EA771ED489BAD04F6B2 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -380,14 +376,6 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		C3697C3C1A41DFE2003B003C /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				C3697C441A41DFE2003B003C /* libJCTiledScrollView.a */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		C3697C4B1A41F19E003B003C /* MGImageUtilities */ = {
 			isa = PBXGroup;
 			children = (
@@ -424,14 +412,15 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C365E87F1A2FCFD3000AA8F1 /* Build configuration list for PBXNativeTarget "Compass" */;
 			buildPhases = (
+				A64E01E2F49A4953B7FCE8A4 /* Check Pods Manifest.lock */,
 				C365E8581A2FCFD3000AA8F1 /* Sources */,
 				C365E8591A2FCFD3000AA8F1 /* Frameworks */,
 				C365E85A1A2FCFD3000AA8F1 /* Resources */,
+				9E3EA6A687834BBAAEB3C819 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				C3697C461A41DFEB003B003C /* PBXTargetDependency */,
 				C316E6301A34CF6C00446FD6 /* PBXTargetDependency */,
 			);
 			name = Compass;
@@ -493,10 +482,6 @@
 					ProductGroup = C316E61F1A34CF5C00446FD6 /* Products */;
 					ProjectRef = C316E61E1A34CF5C00446FD6 /* CocoaYAML.xcodeproj */;
 				},
-				{
-					ProductGroup = C3697C3C1A41DFE2003B003C /* Products */;
-					ProjectRef = C3697C3B1A41DFE2003B003C /* JCTiledScrollView.xcodeproj */;
-				},
 			);
 			projectRoot = "";
 			targets = (
@@ -535,13 +520,6 @@
 			remoteRef = C316E62C1A34CF5C00446FD6 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		C3697C441A41DFE2003B003C /* libJCTiledScrollView.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libJCTiledScrollView.a;
-			remoteRef = C3697C431A41DFE2003B003C /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
@@ -564,6 +542,39 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		9E3EA6A687834BBAAEB3C819 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-Compass-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A64E01E2F49A4953B7FCE8A4 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		C365E8581A2FCFD3000AA8F1 /* Sources */ = {
@@ -621,11 +632,6 @@
 			isa = PBXTargetDependency;
 			target = C365E85B1A2FCFD3000AA8F1 /* Compass */;
 			targetProxy = C365E8761A2FCFD3000AA8F1 /* PBXContainerItemProxy */;
-		};
-		C3697C461A41DFEB003B003C /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = JCTiledScrollView;
-			targetProxy = C3697C451A41DFEB003B003C /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -729,6 +735,7 @@
 		};
 		C365E8801A2FCFD3000AA8F1 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 981453129E234D74A924F7EB /* Pods-Compass.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -741,6 +748,8 @@
 				);
 				INFOPLIST_FILE = Compass/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -748,6 +757,7 @@
 		};
 		C365E8811A2FCFD3000AA8F1 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 981453129E234D74A924F7EB /* Pods-Compass.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -760,6 +770,7 @@
 				);
 				INFOPLIST_FILE = Compass/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};

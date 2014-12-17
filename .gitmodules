@@ -1,9 +1,6 @@
 [submodule "Vendor/CocoaYAML"]
 	path = Vendor/CocoaYAML
 	url = https://github.com/schwa/CocoaYAML.git
-[submodule "Vendor/JCTiledScrollView"]
-	path = Vendor/JCTiledScrollView
-	url = https://github.com/jessedc/JCTiledScrollView.git
 [submodule "Vendor/MGImageUtilities"]
 	path = Vendor/MGImageUtilities
 	url = https://github.com/mattgemmell/MGImageUtilities.git
