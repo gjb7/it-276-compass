@@ -38,7 +38,7 @@
 		C3E14D021A3E93D30061EC15 /* CMPSplitViewControllerMasterSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = C3E14D001A3E93D30061EC15 /* CMPSplitViewControllerMasterSegue.m */; };
 		C3E14D081A3E9D450061EC15 /* CMPLayersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3E14D071A3E9D450061EC15 /* CMPLayersViewController.m */; };
 		C3E14D0E1A3EA9970061EC15 /* CMPLayerFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = C3E14D0D1A3EA9970061EC15 /* CMPLayerFooterView.m */; };
-		C3FA15951A409CB1009CAFFB /* CMPMapTileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C3FA15941A409CB1009CAFFB /* CMPMapTileManager.m */; };
+		C3FA15951A409CB1009CAFFB /* CMPTilesheetTileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C3FA15941A409CB1009CAFFB /* CMPTilesheetTileManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -158,8 +158,8 @@
 		C3E14D071A3E9D450061EC15 /* CMPLayersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMPLayersViewController.m; sourceTree = "<group>"; };
 		C3E14D0C1A3EA9970061EC15 /* CMPLayerFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMPLayerFooterView.h; sourceTree = "<group>"; };
 		C3E14D0D1A3EA9970061EC15 /* CMPLayerFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMPLayerFooterView.m; sourceTree = "<group>"; };
-		C3FA15931A409CB1009CAFFB /* CMPMapTileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMPMapTileManager.h; sourceTree = "<group>"; };
-		C3FA15941A409CB1009CAFFB /* CMPMapTileManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMPMapTileManager.m; sourceTree = "<group>"; };
+		C3FA15931A409CB1009CAFFB /* CMPTilesheetTileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMPTilesheetTileManager.h; sourceTree = "<group>"; };
+		C3FA15941A409CB1009CAFFB /* CMPTilesheetTileManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMPTilesheetTileManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -319,8 +319,8 @@
 				C365E88A1A2FD145000AA8F1 /* CMPAppDelegate.m */,
 				C3E14CD61A3E55BD0061EC15 /* CMPMapThumbnailManager.h */,
 				C3E14CD71A3E55BD0061EC15 /* CMPMapThumbnailManager.m */,
-				C3FA15931A409CB1009CAFFB /* CMPMapTileManager.h */,
-				C3FA15941A409CB1009CAFFB /* CMPMapTileManager.m */,
+				C3FA15931A409CB1009CAFFB /* CMPTilesheetTileManager.h */,
+				C3FA15941A409CB1009CAFFB /* CMPTilesheetTileManager.m */,
 				C3E14CFD1A3E93D30061EC15 /* CMPSplitViewControllerDetailSegue.h */,
 				C3E14CFE1A3E93D30061EC15 /* CMPSplitViewControllerDetailSegue.m */,
 				C3E14CFF1A3E93D30061EC15 /* CMPSplitViewControllerMasterSegue.h */,
@@ -552,7 +552,7 @@
 				5FACD3C31A366A510020E1B8 /* CMPTilesheetViewController.m in Sources */,
 				C316E6461A37C71D00446FD6 /* CMPLayerView.m in Sources */,
 				C35DB9231A32704E0011FC1C /* CMPV1MapParser.m in Sources */,
-				C3FA15951A409CB1009CAFFB /* CMPMapTileManager.m in Sources */,
+				C3FA15951A409CB1009CAFFB /* CMPTilesheetTileManager.m in Sources */,
 				C3E14D0E1A3EA9970061EC15 /* CMPLayerFooterView.m in Sources */,
 				C365E88D1A2FD145000AA8F1 /* CMPAppDelegate.m in Sources */,
 				C316E6351A34D2A100446FD6 /* CMPV1MapSerializer.m in Sources */,
