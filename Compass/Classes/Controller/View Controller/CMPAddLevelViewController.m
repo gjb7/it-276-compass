@@ -106,6 +106,7 @@
     if (!_widthStepper) {
         _widthStepper = [[UIStepper alloc] init];
         _widthStepper.value = 10.0;
+        _widthStepper.minimumValue = 1.0;
         [_widthStepper addTarget:self action:@selector(widthStepperValueChanged:) forControlEvents:UIControlEventValueChanged];
     }
     
@@ -116,6 +117,7 @@
     if (!_heightStepper) {
         _heightStepper = [[UIStepper alloc] init];
         _heightStepper.value = 10.0;
+        _heightStepper.minimumValue = 1.0;
         [_heightStepper addTarget:self action:@selector(heightStepperValueChanged:) forControlEvents:UIControlEventValueChanged];
     }
     
