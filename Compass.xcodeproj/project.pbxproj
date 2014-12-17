@@ -27,6 +27,7 @@
 		C365E86D1A2FCFD3000AA8F1 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C365E86C1A2FCFD3000AA8F1 /* Images.xcassets */; };
 		C365E8701A2FCFD3000AA8F1 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C365E86E1A2FCFD3000AA8F1 /* LaunchScreen.xib */; };
 		C365E88D1A2FD145000AA8F1 /* CMPAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C365E88A1A2FD145000AA8F1 /* CMPAppDelegate.m */; };
+		C3697C471A41DFF0003B003C /* libJCTiledScrollView.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C3697C441A41DFE2003B003C /* libJCTiledScrollView.a */; };
 		C3E14CCD1A3E51250061EC15 /* CMPLevelIconCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C3E14CCC1A3E51250061EC15 /* CMPLevelIconCell.m */; };
 		C3E14CD51A3E51D10061EC15 /* CMPRendering.m in Sources */ = {isa = PBXBuildFile; fileRef = C3E14CD31A3E51D10061EC15 /* CMPRendering.m */; };
 		C3E14CD81A3E55BD0061EC15 /* CMPMapThumbnailManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C3E14CD71A3E55BD0061EC15 /* CMPMapThumbnailManager.m */; };
@@ -83,6 +84,20 @@
 			remoteGlobalIDString = C365E85B1A2FCFD3000AA8F1;
 			remoteInfo = Compass;
 		};
+		C3697C431A41DFE2003B003C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C3697C3B1A41DFE2003B003C /* JCTiledScrollView.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 88BCDD8C15C4E13900E6515A;
+			remoteInfo = JCTiledScrollView;
+		};
+		C3697C451A41DFEB003B003C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C3697C3B1A41DFE2003B003C /* JCTiledScrollView.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 88BCDD8B15C4E13900E6515A;
+			remoteInfo = JCTiledScrollView;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -123,6 +138,7 @@
 		C365E87A1A2FCFD3000AA8F1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C365E8891A2FD145000AA8F1 /* CMPAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMPAppDelegate.h; sourceTree = "<group>"; };
 		C365E88A1A2FD145000AA8F1 /* CMPAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMPAppDelegate.m; sourceTree = "<group>"; };
+		C3697C3B1A41DFE2003B003C /* JCTiledScrollView.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = JCTiledScrollView.xcodeproj; path = Vendor/JCTiledScrollView/JCTiledScrollView/JCTiledScrollView.xcodeproj; sourceTree = "<group>"; };
 		C3E14CCB1A3E51250061EC15 /* CMPLevelIconCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMPLevelIconCell.h; sourceTree = "<group>"; };
 		C3E14CCC1A3E51250061EC15 /* CMPLevelIconCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMPLevelIconCell.m; sourceTree = "<group>"; };
 		C3E14CD31A3E51D10061EC15 /* CMPRendering.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMPRendering.m; sourceTree = "<group>"; };
@@ -151,6 +167,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C3697C471A41DFF0003B003C /* libJCTiledScrollView.a in Frameworks */,
 				C316E6311A34CF7100446FD6 /* libCocoaYAML iOS Library.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -198,6 +215,7 @@
 		C316E62E1A34CF5F00446FD6 /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
+				C3697C3B1A41DFE2003B003C /* JCTiledScrollView.xcodeproj */,
 				C316E61E1A34CF5C00446FD6 /* CocoaYAML.xcodeproj */,
 			);
 			name = Vendor;
@@ -350,6 +368,14 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		C3697C3C1A41DFE2003B003C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C3697C441A41DFE2003B003C /* libJCTiledScrollView.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		C3E14CD21A3E51B40061EC15 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
@@ -382,6 +408,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				C3697C461A41DFEB003B003C /* PBXTargetDependency */,
 				C316E6301A34CF6C00446FD6 /* PBXTargetDependency */,
 			);
 			name = Compass;
@@ -443,6 +470,10 @@
 					ProductGroup = C316E61F1A34CF5C00446FD6 /* Products */;
 					ProjectRef = C316E61E1A34CF5C00446FD6 /* CocoaYAML.xcodeproj */;
 				},
+				{
+					ProductGroup = C3697C3C1A41DFE2003B003C /* Products */;
+					ProjectRef = C3697C3B1A41DFE2003B003C /* JCTiledScrollView.xcodeproj */;
+				},
 			);
 			projectRoot = "";
 			targets = (
@@ -479,6 +510,13 @@
 			fileType = wrapper.cfbundle;
 			path = "Unit Tests.xctest";
 			remoteRef = C316E62C1A34CF5C00446FD6 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		C3697C441A41DFE2003B003C /* libJCTiledScrollView.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libJCTiledScrollView.a;
+			remoteRef = C3697C431A41DFE2003B003C /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -557,6 +595,11 @@
 			isa = PBXTargetDependency;
 			target = C365E85B1A2FCFD3000AA8F1 /* Compass */;
 			targetProxy = C365E8761A2FCFD3000AA8F1 /* PBXContainerItemProxy */;
+		};
+		C3697C461A41DFEB003B003C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = JCTiledScrollView;
+			targetProxy = C3697C451A41DFEB003B003C /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -668,6 +711,7 @@
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 					"$(SRCROOT)/Vendor/CocoaYAML/Source/",
+					"$(SRCROOT)/Vendor/JCTIledScrollView/Headers",
 				);
 				INFOPLIST_FILE = Compass/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -686,6 +730,7 @@
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 					"$(SRCROOT)/Vendor/CocoaYAML/Source/",
+					"$(SRCROOT)/Vendor/JCTIledScrollView/Headers",
 				);
 				INFOPLIST_FILE = Compass/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
