@@ -23,6 +23,8 @@
 
 @property (nonatomic, weak) id <CMPMapViewDelegate> delegate;
 
+@property (nonatomic) CGFloat zoomScale;
+
 - (instancetype)initWithMapSize:(CGSize)mapSize tilesheet:(CMPTilesheet *)tilesheet;
 
 - (void)deleteLayerAtIndex:(NSUInteger)layerIndex;

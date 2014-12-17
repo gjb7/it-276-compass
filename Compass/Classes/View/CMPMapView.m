@@ -19,10 +19,11 @@
 @implementation CMPMapView
 
 - (instancetype)initWithMapSize:(CGSize)mapSize tilesheet:(CMPTilesheet *)tilesheet {
-    self = [super initWithFrame:CGRectMake(0.0, 0.0, mapSize.width * CMPTilesheetTileSize.width, mapSize.height * CMPTilesheetTileSize.height)];
+    self = [super initWithFrame:CGRectZero];
     if (self) {
         _mapSize = mapSize;
         _tilesheet = tilesheet;
+        _zoomScale = 1.0;
         
         _layerViews = [NSMutableArray array];
     }
@@ -34,7 +35,7 @@
 }
 
 - (CGSize)intrinsicContentSize {
-    return CGSizeMake(self.mapSize.width * CMPTilesheetTileSize.width, self.mapSize.height * CMPTilesheetTileSize.height);
+    return CGSizeMake(self.mapSize.width * CMPTilesheetTileSize.width * self.zoomScale, self.mapSize.height * CMPTilesheetTileSize.height * self.zoomScale);
 }
 
 #pragma mark - Touch Handling
@@ -46,7 +47,7 @@
     
     UITouch *touch = [touches anyObject];
     CGPoint locationInView = [touch locationInView:self];
-    CGPoint calculatedLocation = CGPointMake(floor(locationInView.x / CMPTilesheetTileSize.width), floor(locationInView.y / CMPTilesheetTileSize.height));
+    CGPoint calculatedLocation = CGPointMake(floor(locationInView.x / CMPTilesheetTileSize.width / self.zoomScale), floor(locationInView.y / CMPTilesheetTileSize.height / self.zoomScale));
     
     __block CMPLayerView *layerView;
     [self.layerViews enumerateObjectsUsingBlock:^(CMPLayerView *aLayerView, NSUInteger idx, BOOL *stop) {
@@ -73,8 +74,8 @@
     CGPoint locationInView = [touch locationInView:self];
     CGPoint previousLocationInView = [touch previousLocationInView:self];
     
-    CGPoint calculatedLocation = CGPointMake(floor(locationInView.x / CMPTilesheetTileSize.width), floor(locationInView.y / CMPTilesheetTileSize.height));
-    CGPoint calculatedPreviousLocation = CGPointMake(floor(previousLocationInView.x / CMPTilesheetTileSize.width), floor(previousLocationInView.y / CMPTilesheetTileSize.height));
+    CGPoint calculatedLocation = CGPointMake(floor(locationInView.x / CMPTilesheetTileSize.width / self.zoomScale), floor(locationInView.y / CMPTilesheetTileSize.height / self.zoomScale));
+    CGPoint calculatedPreviousLocation = CGPointMake(floor(previousLocationInView.x / CMPTilesheetTileSize.width / self.zoomScale), floor(previousLocationInView.y / CMPTilesheetTileSize.height / self.zoomScale));
     
     if (CGPointEqualToPoint(calculatedLocation, calculatedPreviousLocation)) {
         return;
@@ -160,6 +161,7 @@
 
 - (CMPLayerView *)createNewLayerView {
     CMPLayerView *layerView = [[CMPLayerView alloc] initWithLayerSize:self.mapSize tilesheet:self.tilesheet];
+    layerView.zoomScale = self.zoomScale;
     layerView.translatesAutoresizingMaskIntoConstraints = NO;
     [self addSubview:layerView];
     

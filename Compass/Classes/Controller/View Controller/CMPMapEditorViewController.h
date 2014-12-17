@@ -10,10 +10,7 @@
 
 @class CMPMap;
 
-typedef NS_ENUM(NSUInteger, CMPMapEditorViewControllerMode) {
-    CMPMapEditorViewControllerModeScroll = 0,
-    CMPMapEditorViewControllerModeDraw = 1,
-};
+#import "CMPMapEditorScrollView.h"
 
 @interface CMPMapEditorViewController : UIViewController
 
@@ -21,7 +18,7 @@ typedef NS_ENUM(NSUInteger, CMPMapEditorViewControllerMode) {
 
 @property (nonatomic) uint8_t selectedTileIndex;
 
-@property (nonatomic) CMPMapEditorViewControllerMode mode;
+@property (nonatomic) CMPMapEditorScrollViewMode mode;
 
 - (instancetype)initWithMap:(CMPMap *)map;
 

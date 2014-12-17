@@ -25,22 +25,23 @@
     if (self) {
         _layerSize = layerSize;
         _tilesheet = tilesheet;
+        _zoomScale = 1.0;
         
         self.layer.magnificationFilter = kCAFilterNearest;
     }
     return self;
 }
 
-+ (Class)layerClass {
-    return [CATiledLayer class];
-}
+//+ (Class)layerClass {
+//    return [CATiledLayer class];
+//}
 
 - (void)drawRect:(CGRect)rect {
-    CMPRenderMapLayer(self.layerData, self.tilesheet, self.layerSize, self.isActive);
+    CMPRenderMapLayer(self.layerData, self.tilesheet, self.layerSize, self.zoomScale, self.isActive);
 }
 
 - (CGSize)intrinsicContentSize {
-    return CGSizeMake(self.layerSize.width * CMPTilesheetTileSize.width, self.layerSize.height * CMPTilesheetTileSize.height);
+    return CGSizeMake(self.layerSize.width * CMPTilesheetTileSize.width * self.zoomScale, self.layerSize.height * CMPTilesheetTileSize.height * self.zoomScale);
 }
 
 #pragma mark - Accessors

@@ -55,13 +55,13 @@
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:self.modeControl];
 }
 
-+ (CMPMapEditorViewControllerMode)modeFromControlSegment:(NSUInteger)segmentIndex {
++ (CMPMapEditorScrollViewMode)modeFromControlSegment:(NSUInteger)segmentIndex {
     switch (segmentIndex) {
         case 0:
-            return CMPMapEditorViewControllerModeScroll;
+            return CMPMapEditorScrollViewModeScroll;
         
         case 1:
-            return CMPMapEditorViewControllerModeDraw;
+            return CMPMapEditorScrollViewModeDraw;
     }
     
     return 0;

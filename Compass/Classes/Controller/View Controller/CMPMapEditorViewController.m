@@ -9,25 +9,16 @@
 #import "CMPMapEditorViewController.h"
 
 #import "CMPMap.h"
-#import "CMPTilesheet.h"
 
-#import "CMPEditorTileManager.h"
+#import "CMPMapView.h"
+#import "CMPLayerView.h"
+#import "CMPMapEditorScrollView.h"
 
-#import "CMPTiledScrollView.h"
-#import "CMPTiledLayer.h"
+@interface CMPMapEditorViewController () <CMPMapViewDelegate>
 
-#import <JCTiledScrollView/JCTiledScrollView.h>
-#import <JCTiledScrollView/JCTiledView.h>
+@property (nonatomic) CMPMapEditorScrollView *scrollView;
 
-@interface CMPMapEditorViewController () <JCTileSource, JCTiledScrollViewDelegate>
-
-@property (nonatomic) CMPTiledScrollView *scrollView;
-
-@property (nonatomic) CMPEditorTileManager *tileManager;
-
-@property (nonatomic) NSUInteger activeLayerIndex;
-
-@property (nonatomic) UIPanGestureRecognizer *drawPanGestureRecognizer;
+@property (nonatomic, readonly) CMPMapView *mapView;
 
 @end
 
@@ -44,37 +35,32 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self setUpEditorScrollViewWithMap:self.map];
+    [self setUpEditorScrollView];
+    [self configureMapViewWithMap:self.map];
 }
 
-- (void)setUpEditorScrollViewWithMap:(CMPMap *)map {
-    CGSize mapSize = map.size;
-    self.scrollView = [[CMPTiledScrollView alloc] initWithFrame:CGRectZero contentSize:CGSizeMake(mapSize.width * CMPTilesheetTileSize.width, mapSize.height * CMPTilesheetTileSize.height)];
+- (void)setUpEditorScrollView {
+    self.scrollView = [[CMPMapEditorScrollView alloc] initWithFrame:CGRectZero];
+    self.scrollView.mapView.zoomScale = 3.0;
+    self.scrollView.mapView.delegate = self;
     self.scrollView.translatesAutoresizingMaskIntoConstraints = NO;
-    self.scrollView.dataSource = self;
-    self.scrollView.tiledScrollViewDelegate = self;
     [self.view addSubview:self.scrollView];
     
     NSDictionary *views = @{ @"scrollView": self.scrollView };
     [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[scrollView]|" options:0 metrics:nil views:views]];
     [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[scrollView]|" options:0 metrics:nil views:views]];
-    
-    [self.view layoutIfNeeded];
-    
-    self.scrollView.scrollView.contentSize = self.scrollView.scrollView.frame.size;
-    [self centerTiledViewInScrollView:self.scrollView];
-    
-    self.drawPanGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePanGestureRecognizer:)];
-    [self.scrollView.tiledView addGestureRecognizer:self.drawPanGestureRecognizer];
-    self.drawPanGestureRecognizer.enabled = NO;
 }
 
-- (void)centerTiledViewInScrollView:(JCTiledScrollView *)scrollView {
-    CGFloat offsetX = MAX((scrollView.scrollView.bounds.size.width - scrollView.scrollView.contentSize.width) * 0.5, 0.0);
-    CGFloat offsetY = MAX((scrollView.scrollView.bounds.size.height - scrollView.scrollView.contentSize.height) * 0.5, 0.0);
+- (void)configureMapViewWithMap:(CMPMap *)map {
+    self.mapView.tilesheet = map.tilesheet;
+    self.mapView.mapSize = map.size;
+    self.mapView.layers = map.layers;
     
-    scrollView.tiledView.center = CGPointMake(scrollView.scrollView.contentSize.width * 0.5 + offsetX,
-                                              scrollView.scrollView.contentSize.height * 0.5 + offsetY);
+    self.scrollView.zoomScale = 1.0;
+    self.scrollView.contentOffset = CGPointZero;
+    
+    [self.view setNeedsLayout];
+    [self.scrollView setNeedsLayout];
 }
 
 #pragma mark - Accessors
@@ -86,113 +72,43 @@
     
     _map = map;
     
-    self.tileManager = nil;
-    
-    if (self.isViewLoaded) {
-        [self.scrollView removeFromSuperview];
-        [self setUpEditorScrollViewWithMap:_map];
-    }
+    [self configureMapViewWithMap:_map];
 }
 
-- (CMPEditorTileManager *)tileManager {
-    if (!_tileManager) {
-        _tileManager = [[CMPEditorTileManager alloc] initWithTilesheet:self.map.tilesheet];
-    }
-    
-    return _tileManager;
+- (CMPMapView *)mapView {
+    return self.scrollView.mapView;
 }
 
-- (void)setScrollingEnabled:(BOOL)enabled {
-    self.scrollView.scrollView.pinchGestureRecognizer.enabled = enabled;
-    self.scrollView.scrollView.panGestureRecognizer.enabled = enabled;
-    
-    self.scrollView.zoomsInOnDoubleTap = enabled;
-    self.scrollView.zoomsOutOnTwoFingerTap = enabled;
-    self.scrollView.zoomsToTouchLocation = enabled;
-    
-    CATiledLayer *tiledLayer = (CATiledLayer *)self.scrollView.tiledView.layer;
-    tiledLayer.drawsAsynchronously = enabled;
+- (void)setMode:(CMPMapEditorScrollViewMode)mode {
+    self.scrollView.mode = mode;
 }
 
-- (void)setMode:(CMPMapEditorViewControllerMode)mode {
-    _mode = mode;
-    
-    switch (mode) {
-        case CMPMapEditorViewControllerModeScroll:
-            [self setScrollingEnabled:YES];
-            
-            [CMPTiledLayer setFadingInEnabled:YES];
-            self.drawPanGestureRecognizer.enabled = NO;
-            
-            break;
-            
-        case CMPMapEditorViewControllerModeDraw:
-            [self setScrollingEnabled:NO];
-            
-            [CMPTiledLayer setFadingInEnabled:NO];
-            self.drawPanGestureRecognizer.enabled = YES;
-            
-            break;
-    }
-}
-
-- (void)handlePanGestureRecognizer:(UIPanGestureRecognizer *)panGestureRecognizer {
-    CGPoint locationInView = [panGestureRecognizer locationInView:panGestureRecognizer.view];
-    
-    if (!CGRectContainsPoint(panGestureRecognizer.view.bounds, locationInView)) {
-        return;
-    }
-    
-    CGPoint calculatedLocation = CGPointMake(floor(locationInView.x / CMPTilesheetTileSize.width), floor(locationInView.y / CMPTilesheetTileSize.height));
-    
-    NSUInteger tileIndex = calculatedLocation.x + (calculatedLocation.y * self.map.size.height);
-    NSMutableData *layerData = self.map.layers[self.activeLayerIndex];
-    
-    uint8_t tile = self.selectedTileIndex;
-    NSUInteger size = sizeof(tile);
-    [layerData replaceBytesInRange:NSMakeRange(tileIndex, size) withBytes:&tile length:size];
-    
-    CGRect redrawRect;
-    redrawRect.origin.x = calculatedLocation.x * CMPTilesheetTileSize.width;
-    redrawRect.origin.y = calculatedLocation.y * CMPTilesheetTileSize.height;
-    redrawRect.size = CMPTilesheetTileSize;
-    
-    [self.scrollView.tiledView setNeedsDisplayInRect:redrawRect];
+- (CMPMapEditorScrollViewMode)mode {
+    return self.scrollView.mode;
 }
 
 #pragma mark - Public API
 
 - (void)deleteLayerAtIndex:(NSUInteger)layerIndex {
-//    [self.mapView deleteLayerAtIndex:layerIndex];
+    [self.mapView deleteLayerAtIndex:layerIndex];
 }
 
 - (void)insertLayerAtIndex:(NSUInteger)layerIndex withData:(NSData *)data {
-//    [self.mapView insertLayerAtIndex:layerIndex withData:data];
+    [self.mapView insertLayerAtIndex:layerIndex withData:data];
 }
 
 - (void)activateLayerAtIndex:(NSUInteger)layerIndex {
-    self.activeLayerIndex = layerIndex;
+    [self.mapView activateLayerAtIndex:layerIndex];
+}
+
+#pragma mark - CMPMapViewDelegate
+
+- (void)mapView:(CMPMapView *)mapView didTouchTileAtPoint:(CGPoint)point inLayerView:(CMPLayerView *)layerView {
+    NSUInteger tileIndex = point.x + (point.y * self.map.size.height);
     
-    [self.scrollView.tiledView setNeedsDisplay];
-}
-
-#pragma mark - JCTileSource
-
-- (UIImage *)tiledScrollView:(JCTiledScrollView *)scrollView imageForRow:(NSInteger)row column:(NSInteger)column scale:(NSInteger)scale {
-    CGSize tileSize = scrollView.tiledView.tileSize;
-    CGRect tileRect = CGRectMake(column * tileSize.width, row * tileSize.height, tileSize.width, tileSize.height);
+    [layerView setTile:self.selectedTileIndex atIndex:tileIndex];
     
-    return [self.tileManager tileForRect:tileRect scale:scale withMap:self.map activeLayerIndex:self.activeLayerIndex];
-}
-
-#pragma mark - JCTiledScrollViewDelegate
-
-- (void)tiledScrollViewDidZoom:(JCTiledScrollView *)scrollView {
-    [self centerTiledViewInScrollView:scrollView];
-}
-
-- (JCAnnotationView *)tiledScrollView:(JCTiledScrollView *)scrollView viewForAnnotation:(id<JCAnnotation>)annotation {
-    return nil;
+    self.map.layers = [mapView.layers mutableCopy];
 }
 
 /*
