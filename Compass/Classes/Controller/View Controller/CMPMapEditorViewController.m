@@ -152,7 +152,12 @@
     NSUInteger size = sizeof(tile);
     [layerData replaceBytesInRange:NSMakeRange(tileIndex, size) withBytes:&tile length:size];
     
-    [self.scrollView.tiledView setNeedsDisplay];
+    CGRect redrawRect;
+    redrawRect.origin.x = calculatedLocation.x * CMPTilesheetTileSize.width;
+    redrawRect.origin.y = calculatedLocation.y * CMPTilesheetTileSize.height;
+    redrawRect.size = CMPTilesheetTileSize;
+    
+    [self.scrollView.tiledView setNeedsDisplayInRect:redrawRect];
 }
 
 #pragma mark - Public API
