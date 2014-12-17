@@ -10,17 +10,17 @@
 
 #import "CMPTilesheet.h"
 
-#import "UIImage+Tint.h"
-#import "UIImage+CMPAdditions.h"
+#import "CMPTilesheetTileManager.h"
 
 void CMPRenderMap(NSArray *layers, CMPTilesheet *tilesheet, CGSize mapSize) {
+    CMPTilesheetTileManager *tileManager = [[CMPTilesheetTileManager alloc] initWithTilesheet:tilesheet];
+    
     [layers enumerateObjectsUsingBlock:^(NSData *layerData, NSUInteger idx, BOOL *stop) {
-        CMPRenderMapLayer(layerData, tilesheet, mapSize, 1.0, YES);
+        CMPRenderMapLayer(layerData, tileManager, mapSize, 1.0, YES);
     }];
 }
 
-void CMPRenderMapLayer(NSData *layerData, CMPTilesheet *tilesheet, CGSize mapSize, CGFloat scale, BOOL isActive) {
-    NSUInteger columnCount = tilesheet.numberOfColumns;
+void CMPRenderMapLayer(NSData *layerData, CMPTilesheetTileManager *tileManager, CGSize mapSize, CGFloat scale, BOOL isActive) {
     CGContextRef context = UIGraphicsGetCurrentContext();
     
     CGContextSaveGState(context);
@@ -33,12 +33,7 @@ void CMPRenderMapLayer(NSData *layerData, CMPTilesheet *tilesheet, CGSize mapSiz
         NSUInteger y = floorf(i / (NSUInteger)mapSize.width) * CMPTilesheetTileSize.height * scale;
         uint8_t tileIndex = bytes[i];
         
-        UIImage *tileImage = [tilesheet.sprite imageWithRect:CGRectMake((tileIndex % columnCount) * CMPTilesheetTileSize.width, floor(tileIndex / columnCount) * CMPTilesheetTileSize.height, CMPTilesheetTileSize.width, CMPTilesheetTileSize.height)];
-        
-        if (!isActive) {
-            tileImage = [tileImage imageTintedWithColor:[UIColor blackColor] fraction:0.75];
-        }
-        
+        UIImage *tileImage = [tileManager tileAtIndex:tileIndex isActive:isActive];
         [tileImage drawInRect:CGRectMake(x, y , CMPTilesheetTileSize.width * scale, CMPTilesheetTileSize.height * scale)];
     }
     

@@ -11,6 +11,7 @@
 @import CoreGraphics;
 
 @class CMPTilesheet;
+@class CMPTilesheetTileManager;
 
 void CMPRenderMap(NSArray *layers, CMPTilesheet *tilesheet, CGSize mapSize);
-void CMPRenderMapLayer(NSData *layerData, CMPTilesheet *tilesheet, CGSize mapSize, CGFloat scale, BOOL isActive);
+void CMPRenderMapLayer(NSData *layerData, CMPTilesheetTileManager *tileManager, CGSize mapSize, CGFloat scale, BOOL isActive);
