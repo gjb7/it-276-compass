@@ -19,6 +19,8 @@ const CGSize CMPTilesheetTileSize = { 16.0, 16.0 };
     if (self) {
         NSData *yamlData = [NSData dataWithContentsOfFile:path];
         if (yamlData) {
+            _path = path;
+            
             NSDictionary *document = [[CYAMLDeserializer deserializer] deserializeData:yamlData error:nil];
             
             NSString *relativeImageFilePath = document[@"sprite"];
