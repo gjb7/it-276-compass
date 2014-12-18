@@ -10,4 +10,11 @@
 
 @interface CMPDataReader : NSObject
 
+@property (nonatomic, readonly) NSData *sourceData;
+@property (nonatomic, readonly) NSData *remainingData;
+
+- (instancetype)initWithData:(NSData *)data NS_DESIGNATED_INITIALIZER;
+
+- (BOOL)readNextKey:(NSString **)key value:(NSData **)value;
+
 @end
