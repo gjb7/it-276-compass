@@ -66,7 +66,7 @@
     XCTAssertFalse(result);
     XCTAssertNotNil(parseError);
     XCTAssertEqualObjects(parseError.domain, CMPMapParserErrorDomain);
-    XCTAssertEqual(parseError.code, CMPMapParserErrorCodeNotEnoughBytes);
+    XCTAssertEqual(parseError.code, CMPMapParserErrorCodeInvalidSyntax);
 }
 
 - (void)testInvalidV1GameMapSizeTooSmall {
