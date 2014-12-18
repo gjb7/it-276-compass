@@ -31,6 +31,7 @@
 		C3697C511A41F1CE003B003C /* UIImage+CMPAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = C3697C501A41F1CE003B003C /* UIImage+CMPAdditions.m */; };
 		C3B5C6991A422FBD002EDE1F /* CMPAddLevelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3B5C6981A422FBD002EDE1F /* CMPAddLevelViewController.m */; };
 		C3B5C6A21A424245002EDE1F /* CMPMapEditorScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = C3B5C6A11A424245002EDE1F /* CMPMapEditorScrollView.m */; };
+		C3D1489C1A433F0C00D95070 /* CMPDataReader.m in Sources */ = {isa = PBXBuildFile; fileRef = C3D1489B1A433F0C00D95070 /* CMPDataReader.m */; };
 		C3E14CCD1A3E51250061EC15 /* CMPLevelIconCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C3E14CCC1A3E51250061EC15 /* CMPLevelIconCell.m */; };
 		C3E14CD51A3E51D10061EC15 /* CMPRendering.m in Sources */ = {isa = PBXBuildFile; fileRef = C3E14CD31A3E51D10061EC15 /* CMPRendering.m */; };
 		C3E14CD81A3E55BD0061EC15 /* CMPMapThumbnailManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C3E14CD71A3E55BD0061EC15 /* CMPMapThumbnailManager.m */; };
@@ -138,6 +139,8 @@
 		C3B5C6981A422FBD002EDE1F /* CMPAddLevelViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMPAddLevelViewController.m; sourceTree = "<group>"; };
 		C3B5C6A11A424245002EDE1F /* CMPMapEditorScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMPMapEditorScrollView.m; sourceTree = "<group>"; };
 		C3B5C6A31A42424F002EDE1F /* CMPMapEditorScrollView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMPMapEditorScrollView.h; sourceTree = "<group>"; };
+		C3D1489A1A433F0C00D95070 /* CMPDataReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMPDataReader.h; sourceTree = "<group>"; };
+		C3D1489B1A433F0C00D95070 /* CMPDataReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMPDataReader.m; sourceTree = "<group>"; };
 		C3E14CCB1A3E51250061EC15 /* CMPLevelIconCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMPLevelIconCell.h; sourceTree = "<group>"; };
 		C3E14CCC1A3E51250061EC15 /* CMPLevelIconCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMPLevelIconCell.m; sourceTree = "<group>"; };
 		C3E14CD31A3E51D10061EC15 /* CMPRendering.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMPRendering.m; sourceTree = "<group>"; };
@@ -400,6 +403,8 @@
 			children = (
 				C3E14CD41A3E51D10061EC15 /* CMPRendering.h */,
 				C3E14CD31A3E51D10061EC15 /* CMPRendering.m */,
+				C3D1489A1A433F0C00D95070 /* CMPDataReader.h */,
+				C3D1489B1A433F0C00D95070 /* CMPDataReader.m */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -600,6 +605,7 @@
 				C35DB9231A32704E0011FC1C /* CMPV1MapParser.m in Sources */,
 				C3FA15951A409CB1009CAFFB /* CMPTilesheetTileManager.m in Sources */,
 				C3E14D0E1A3EA9970061EC15 /* CMPLayerFooterView.m in Sources */,
+				C3D1489C1A433F0C00D95070 /* CMPDataReader.m in Sources */,
 				C365E88D1A2FD145000AA8F1 /* CMPAppDelegate.m in Sources */,
 				C316E6351A34D2A100446FD6 /* CMPV1MapSerializer.m in Sources */,
 				C316E64C1A39D7F300446FD6 /* CMPTileCell.m in Sources */,
