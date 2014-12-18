@@ -75,7 +75,7 @@
             tilesetFilename = [[NSString alloc] initWithData:value encoding:NSUTF8StringEncoding];
         }
         else if ([key isEqualToString:@"l"]) {
-            if (value.length < width * height) {
+            if (value.length != width * height) {
                 if (error) {
                     NSString *localizedDescription = [NSString stringWithFormat:NSLocalizedString(@"Found layer of size %i. Needs to be size %i", nil), value.length, (width * height)];
                     *error = [NSError errorWithDomain:CMPMapParserErrorDomain
