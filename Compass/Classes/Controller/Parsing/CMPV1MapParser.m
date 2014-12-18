@@ -8,228 +8,87 @@
 
 #import "CMPV1MapParser.h"
 #import "CMPMap.h"
+#import "CMPDataReader.h"
 
 @implementation CMPV1MapParser
 
-- (BOOL)readBytes:(void *)buffer range:(NSRange)range error:(NSError **)error {
-    if (NSMaxRange(range) > self.data.length) {
-        if (error) {
-            NSString *localzedDescription = [NSString stringWithFormat:NSLocalizedString(@"Trying to read %i bytes, but only %i bytes available.", nil), NSMaxRange(range), self.data.length];
-            *error = [NSError errorWithDomain:CMPMapParserErrorDomain
-                                         code:CMPMapParserErrorCodeNotEnoughBytes
-                                     userInfo:@{
-                                                NSLocalizedDescriptionKey: localzedDescription
-                                                }];
-        }
-        
-        return NO;
-    }
-    
-    [self.data getBytes:buffer range:range];
-    
-    return YES;
-}
-
 - (BOOL)parseIntoMap:(CMPMap *)map error:(NSError *__autoreleasing *)error {
-    uint32_t startIndex = 0;
-    
     uint8_t width = 0;
     uint8_t height = 0;
     uint8_t layerCount = 0;
     NSString *tilesetFilename;
     NSMutableArray *layers = [NSMutableArray array];
     
-    while (startIndex < self.data.length) {
-        uint8_t key;
-        NSError *readKeyError;
-        
-        if (![self readBytes:&key range:NSMakeRange(startIndex, sizeof(key)) error:&readKeyError]) {
-            if (error) {
-                *error = readKeyError;
+    NSString *key;
+    NSData *value;
+    
+    while ([self.dataReader readNextKey:&key value:&value]) {
+        if ([key isEqualToString:@"W"]) {
+            if (width != 0) {
+                if (error) {
+                    NSString *localizedDescription = [NSString stringWithFormat:NSLocalizedString(@"Attempting to set width, when width already set to %i", nil), width];
+                    *error = [NSError errorWithDomain:CMPMapParserErrorDomain
+                                                 code:CMPMapParserErrorCodeValueAlreadyParsed
+                                             userInfo:@{
+                                                        NSLocalizedDescriptionKey: localizedDescription
+                                                        }];
+                }
+                
+                goto cleanup;
             }
             
-            goto cleanup;
+            [value getBytes:&width length:sizeof(width)];
         }
-        
-        startIndex += sizeof(key);
-        
-        switch (key) {
-            case 'W': {
-                if (width != 0) {
-                    if (error) {
-                        NSString *localizedDescription = [NSString stringWithFormat:NSLocalizedString(@"Attempting to set width, when width already set to %i", nil), width];
-                        *error = [NSError errorWithDomain:CMPMapParserErrorDomain
-                                                     code:CMPMapParserErrorCodeValueAlreadyParsed
-                                                 userInfo:@{
-                                                            NSLocalizedDescriptionKey: localizedDescription
-                                                            }];
-                    }
-                    
-                    goto cleanup;
+        else if ([key isEqualToString:@"H"]) {
+            if (height != 0) {
+                if (error) {
+                    NSString *localizedDescription = [NSString stringWithFormat:NSLocalizedString(@"Attempting to set height, when height already set to %i", nil), height];
+                    *error = [NSError errorWithDomain:CMPMapParserErrorDomain
+                                                 code:CMPMapParserErrorCodeValueAlreadyParsed
+                                             userInfo:@{
+                                                        NSLocalizedDescriptionKey: localizedDescription
+                                                        }];
                 }
                 
-                NSError *readWidthError;
-                if (![self readBytes:&width range:NSMakeRange(startIndex, sizeof(width)) error:&readWidthError]) {
-                    if (error) {
-                        *error = readWidthError;
-                    }
-                    
-                    goto cleanup;
-                }
-                
-                startIndex += sizeof(width);
-                
-                break;
-            }
-                
-            case 'H': {
-                if (height != 0) {
-                    if (error) {
-                        NSString *localizedDescription = [NSString stringWithFormat:NSLocalizedString(@"Attempting to set height, when height already set to %i", nil), height];
-                        *error = [NSError errorWithDomain:CMPMapParserErrorDomain
-                                                     code:CMPMapParserErrorCodeValueAlreadyParsed
-                                                 userInfo:@{
-                                                            NSLocalizedDescriptionKey: localizedDescription
-                                                            }];
-                    }
-                    
-                    goto cleanup;
-                }
-                
-                NSError *readHeightError;
-                if (![self readBytes:&height range:NSMakeRange(startIndex, sizeof(height)) error:&readHeightError]) {
-                    if (error) {
-                        *error = readHeightError;
-                    }
-                    
-                    goto cleanup;
-                }
-                
-                startIndex += sizeof(height);
-                
-                break;
-            }
-                
-            case 'L': {
-                if (layerCount != 0) {
-                    if (error) {
-                        NSString *localizedDescription = [NSString stringWithFormat:NSLocalizedString(@"Attempting to set layerCount, when layerCount already set to %i", nil), layerCount];
-                        *error = [NSError errorWithDomain:CMPMapParserErrorDomain
-                                                     code:CMPMapParserErrorCodeValueAlreadyParsed
-                                                 userInfo:@{
-                                                            NSLocalizedDescriptionKey: localizedDescription
-                                                            }];
-                    }
-                    
-                    goto cleanup;
-                }
-                
-                NSError *readLayerCountError;
-                if (![self readBytes:&layerCount range:NSMakeRange(startIndex, sizeof(layerCount)) error:&readLayerCountError]) {
-                    if (error) {
-                        *error = readLayerCountError;
-                    }
-                    
-                    goto cleanup;
-                }
-                
-                startIndex += sizeof(layerCount);
-                
-                break;
-            }
-                
-            case 'l': {
-                if (width == 0 || height == 0) {
-                    if (error) {
-                        NSString *localizedDescription = NSLocalizedString(@"Trying to specify number of layers when no width or height of level has been specified.", nil);
-                        *error = [NSError errorWithDomain:CMPMapParserErrorDomain
-                                                     code:CMPMapParserErrorCodeInvalidSyntax
-                                                 userInfo:@{
-                                                            NSLocalizedDescriptionKey: localizedDescription
-                                                            }];
-                    }
-                    
-                    goto cleanup;
-                }
-                
-                uint32_t layerSize = width * height;
-                uint8_t *layer = malloc(layerSize * sizeof(uint8_t));
-                
-                NSError *readLayerError;
-                if (![self readBytes:layer range:NSMakeRange(startIndex, layerSize) error:&readLayerError]) {
-                    free(layer);
-                    
-                    if (error) {
-                        *error = readLayerError;
-                    }
-                    
-                    goto cleanup;
-                }
-                
-                // We have to do the calculation again because NSData was changing the value of layerSize as part of reading bytes.
-                // I dunno why it's doing that, but it's doing that. Really weird!
-                startIndex += width * height;
-                
-                NSMutableData *layerData = [NSMutableData dataWithBytesNoCopy:layer length:width * height];
-                [layers addObject:layerData];
-                
-                break;
-            }
-                
-            case 'T': {
-                NSMutableData *tilesetNameData = [[NSMutableData alloc] init];
-                
-                while (YES) {
-                    char character;
-                    NSError *readCharacterError;
-                    
-                    if (![self readBytes:&character range:NSMakeRange(startIndex, sizeof(character)) error:&readCharacterError]) {
-                        if (error) {
-                            *error = readCharacterError;
-                        }
-                        
-                        goto cleanup;
-                    }
-                    
-                    if (character == ';') {
-                        break;
-                    }
-                    
-                    startIndex += sizeof(character);
-                    
-                    [tilesetNameData appendBytes:&character length:sizeof(character)];
-                }
-                
-                tilesetFilename = [[NSString alloc] initWithData:tilesetNameData encoding:NSUTF8StringEncoding];
-                
-                break;
-            }
-        }
-        
-        uint8_t buffer;
-        NSError *readSemicolonError;
-        
-        if (![self readBytes:&buffer range:NSMakeRange(startIndex, sizeof(buffer)) error:&readSemicolonError]) {
-            if (error) {
-                *error = readSemicolonError;
+                goto cleanup;
             }
             
-            goto cleanup;
+            [value getBytes:&height length:sizeof(height)];
         }
-        
-        startIndex += sizeof(buffer);
-        
-        if (buffer != ';') {
-            if (error) {
-                NSString *localizedDescription = [NSString stringWithFormat:NSLocalizedString(@"Invalid file format. Expected ';', instead got '%c'.", nil), buffer];
-                *error = [NSError errorWithDomain:CMPMapParserErrorDomain
-                                             code:CMPMapParserErrorCodeInvalidSyntax
-                                         userInfo:@{
-                                                    NSLocalizedDescriptionKey: localizedDescription
-                                                    }];
+        else if ([key isEqualToString:@"L"]) {
+            if (layerCount != 0) {
+                if (error) {
+                    NSString *localizedDescription = [NSString stringWithFormat:NSLocalizedString(@"Attempting to set layerCount, when layerCount already set to %i", nil), layerCount];
+                    *error = [NSError errorWithDomain:CMPMapParserErrorDomain
+                                                 code:CMPMapParserErrorCodeValueAlreadyParsed
+                                             userInfo:@{
+                                                        NSLocalizedDescriptionKey: localizedDescription
+                                                        }];
+                }
+                
+                goto cleanup;
             }
             
-            goto cleanup;
+            [value getBytes:&layerCount length:sizeof(layerCount)];
+        }
+        else if ([key isEqualToString:@"T"]) {
+            tilesetFilename = [[NSString alloc] initWithData:value encoding:NSUTF8StringEncoding];
+        }
+        else if ([key isEqualToString:@"l"]) {
+            if (value.length < width * height) {
+                if (error) {
+                    NSString *localizedDescription = [NSString stringWithFormat:NSLocalizedString(@"Found layer of size %i. Needs to be size %i", nil), value.length, (width * height)];
+                    *error = [NSError errorWithDomain:CMPMapParserErrorDomain
+                                                 code:CMPMapParserErrorCodeValueAlreadyParsed
+                                             userInfo:@{
+                                                        NSLocalizedDescriptionKey: localizedDescription
+                                                        }];
+                }
+                
+                return NO;
+            }
+            
+            [layers addObject:value];
         }
     }
     
