@@ -82,6 +82,7 @@
     map.filename = self.levelNameTextField.text;
     map.size = CGSizeMake(self.widthStepper.value, self.heightStepper.value);
     map.tilesheetPath = @"res/tilesheets/overworld.yaml";
+    [map addEmptyLayer];
     
     [self.delegate addLevelViewController:self didCompleteWithMap:map];
 }
