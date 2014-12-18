@@ -79,7 +79,7 @@
                 if (error) {
                     NSString *localizedDescription = [NSString stringWithFormat:NSLocalizedString(@"Found layer of size %i. Needs to be size %i", nil), value.length, (width * height)];
                     *error = [NSError errorWithDomain:CMPMapParserErrorDomain
-                                                 code:CMPMapParserErrorCodeValueAlreadyParsed
+                                                 code:CMPMapParserErrorCodeInvalidSyntax
                                              userInfo:@{
                                                         NSLocalizedDescriptionKey: localizedDescription
                                                         }];
