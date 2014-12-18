@@ -20,6 +20,8 @@
 
 @implementation CMPMap
 
+@synthesize layers = _layers;
+
 + (instancetype)mapWithContentsOfURL:(NSURL *)url {
     CMPMap *map = [[CMPMap alloc] init];
     map.filename = [url lastPathComponent];
@@ -49,6 +51,15 @@
     
     NSURL *fileURL = [directoryURL URLByAppendingPathComponent:self.filename];
     return [serializedMap writeToURL:fileURL options:NSDataWritingAtomic error:error];
+}
+
+- (void)setLayers:(NSMutableArray *)layers {
+    // Use the getter here to make sure that we have a mutable array.
+    [self.layers removeAllObjects];
+    
+    [layers enumerateObjectsUsingBlock:^(NSData *obj, NSUInteger idx, BOOL *stop) {
+        [self.layers addObject:[obj mutableCopy]];
+    }];
 }
 
 - (NSMutableArray *)layers {
