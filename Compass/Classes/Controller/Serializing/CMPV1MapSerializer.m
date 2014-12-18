@@ -17,7 +17,11 @@
     
     [self appendMapVersionToBuffer:buffer];
     [self appendMapSize:map.size toBuffer:buffer];
-    [self appendTilesheetPath:map.tilesheetPath toBuffer:buffer];
+    
+    if (map.tilesheetPath) {
+        [self appendTilesheetPath:map.tilesheetPath toBuffer:buffer];
+    }
+    
     [self appendMapLayers:map.layers ofSize:map.size toBuffer:buffer];
     
     return buffer;
