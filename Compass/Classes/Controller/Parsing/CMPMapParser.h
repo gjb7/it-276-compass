@@ -9,6 +9,7 @@
 @import Foundation;
 
 @class CMPMap;
+@class CMPDataReader;
 
 extern NSString * const CMPMapParserErrorDomain;
 
@@ -21,7 +22,7 @@ enum {
 
 @interface CMPMapParser : NSObject
 
-@property (nonatomic, readonly) NSData *data;
+@property (nonatomic, readonly) CMPDataReader *dataReader;
 
 - (instancetype)initWithData:(NSData *)data;
 

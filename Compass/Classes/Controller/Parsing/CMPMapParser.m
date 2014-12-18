@@ -11,6 +11,8 @@
 
 #import "CMPV1MapParser.h"
 
+#import "CMPDataReader.h"
+
 NSString * const CMPMapParserErrorDomain = @"com.grantjbutler.Compass.CMPMapParser.error-domain";
 
 static NSError *CMPMapParserUnexpectedDataError(NSString *localizedDescription) {
@@ -26,27 +28,27 @@ static NSError *CMPMapParserUnexpectedDataError(NSString *localizedDescription) 
 - (instancetype)initWithData:(NSData *)data {
     self = [super init];
     if (self) {
-        _data = data;
+        _dataReader = [[CMPDataReader alloc] initWithData:data];
     }
     return self;
 }
 
 - (BOOL)parseIntoMap:(CMPMap *)map error:(NSError **)error {
-    uint8_t buffer[3];
-    [self.data getBytes:buffer length:3];
+    NSString *key;
+    NSData *value;
     
-    if (buffer[0] != 'V') {
+    if (![self.dataReader readNextKey:&key value:&value]) {
         if (error) {
-            NSString *localizedDescription = [NSString stringWithFormat:NSLocalizedString(@"Unexpected '%c' found, was expecting 'V'.", nil), buffer[0]];
+            NSString *localizedDescription = NSLocalizedString(@"Did not read version of map.", nil);
             *error = CMPMapParserUnexpectedDataError(localizedDescription);
         }
         
         return NO;
     }
     
-    if (buffer[2] != ';') {
+    if (![key isEqualToString:@"V"]) {
         if (error) {
-            NSString *localizedDescription = [NSString stringWithFormat:NSLocalizedString(@"Unexpected '%c' found, was expecting ';'.", nil), buffer[0]];
+            NSString *localizedDescription = [NSString stringWithFormat:NSLocalizedString(@"Unexpected '%@' found, was expecting 'V'.", nil), key];
             *error = CMPMapParserUnexpectedDataError(localizedDescription);
         }
         
@@ -54,15 +56,17 @@ static NSError *CMPMapParserUnexpectedDataError(NSString *localizedDescription) 
     }
     
     CMPMapParser *internalParser;
+    uint8_t version;
+    [value getBytes:&version length:sizeof(version)];
     
-    switch (buffer[1]) {
+    switch (version) {
         case 1:
-            internalParser = [[CMPV1MapParser alloc] initWithData:[self.data subdataWithRange:NSMakeRange(3, self.data.length - 3)]];
+            internalParser = [[CMPV1MapParser alloc] initWithData:self.dataReader.remainingData];
             break;
             
         default:
             if (error) {
-                NSString *localizedDescription = [NSString stringWithFormat:NSLocalizedString(@"Unknown map version '%c' found.", nil), buffer[1]];
+                NSString *localizedDescription = [NSString stringWithFormat:NSLocalizedString(@"Unknown map version '%c' found.", nil), version];
                 *error = [NSError errorWithDomain:CMPMapParserErrorDomain
                                              code:CMPMapParserErrorCodeUnknownVersion
                                          userInfo:@{
