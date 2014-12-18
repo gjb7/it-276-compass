@@ -14,7 +14,7 @@
 
 @property (nonatomic) CGSize size;
 
-@property (nonatomic) NSMutableArray *layers;
+@property (nonatomic) NSArray *layers;
 
 @property (nonatomic) NSString *tilesheetPath;
 
@@ -25,5 +25,9 @@
 + (instancetype)mapWithContentsOfURL:(NSURL *)url;
 
 - (BOOL)saveToDirectory:(NSURL *)directoryURL error:(NSError **)error;
+
+- (void)addLayer:(NSData *)layerData;
+- (void)addEmptyLayer;
+- (void)removeLayerAtIndex:(NSUInteger)layerIndex;
 
 @end

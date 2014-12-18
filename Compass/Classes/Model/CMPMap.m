@@ -16,11 +16,13 @@
 
 @property (nonatomic, readwrite) CMPTilesheet *tilesheet;
 
+@property (nonatomic, readonly) NSMutableArray *mutableLayers;
+
 @end
 
 @implementation CMPMap
 
-@synthesize layers = _layers;
+@synthesize mutableLayers = _mutableLayers;
 
 + (instancetype)mapWithContentsOfURL:(NSURL *)url {
     CMPMap *map = [[CMPMap alloc] init];
@@ -53,21 +55,24 @@
     return [serializedMap writeToURL:fileURL options:NSDataWritingAtomic error:error];
 }
 
-- (void)setLayers:(NSMutableArray *)layers {
+- (void)setLayers:(NSArray *)layers {
     // Use the getter here to make sure that we have a mutable array.
-    [self.layers removeAllObjects];
+    [self.mutableLayers removeAllObjects];
     
     [layers enumerateObjectsUsingBlock:^(NSData *obj, NSUInteger idx, BOOL *stop) {
-        [self.layers addObject:[obj mutableCopy]];
+        [self.mutableLayers addObject:[obj mutableCopy]];
     }];
 }
 
-- (NSMutableArray *)layers {
-    if (!_layers) {
-        _layers = [[NSMutableArray alloc] init];
-        [_layers addObject:[[NSMutableData alloc] initWithLength:self.size.width * self.size.height]];
+- (NSArray *)layers {
+    return self.mutableLayers;
+}
+
+- (NSMutableArray *)mutableLayers {
+    if (!_mutableLayers) {
+        _mutableLayers = [[NSMutableArray alloc] init];
     }
-    return _layers;
+    return _mutableLayers;
 }
 
 - (void)setSize:(CGSize)size {
@@ -107,6 +112,20 @@
     }
     
     return _tilesheet;
+}
+
+#pragma mark - Layers API
+
+- (void)addLayer:(NSData *)layerData {
+    [self.mutableLayers addObject:[layerData mutableCopy]];
+}
+
+- (void)addEmptyLayer {
+    [self.mutableLayers addObject:[[NSMutableData alloc] initWithCapacity:self.size.width * self.size.height]];
+}
+
+- (void)removeLayerAtIndex:(NSUInteger)layerIndex {
+    [self.mutableLayers removeObjectAtIndex:layerIndex];
 }
 
 @end
