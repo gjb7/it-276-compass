@@ -104,7 +104,7 @@
 #pragma mark - CMPMapViewDelegate
 
 - (void)mapView:(CMPMapView *)mapView didTouchTileAtPoint:(CGPoint)point inLayerView:(CMPLayerView *)layerView {
-    NSUInteger tileIndex = point.x + (point.y * self.map.size.height);
+    NSUInteger tileIndex = point.x + (point.y * self.map.size.width);
     
     [layerView setTile:self.selectedTileIndex atIndex:tileIndex];
     

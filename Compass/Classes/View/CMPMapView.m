@@ -47,7 +47,7 @@
     
     UITouch *touch = [touches anyObject];
     CGPoint locationInView = [touch locationInView:self];
-    CGPoint calculatedLocation = CGPointMake(floor(locationInView.x / CMPTilesheetTileSize.width / self.zoomScale), floor(locationInView.y / CMPTilesheetTileSize.height / self.zoomScale));
+    CGPoint calculatedLocation = CGPointMake(floor(locationInView.x / (CMPTilesheetTileSize.width * self.zoomScale)), floor(locationInView.y / (CMPTilesheetTileSize.height * self.zoomScale)));
     
     __block CMPLayerView *layerView;
     [self.layerViews enumerateObjectsUsingBlock:^(CMPLayerView *aLayerView, NSUInteger idx, BOOL *stop) {
@@ -74,8 +74,8 @@
     CGPoint locationInView = [touch locationInView:self];
     CGPoint previousLocationInView = [touch previousLocationInView:self];
     
-    CGPoint calculatedLocation = CGPointMake(floor(locationInView.x / CMPTilesheetTileSize.width / self.zoomScale), floor(locationInView.y / CMPTilesheetTileSize.height / self.zoomScale));
-    CGPoint calculatedPreviousLocation = CGPointMake(floor(previousLocationInView.x / CMPTilesheetTileSize.width / self.zoomScale), floor(previousLocationInView.y / CMPTilesheetTileSize.height / self.zoomScale));
+    CGPoint calculatedLocation = CGPointMake(floor(locationInView.x / (CMPTilesheetTileSize.width * self.zoomScale)), floor(locationInView.y / (CMPTilesheetTileSize.height * self.zoomScale)));
+    CGPoint calculatedPreviousLocation = CGPointMake(floor(previousLocationInView.x / (CMPTilesheetTileSize.width * self.zoomScale)), floor(previousLocationInView.y / (CMPTilesheetTileSize.height * self.zoomScale)));
     
     if (CGPointEqualToPoint(calculatedLocation, calculatedPreviousLocation)) {
         return;

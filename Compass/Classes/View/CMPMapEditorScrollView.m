@@ -54,8 +54,8 @@
 
 - (void)centerMapView {
     CGPoint center = CGPointZero;
-    center.x = roundf(CGRectGetWidth(self.frame) / 2.0);
-    center.y = roundf(CGRectGetHeight(self.frame) / 2.0);
+    center.x = roundf(self.contentSize.width / 2.0);
+    center.y = roundf(self.contentSize.height / 2.0);
     self.mapView.center = center;
 }
 
